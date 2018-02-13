@@ -1,7 +1,4 @@
-# Bihunku Front
-
-Bihunku Front is the source for front end akaraya/bihunku.
-
+# 4hire Front
 
 # Update Note:
 ```sh
