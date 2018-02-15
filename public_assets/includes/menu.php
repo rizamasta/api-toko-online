@@ -14,7 +14,7 @@
             </li>
             <?php if(!empty($userData)):?>
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="<?php echo site_url('user/logout')?>">Logout</a>
+                <a class="nav-link js-scroll-trigger" href="<?php echo site_url('user/login/out')?>">Logout</a>
             </li>
             <?php endif ?>
         </ul>

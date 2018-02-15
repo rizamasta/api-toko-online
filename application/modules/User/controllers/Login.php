@@ -17,7 +17,7 @@ class Login extends Abstract_Controller{
             redirect("");
         }
     }
-    public function auth()
+    public function authentication()
     {
         
         $this->form_validation->set_rules('password', 'Password', 'required');
@@ -33,30 +33,42 @@ class Login extends Abstract_Controller{
                     'username' => $data->username,
                     'role'=> $data->role
                 );
-                $this->session->set_userdata('userForHire', $data_login);
-                $msg = array(
-                        'alert_msg'=>'Welcome back, '.$data->fullname.'!',
-                        'type_msg'=>'success',
+                if($login->status==1){
+                    $this->session->set_userdata('userForHire', $data_login);
+                    $msg = array(
+                            'alert_msg'=>'Welcome back, '.$data->fullname.'!',
+                            'type_msg'=>'success',
+                        );
+                    $this->session->set_flashdata($msg);
+                }
+                else{
+                    $msg = array(
+                        'alert_msg'=>'Your account is not active. Please contact our customer services for detail.',
+                        'type_msg'=>'expired',
                     );
-                $this->session->set_flashdata($msg);
+                    $this->session->set_flashdata($msg);
+                    redirect("user/login");
+                }
             } else {
                 $msg = array(
                     'alert_msg'=>'Incorrect username or password.',
                     'type_msg'=>'error',
                 );
                 $this->session->set_flashdata($msg);
+                redirect("user/login");
             }
         } else {
             $msg = array(
-                'alert_msg'=>'Please compelete input form.',
+                'alert_msg'=>'Email or username and password can\'t be empty. Please try again.',
                 'type_msg'=>'error',
             );
+            $this->session->set_flashdata($msg);
+            redirect("user/login");
         }
         redirect("");
         
     }
-
-    public function loginSosial(){
+    public function social(){
         $data = $this->input->post();
         if(!empty($data)){
             $login =  $this->getModelUser()->getUserByEmail($data['email']);
@@ -68,12 +80,20 @@ class Login extends Abstract_Controller{
                     'username' => $login->username,
                     'role'=> $login->role
                 );
-                $this->session->set_userdata('userForHire', $data_login);
-                $msg = array(
-                        'alert_msg'=>'Welcome back, '.$login->fullname.'!',
-                        'type_msg'=>'success',
-                    );
-                $this->session->set_flashdata($msg);
+                if($login->status==1){
+                    $this->session->set_userdata('userForHire', $data_login);
+                    $msg = array(
+                            'alert_msg'=>'Welcome back, '.$login->fullname.'!',
+                            'type_msg'=>'success',
+                        );
+                    $this->session->set_flashdata($msg);
+                }
+                else{
+                    $msg = array(
+                            'alert_msg'=>'Your account is not active. Please contact our customer services.',
+                            'type_msg'=>'expired',
+                        );
+                }
             }
             else{
                 $username = explode('@',$data['email']);
@@ -112,5 +132,11 @@ class Login extends Abstract_Controller{
             redirect("logout");
         }
         echo json_encode($msg);
+    }
+    public  function out(){
+        $msg = $this->session->flashdata();
+        $this->session->unset_userdata('userForHire');
+        $this->session->set_flashdata($msg);
+        redirect('user/login');
     }
 }
