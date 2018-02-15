@@ -11,7 +11,7 @@ class User_model extends CI_Model
     {
         $this->db->select("*");
         $this->db->from($this->_table);
-        $this->db->where("(email='".$username."' AND password='".$password."' AND status=1) OR (username='".$username."' AND password='".$password."' AND status=1)");
+        $this->db->where("(email='".$username."' AND password='".$password."' AND status=1) OR (username='".$username."' AND password='".$password."')");
         return $this->db->get()->row();
     }
     public function getUserByEmail($username)
@@ -32,7 +32,7 @@ class User_model extends CI_Model
     {
         $this->db->select("*");
         $this->db->from($this->_table);
-        $this->db->where(array("status!="=>0));
+        $this->db->where(array("is_deleted"=>0));
         return $this->db->get()->result();
     }
     public function insertUser($data)
