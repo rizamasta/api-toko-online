@@ -1,4 +1,4 @@
-<div class="custom-header">Hi</div>
+<div class="custom-header"><?php echo !empty($fullname)?'Hi, '.$fullname:'Hi, there..'?></div>
 <div style="padding-top:80px"></div>
 <div class="row">
     <div class="col-md-1"></div>

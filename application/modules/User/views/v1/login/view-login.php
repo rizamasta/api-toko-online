@@ -23,9 +23,19 @@
                     </div>
                     <div class="form-group">
                         <div class="col-lg-12 text-center">
-                            <input id="password" name="password" type="password" placeholder="Your Password" class="form-control">
+                            <input id="password" name="password" type="password" placeholder="Your Password" required class="form-control">
                         </div>
                     </div>
+                    <div class="msg" >
+                        <?php 
+                            $textMsg = $this->session->flashdata('alert_msg');
+                            if (!empty($textMsg)) :?>
+                        <p class='text-danger' style='font-size:12px;padding-left: 15px;'>
+                            <?php echo $textMsg;?>
+                        </p>
+                        <?php endif;?>
+                    </div>
+                    
                     <!-- Form actions -->
                     <div class="form-group">
                         <div class="col-lg-12">
@@ -110,7 +120,7 @@ function onSignIn(googleUser) {
 }
 
 function doLogin(json_data){
-    console.log(json_data);
+    $(".msg").html("<p class='text-info' style='font-size:12px;padding-left: 15px;'>If Login success then this page will redirect automaticlly</p>");
     $.ajax({
         url :'<?php echo site_url('user/login/auth-social');?>',
         type :'post',
@@ -121,8 +131,12 @@ function doLogin(json_data){
             if(r.type_msg=='success'){
                 window.location.href ='<?php echo site_url()?>';
             }
+            else if(r.type_msg=='expired'){
+                $(".msg").html("<p class='text-danger' style='font-size:12px;padding-left: 15px;'>"+r.alert_msg+"</p>");
+            }
         },
         error : function(x,err){
+            $(".msg").html("<p class='text-danger' style='font-size:12px;padding-left: 15px;'>Unexpected error. Please try again</p>");
             console.log(err);
         }
     })
