@@ -15,6 +15,48 @@ class Abstract_Controller extends MX_Controller {
 
     /**
      *
+     * @return Array  Of User info
+     */
+    public function userInfo()
+    {
+        return $this->session->userdata('userForHire');
+    }
+
+    public function checkLogin($url="")
+    {
+        $status = $this->session->userdata('userForHire');
+        $rd ="";
+        if (empty($status)) {
+            if(!empty($url)){
+                $rd="?redirect=".$url;
+            }
+            redirect('login'.$rd);
+        } else {
+            return $status;
+        }
+    }
+
+    public function checkPermission($role,$allowed){
+        if(in_array($role,$allowed)){
+            return true;
+        }
+        else{
+            $msg = array(
+                'alert_msg'=>"Access denied, you don't have privileges to access that",
+                'type_msg'=>'error',
+                );
+            $this->session->set_flashdata($msg);
+            redirect("logout");
+            return false;
+        }
+    }
+
+    public function getModelUser(){
+        $this->load->model('User/User_model');
+        return new User_model();
+    }
+    /**
+     *
      * @param type $array
      * @return array beutifier
      */

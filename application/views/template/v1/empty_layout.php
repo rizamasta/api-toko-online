@@ -23,8 +23,7 @@
   </head>
 
   <body>
-    <div class="content">
-      <?php include($includes.'menu.php');?>
+    <div class="content" style="min-height:600px">
       <div class="space_top"></div>
       <div class="container container-main">
           <div class="row">
@@ -39,19 +38,19 @@
             </div>
           </div>
       </div>
-      <?php include($includes.'footer.php');?>
-      <?php include($includes.'js-general.php');?>
-      <?php echo !empty($loadJS) ? $loadJS : '';?>      
-      <script src="<?php echo site_url('assets/js/new-age.min.js')?>"></script>
-      
     </div>
+    <?php include($includes.'footer.php');?>    
   </body>
+  <?php include($includes.'js-general.php');?>
+  <?php echo !empty($loadJS) ? $loadJS : '';?>  
   <script>
-    $( "body" ).prepend( '<div class="loader"></div>' );
+    $( "body" ).prepend( '<div class="loader"></div>');
+    $("footer").hide();
     $(window).on('load', function() { 
       setTimeout(function(){
         $('.loader').fadeOut('slow');
         $('.content').fadeIn('slow');
+        $("footer").fadeIn('slow');
       },300);
     })
   </script>

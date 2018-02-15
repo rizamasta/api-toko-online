@@ -1,0 +1,131 @@
+<meta name="google-signin-client_id" content="792954690916-rjjq36jd2j8affeggqrq17onpal39tuf.apps.googleusercontent.com">
+<div class="close-login text-right text-danger">
+    <a href="<?php echo site_url('')?>" class="text-danger">X</a>
+</div>
+<div class="custom-header">Login / Register? </div>
+<div style="padding-top:80px"></div>
+<div class="row">
+    <div class="col-lg-6">
+       <h4><strong>Take an advantage of our features</strong></h4>
+       <p>Test and measure the ability (I.Q) of your brain and logic by working on this test. Problem shaped images or symbols that sometimes almost look the same and quite confusing in the answer. choose the right answer carefully and thoroughly by completing it in the next form with your Logic. After you have finished answering all your questions, your score or IQ score will appear immediately.</p>
+    </div>
+    <div class="col-lg-6 card-flat">
+        <div class="card-body">
+            <form class="form-horizontal" action="<?php echo site_url('user/login/auth')?>" method="post">
+                <fieldset>
+                    <div class="form-group">
+                        <label class="col-12 text-center control-label no-padding" for="name">LOGIN TO CONTINUE</label>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12 text-center">
+                            <input id="name" name="email" type="text" placeholder="Your Email" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-12 text-center">
+                            <input id="password" name="password" type="password" placeholder="Your Password" class="form-control">
+                        </div>
+                    </div>
+                    <!-- Form actions -->
+                    <div class="form-group">
+                        <div class="col-lg-12">
+                            <button type="submit" class="btn btn-primary btn-block">Login</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="col-md-12">
+                <button type="submit" onclick="login()" class="btn btn-primary btn-block">
+                <em class="fa fa-facebook" ></em> Login Facebook</button>
+            </div>
+            <p></p>
+            <div class="col-md-12">
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script>
+  setTimeout(function(){
+    $(".abcRioButton").css("height","38px");
+    $(".abcRioButton").css("width","100%");
+    $(".abcRioButton").css("border-radius","100px");
+    $(".abcRioButton").css("background-color:red");
+    $(".abcRioButtonContentWrapper").addClass("btn btn-danger");
+    $(".abcRioButtonContentWrapper").html('<em class="fa fa-google" ></em> Login Google</button>')
+  },1000);
+  var count_google=0;
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1553010511434629',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v2.7'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+var login = function(){
+    FB.login(function(response) {
+        if (response.authResponse) {
+            FB.api('/me',{fields: 'name, email, picture'} ,function(response) {
+                var data = {
+                    'sosial_id' :response.id,
+                    'name' : response.name,
+                    'image' : response.picture.data.url,
+                    'email' :response.email
+                }
+                doLogin(data);
+            });
+        } else {
+            console.log('User cancelled login or did not fully authorize.');
+        }
+        });
+}
+
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    var data = {
+                'sosial_id' :profile.getId(),
+                'name' : profile.getName(),
+                'image' : profile.getImageUrl(),
+                'email' :profile.getEmail()
+             }
+    var userdata = <?php echo $user?>;
+    if(userdata==null && count_google == 1){
+        doLogin(data)
+    }
+    count_google +=1;
+}
+
+function doLogin(json_data){
+    console.log(json_data);
+    $.ajax({
+        url :'<?php echo site_url('user/login/auth-social');?>',
+        type :'post',
+        content_type: 'application/x-www-form-urlencoded',
+        data : json_data,
+        success : function(res){
+            var r = JSON.parse(res);
+            if(r.type_msg=='success'){
+                window.location.href ='<?php echo site_url()?>';
+            }
+        },
+        error : function(x,err){
+            console.log(err);
+        }
+    })
+}
+
+</script>

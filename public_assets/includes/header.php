@@ -3,7 +3,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <!-- Bootstrap core CSS -->
-<link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url('assets/img/favicon.png')?>" />
+<link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url('assets/img/favicon.png?t=100')?>" />
 <link href="<?php echo site_url('assets/vendor/bootstrap/css/bootstrap.min.css')?>" rel="stylesheet">
 
 <!-- Custom fonts for this template -->
@@ -20,3 +20,4 @@
 <!-- Custom styles for this template -->
 <link href="<?php echo site_url('assets/css/new-age.min.css')?>" rel="stylesheet">
 <link href="<?php echo site_url('assets/css/custom-hire.css')?>" rel="stylesheet">
+<script src="<?php echo site_url('assets/vendor/jquery/jquery.min.js')?>"></script>

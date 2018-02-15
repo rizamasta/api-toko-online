@@ -10,6 +10,7 @@ body {
     background-color: #ffD700 !important;
     font-family: 'Montserrat';
     background-image: url('../img/background.png');
+    background-attachment: fixed;
     background-size: cover;
 }
 
@@ -193,4 +194,45 @@ footer {
 .custom-header {
     background-color: #054B7A;
     color: white;
+}
+
+.row {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-bottom: 40px;
+}
+
+.btn-login {
+    min-width: 285px;
+    border-radius: 5px;
+}
+
+.fb-login-button {
+    min-width: 285px;
+    border-radius: 15px;
+}
+
+.form-control-login {
+    display: block;
+    min-width: 285px;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: none;
+    border-bottom: 2px solid #054B7A;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.close-login.text-right {
+    position: absolute;
+    top: 10px;
+    right: 15px;
 }

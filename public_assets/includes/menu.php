@@ -6,12 +6,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">Profiles</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">Companies Insight</a>
-        </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#">Profiles</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#">Companies Insight</a>
+            </li>
+            <?php if(!empty($userData)):?>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="<?php echo site_url('user/logout')?>">Logout</a>
+            </li>
+            <?php endif ?>
         </ul>
     </div>
     </div>
