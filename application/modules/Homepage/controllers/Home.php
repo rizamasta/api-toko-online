@@ -9,7 +9,7 @@ class Home extends Abstract_Controller {
         $datatemplate =array(
             'title'=> $this->config->item('appName'),
             'body'=>'index',
-            'userData' => $this->userData
+            'fullname' => $this->userData['fullname']
         );
         $this->load->view($this->config->item('vtemplate') . 'layout', $datatemplate);
     }
