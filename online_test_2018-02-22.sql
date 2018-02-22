@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.20)
 # Database: online_test
-# Generation Time: 2018-02-22 06:32:53 +0000
+# Generation Time: 2018-02-22 06:36:26 +0000
 # ************************************************************
 
 
@@ -23,8 +23,6 @@
 # Dump of table tbl_answers_question
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `tbl_answers_question`;
-
 CREATE TABLE `tbl_answers_question` (
   `ansid` int(11) NOT NULL,
   `answers` longtext NOT NULL,
@@ -38,8 +36,6 @@ CREATE TABLE `tbl_answers_question` (
 
 # Dump of table tbl_category
 # ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `tbl_category`;
 
 CREATE TABLE `tbl_category` (
   `cid` int(11) NOT NULL AUTO_INCREMENT,
@@ -64,8 +60,6 @@ UNLOCK TABLES;
 
 # Dump of table tbl_generated_question
 # ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `tbl_generated_question`;
 
 CREATE TABLE `tbl_generated_question` (
   `gid` varchar(8) NOT NULL,
@@ -108,8 +102,6 @@ UNLOCK TABLES;
 
 # Dump of table tbl_question_bank_answer
 # ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `tbl_question_bank_answer`;
 
 CREATE TABLE `tbl_question_bank_answer` (
   `answer_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -193,8 +185,6 @@ UNLOCK TABLES;
 # Dump of table tbl_quiestion_bank
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `tbl_quiestion_bank`;
-
 CREATE TABLE `tbl_quiestion_bank` (
   `qid` varchar(8) NOT NULL,
   `type` tinyint(4) DEFAULT NULL,
@@ -233,8 +223,6 @@ UNLOCK TABLES;
 
 # Dump of table tbl_user
 # ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `tbl_user`;
 
 CREATE TABLE `tbl_user` (
   `uid` int(11) NOT NULL AUTO_INCREMENT,
