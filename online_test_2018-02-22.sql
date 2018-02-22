@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.20)
 # Database: online_test
-# Generation Time: 2018-02-22 06:38:02 +0000
+# Generation Time: 2018-02-22 07:18:21 +0000
 # ************************************************************
 
 
@@ -55,24 +55,6 @@ CREATE TABLE `tbl_category` (
 # ------------------------------------------------------------
 
 DROP TABLE IF EXISTS `tbl_generated_question`;
-
-CREATE TABLE `tbl_generated_question` (
-  `gid` varchar(8) NOT NULL,
-  `question` json NOT NULL,
-  `paging` tinyint(1) NOT NULL DEFAULT '0',
-  `page_length` int(11) NOT NULL,
-  `total_question` int(11) NOT NULL,
-  `timer` tinyint(1) NOT NULL,
-  `countdown_h` int(11) DEFAULT NULL,
-  `countdown_m` int(11) DEFAULT NULL,
-  `countdown_s` int(11) DEFAULT NULL,
-  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `create_by` int(11) NOT NULL,
-  `updated_at` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
-  `updated_by` int(11) NOT NULL,
-  `status` tinyint(4) NOT NULL DEFAULT '1',
-  `is_deleted` tinyint(4) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
