@@ -87,7 +87,7 @@
             <div class="col-md-12">
                 <p class="text-right">
                     <button type="button" id="btnPrev" class="btn btn-secondary"> <em class="fa fa-chevron-left"></em> Provious </button>
-                    <button type="button" id="btnNext" class="btn btn-success" onclick=""> Next <em class="fa fa-chevron-right"></em></button>
+                    <button type="button" id="btnNext" class="btn btn-success" onclick="next()"> Next <em class="fa fa-chevron-right"></em></button>
                     <button type="submit" id="btnSave"class="btn btn-primary"> Submit </em></button>
                 </p>
             </div>
@@ -95,16 +95,39 @@
     </div>
 </form>
 <script>
+var page=0;
+function next(){
+    
+}
 function startQuiz(id){
-    var s = 20;
-    setInterval(function(){
-        s -=1;
-        $(".custom-header").text('FREE TEST '+ s +'s')
-    },1000);
+    var timer = <?php echo $dataQ->timer?>;
+    console.log(timer);
+    if(timer==1){
+        var m = <?php echo $dataQ->countdown_m ?>;
+        var ms = (60*1000)*1;
+        setInterval(function(){
+            ms -=1000;
+            var secs = Math.floor(ms / 1000);
+            var msleft = ms % 1000;
+            var hours = Math.floor(secs / (60 * 60));
+            var divisor_for_minutes = secs % (60 * 60);
+            var minutes = Math.floor(divisor_for_minutes / 60);
+            var divisor_for_seconds = divisor_for_minutes % 60;
+            var seconds = Math.ceil(divisor_for_seconds);
+            if(ms>0){
+                $(".custom-header").text('Your time is : '+ hours +' : '+minutes+' : '+seconds);   
+            }
+            else{
+                $("#formAnswer").submit();
+            }
+        },1000);
+    }
     var p = "<?php echo $dataQ->paging?>";
     var pl = "<?php echo $dataQ->page_length?>";
     var t = "<?php echo $dataQ->total_question?>";
     if(p==1){
+        page = 1;
+        
         for(i=0;i<t;i++){
             if(i<pl){
                 $("#q_"+i).show();

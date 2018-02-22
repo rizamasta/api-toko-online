@@ -75,7 +75,7 @@
             $(".abcRioButton").css("width","100%");
             $(".abcRioButton").css("background-color:red");
             $(".abcRioButtonContentWrapper").addClass("btn btn-danger");
-            $(".abcRioButtonContentWrapper").html('<em class="fa fa-google" ></em>Google</button>')
+            $(".abcRioButtonContentWrapper").html('<em class="fa fa-google" ></em> Google</button>')
         },200);
     };
   setInterval(function(){
