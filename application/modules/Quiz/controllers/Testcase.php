@@ -4,6 +4,7 @@ class Testcase extends Abstract_Controller
     public function __construct(){
         $this->load->helper('string');
         $this->userData = $this->userInfo();
+
     }
 
     public function index(){
@@ -23,7 +24,7 @@ class Testcase extends Abstract_Controller
             $this->session->set_flashdata($msg);
             redirect("user/login?redir=".$redir);
         }
-        
+
         if(!empty($dataQ)){
             $datatemplate =array(
                 'title'=> $this->config->item('appName'),
@@ -31,8 +32,8 @@ class Testcase extends Abstract_Controller
                 'dataQ'=>$dataQ,
                 'fullname' => $this->userData['fullname']
             );
-            $this->load->view($this->config->item('vtemplate') . 'layout', $datatemplate); 
-            
+            $this->load->view($this->config->item('vtemplate') . 'layout', $datatemplate);
+
         }
         else{
             $msg = array(
@@ -44,7 +45,7 @@ class Testcase extends Abstract_Controller
             $this->session->set_flashdata($msg);
             redirect("free/generate-quiz");
         }
-        
+
     }
     public function generate(){
         $id =random_string('alnum', 8);
@@ -67,7 +68,8 @@ class Testcase extends Abstract_Controller
                 'countdown_h' =>0,
                 'countdown_m' =>30,
                 'countdown_s' =>0,
-                'create_by' => 1 );
+                'create_by' => !empty($this->userData)?$this->userData['uid']:1
+              );
 
             if($this->getModelQuiz()->insertQuiz($data)){
                 $msg = array(
