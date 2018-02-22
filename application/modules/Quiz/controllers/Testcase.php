@@ -47,6 +47,7 @@ class Testcase extends Abstract_Controller
         }
 
     }
+
     public function generate(){
         $id =random_string('alnum', 8);
         $qs= $this->getModelQuiz()->getQuestion(3);
@@ -62,7 +63,7 @@ class Testcase extends Abstract_Controller
                 'gid' =>$id,
                 'question' => json_encode($generated_question),
                 'paging'=> 1,
-                'page_length'=>5,
+                'page_length'=>3,
                 'total_question' => count($generated_question),
                 'timer' => 1,
                 'countdown_h' =>0,
@@ -102,5 +103,43 @@ class Testcase extends Abstract_Controller
         }
         $this->session->set_flashdata($msg);
         redirect($url);
+    }
+
+    public function startTest($id){
+        $data = array('status'=>2);
+        $condition = array('gid'=>$id,'status'=>1);
+        $update = $this->getModelQuiz()->updateQuiz($data,$condition);
+        $startData = $this->getModelQuiz()->getQuiz($id);
+        if(!empty($startData)){
+            $time = new DateTime($startData->updated_at);
+            $time->add(new DateInterval('PT' . $startData->countdown_m . 'M'));
+            $stamp = $time->format('Y-m-d H:i:s');
+            $to_time = strtotime($stamp);
+            $from_time = strtotime($startData->current_time);
+            $rData = array(
+                'count_down' => round(abs($to_time - $from_time) / 60,2)
+            );
+            $res = array('status'=>'success','msg'=>"continue",'data'=>$rData,'updated'=>date('Y-m-d H:i:s'),'plustime'=>$stamp);
+        }
+        else{
+            $res = array('status'=>'failed','msg'=>"can't get data test",'data'=>array());
+        }
+        echo json_encode($res);
+    }
+
+    public function submit(){
+        $data = $this->input->post();
+        $qid = $this->input->post('id_quiz');
+        $question = $this->getModelQuiz()->getQuiz($qid);
+        $quiz = json_decode($question->question);
+        foreach($data as $key=>$val){
+            if($key!='id_quiz'){
+                $jawab  = ($this->encrypt_decrypt('decrypt',$val,'ans'))." ";
+            }
+        }
+
+
+
+        $this->pr($quiz);
     }
 }
