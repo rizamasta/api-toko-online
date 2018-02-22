@@ -241,3 +241,14 @@ footer {
 .text-xs {
     font-size: 12px !important;
 }
+
+.row_question {
+    padding-bottom: 10px;
+}
+
+.view-login .btn {
+    border-radius: 0px;
+    font-family: Lato, Helvetica, Arial, sans-serif;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}

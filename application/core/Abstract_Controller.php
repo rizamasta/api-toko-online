@@ -51,10 +51,22 @@ class Abstract_Controller extends MX_Controller {
         }
     }
 
+    /**
+     * User model
+     */
     public function getModelUser(){
         $this->load->model('User/User_model');
         return new User_model();
     }
+
+    /**
+     * 
+     */
+    public function getModelQuiz(){
+        $this->load->model('Quiz/Quiz_model');
+        return new Quiz_model();
+    }
+
     /**
      *
      * @param type $array

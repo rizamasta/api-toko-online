@@ -12,9 +12,13 @@
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="#">Companies Insight</a>
             </li>
-            <?php if(!empty($userData)):?>
+            <?php if(!empty($fullname)):?>
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="<?php echo site_url('user/login/out')?>">Logout</a>
+            </li>
+            <?php else :?>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="<?php echo site_url('user/login')?>">Login</a>
             </li>
             <?php endif ?>
         </ul>

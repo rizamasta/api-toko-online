@@ -19,7 +19,7 @@ class Login extends Abstract_Controller{
     }
     public function authentication()
     {
-        
+        $redir = $this->input->post('redir');
         $this->form_validation->set_rules('password', 'Password', 'required');
         $this->form_validation->set_rules('email', 'username', 'required');
         if ($this->form_validation->run() == true) {
@@ -33,7 +33,7 @@ class Login extends Abstract_Controller{
                     'username' => $data->username,
                     'role'=> $data->role
                 );
-                if($login->status==1){
+                if($data->status==1){
                     $this->session->set_userdata('userForHire', $data_login);
                     $msg = array(
                             'alert_msg'=>'Welcome back, '.$data->fullname.'!',
@@ -47,7 +47,7 @@ class Login extends Abstract_Controller{
                         'type_msg'=>'expired',
                     );
                     $this->session->set_flashdata($msg);
-                    redirect("user/login");
+                    redirect("user/login?redir=".$redir);
                 }
             } else {
                 $msg = array(
@@ -55,7 +55,7 @@ class Login extends Abstract_Controller{
                     'type_msg'=>'error',
                 );
                 $this->session->set_flashdata($msg);
-                redirect("user/login");
+                redirect("user/login?redir=".$redir);
             }
         } else {
             $msg = array(
@@ -63,9 +63,9 @@ class Login extends Abstract_Controller{
                 'type_msg'=>'error',
             );
             $this->session->set_flashdata($msg);
-            redirect("user/login");
+            redirect("user/login?redir=".$redir);
         }
-        redirect("");
+        redirect($redir);
         
     }
     public function social(){

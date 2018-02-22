@@ -4,7 +4,7 @@
 </div>
 <div class="custom-header">Login / Register? </div>
 <div style="padding-top:80px"></div>
-<div class="row">
+<div class="row view-login">
     <div class="col-lg-6">
        <h4><strong>Take an advantage of our features</strong></h4>
        <p>Test and measure the ability (I.Q) of your brain and logic by working on this test. Problem shaped images or symbols that sometimes almost look the same and quite confusing in the answer. choose the right answer carefully and thoroughly by completing it in the next form with your Logic. After you have finished answering all your questions, your score or IQ score will appear immediately.</p>
@@ -19,6 +19,7 @@
                     <div class="form-group">
                         <div class="col-lg-12 text-center">
                             <input id="name" name="email" type="text" placeholder="Your Email" class="form-control">
+                            <input id="redir" name="redir" type="hidden" value="<?php echo !empty($_GET['redir'])?$_GET['redir']:''?>">
                         </div>
                     </div>
                     <div class="form-group">
@@ -44,13 +45,22 @@
                     </div>
                 </fieldset>
             </form>
-            <div class="col-md-12">
-                <button type="submit" onclick="login()" class="btn btn-primary btn-block">
-                <em class="fa fa-facebook" ></em> Login Facebook</button>
+            <div class="col-md-12 text-center text-muted">
+               Or Login with
             </div>
-            <p></p>
             <div class="col-md-12">
-                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                <div class="row">
+                    <div class="col-sm-6" style="padding-right:0px">
+                        <button type="submit" onclick="login()" class="btn btn-primary btn-block">
+                        <em class="fa fa-facebook" ></em> Facebook</button>
+                    </div>
+                    <div class="col-sm-6" style="padding-left:0px">
+                        <div class="g-signin2" data-onsuccess="onSignIn"></div>                    
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-12 text-center text-muted">
+              <a href="<?php echo site_url('user/register')?>">Register with email?</a>
             </div>
         </div>
     </div>
@@ -58,14 +68,25 @@
 </div>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>
-  setTimeout(function(){
-    $(".abcRioButton").css("height","38px");
-    $(".abcRioButton").css("width","100%");
-    $(".abcRioButton").css("border-radius","100px");
-    $(".abcRioButton").css("background-color:red");
-    $(".abcRioButtonContentWrapper").addClass("btn btn-danger");
-    $(".abcRioButtonContentWrapper").html('<em class="fa fa-google" ></em> Login Google</button>')
-  },1000);
+ var defTimer = 1000;
+  function customGoogleButton (){
+      setTimeout(function(){
+            $(".abcRioButton").css("height","38px");
+            $(".abcRioButton").css("width","100%");
+            $(".abcRioButton").css("background-color:red");
+            $(".abcRioButtonContentWrapper").addClass("btn btn-danger");
+            $(".abcRioButtonContentWrapper").html('<em class="fa fa-google" ></em> Login Google</button>')
+        },200);
+    };
+  setInterval(function(){
+    var  test = $(".abcRioButtonContentWrapper").hasClass("btn-danger");
+    if(!test){
+        customGoogleButton()
+    }
+    else{
+       defTimer = 1000*60;
+    }
+  },defTimer);
   var count_google=0;
   window.fbAsyncInit = function() {
     FB.init({
@@ -103,7 +124,9 @@ var login = function(){
         }
         });
 }
-
+$(".g-signin2").on('click',function(){
+    console.log('asd');
+})
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     var data = {
@@ -112,14 +135,17 @@ function onSignIn(googleUser) {
                 'image' : profile.getImageUrl(),
                 'email' :profile.getEmail()
              }
+
     var userdata = <?php echo $user?>;
     if(userdata==null && count_google == 1){
-        doLogin(data)
+        console.log('satu');
+        doLogin(data);
     }
     count_google +=1;
 }
 
 function doLogin(json_data){
+    
     $(".msg").html("<p class='text-info' style='font-size:12px;padding-left: 15px;'>If Login success then this page will redirect automaticlly</p>");
     $.ajax({
         url :'<?php echo site_url('user/login/auth-social');?>',
@@ -129,7 +155,14 @@ function doLogin(json_data){
         success : function(res){
             var r = JSON.parse(res);
             if(r.type_msg=='success'){
-                window.location.href ='<?php echo site_url()?>';
+                var url = new URL(window.location.href);
+                var c = url.searchParams.get("redir");
+                if(c){
+                    window.location.href = c;
+                }
+                else{
+                     window.location.href ='<?php echo site_url()?>';
+                }
             }
             else if(r.type_msg=='expired'){
                 $(".msg").html("<p class='text-danger' style='font-size:12px;padding-left: 15px;'>"+r.alert_msg+"</p>");

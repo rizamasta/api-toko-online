@@ -22,6 +22,15 @@ $route = array(
       /**
       * usermanagement end
       */
+
+      /**
+       * start quiz home 
+       */
+      'free/generate-quiz' => "Quiz/Testcase/generate",
+      'free/test/(:any)' => "Quiz/Testcase/quiz/$1",
+      /**
+       * end quiz home
+       */
     '404_override' => 'Custom/error_404',
     'translate_uri_dashes' => TRUE
 );
