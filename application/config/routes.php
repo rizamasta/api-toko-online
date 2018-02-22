@@ -28,6 +28,8 @@ $route = array(
        */
       'free/generate-quiz' => "Quiz/Testcase/generate",
       'free/test/(:any)' => "Quiz/Testcase/quiz/$1",
+      'free/test-start/(:any)' => "Quiz/Testcase/startTest/$1",
+      'free/submit' => "Quiz/Testcase/submit",
       /**
        * end quiz home
        */

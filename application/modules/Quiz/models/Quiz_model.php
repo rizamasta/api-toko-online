@@ -47,11 +47,11 @@ class Quiz_model extends CI_Model
         return $query->result();
     }
     public function getQuiz($gid){
-        $this->db->select('*');
+        $this->db->select($this->tblG.'.*');
+        $this->db->select('NOW() as `current_time`',FALSE);
         $this->db->from($this->tblG);
         $this->db->where(array(
             $this->tblG.".gid"=>$gid,
-            $this->tblG.".status"=>1,
             $this->tblG.".is_deleted"=>0
         ));
         $query = $this->db->get();
@@ -60,6 +60,9 @@ class Quiz_model extends CI_Model
 
     public function insertQuiz($data){
         return $this->db->insert($this->tblG,$data);
+    }
+    public function updateQuiz($data,$condition){
+        return $this->db->update($this->tblG,$data,$condition);
     }
 
 

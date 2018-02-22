@@ -1,4 +1,4 @@
-<meta name="google-signin-client_id" content="792954690916-rjjq36jd2j8affeggqrq17onpal39tuf.apps.googleusercontent.com">
+<meta name="google-signin-client_id" content="1015069689813-pceph7685m9o0huvvbtri7hvi0vretdv.apps.googleusercontent.com">
 <div class="close-login text-right text-danger">
     <a href="<?php echo site_url('')?>" class="text-danger">X</a>
 </div>
