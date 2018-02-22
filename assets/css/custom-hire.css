@@ -11,7 +11,7 @@ body {
     font-family: 'Montserrat';
     background-image: url('../img/background.png');
     background-attachment: fixed;
-    background-size: cover;
+    background-size: 640px;
 }
 
 .bg-content {

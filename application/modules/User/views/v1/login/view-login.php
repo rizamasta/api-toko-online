@@ -75,7 +75,7 @@
             $(".abcRioButton").css("width","100%");
             $(".abcRioButton").css("background-color:red");
             $(".abcRioButtonContentWrapper").addClass("btn btn-danger");
-            $(".abcRioButtonContentWrapper").html('<em class="fa fa-google" ></em> Login Google</button>')
+            $(".abcRioButtonContentWrapper").html('<em class="fa fa-google" ></em>Google</button>')
         },200);
     };
   setInterval(function(){
@@ -124,9 +124,6 @@ var login = function(){
         }
         });
 }
-$(".g-signin2").on('click',function(){
-    console.log('asd');
-})
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     var data = {
@@ -138,7 +135,6 @@ function onSignIn(googleUser) {
 
     var userdata = <?php echo $user?>;
     if(userdata==null && count_google == 1){
-        console.log('satu');
         doLogin(data);
     }
     count_google +=1;

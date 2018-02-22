@@ -87,7 +87,7 @@
             <div class="col-md-12">
                 <p class="text-right">
                     <button type="button" id="btnPrev" class="btn btn-secondary"> <em class="fa fa-chevron-left"></em> Provious </button>
-                    <button type="button" id="btnNext" class="btn btn-success"> Next <em class="fa fa-chevron-right"></em></button>
+                    <button type="button" id="btnNext" class="btn btn-success" onclick=""> Next <em class="fa fa-chevron-right"></em></button>
                     <button type="submit" id="btnSave"class="btn btn-primary"> Submit </em></button>
                 </p>
             </div>
@@ -123,6 +123,7 @@ function startQuiz(id){
     $(".opening").hide();
     $(".quiz").fadeIn('slow');
 };
+
 
  
 </script>

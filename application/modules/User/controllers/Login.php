@@ -68,6 +68,7 @@ class Login extends Abstract_Controller{
         redirect($redir);
         
     }
+   
     public function social(){
         $data = $this->input->post();
         if(!empty($data)){
