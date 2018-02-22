@@ -132,14 +132,39 @@ class Testcase extends Abstract_Controller
         $qid = $this->input->post('id_quiz');
         $question = $this->getModelQuiz()->getQuiz($qid);
         $quiz = json_decode($question->question);
-        foreach($data as $key=>$val){
-            if($key!='id_quiz'){
-                $jawab  = ($this->encrypt_decrypt('decrypt',$val,'ans'))." ";
+        $result = 0;
+        $c = 0;
+        $w = 0;
+        $na =0;
+        for($i=0;$i<$question->total_question;$i++){
+            if(empty($this->input->post('answer_'.$i))){
+                $na +=1;
+            }
+            else{
+                $jawab  = ($this->encrypt_decrypt('decrypt',$this->input->post('answer_'.$i),'ans'))." ";
+                if($jawab==0){
+                    $w+=1;
+                }
+                else{
+                    $c+=1;
+                }
+                $result +=$jawab;
             }
         }
+        $val = $result/ $question->total_question;
+        if(!empty($this->userData)){
+            $datatemplate =array(
+                'title'=> $this->config->item('appName'),
+                'body'=>'result',
+                'result' => $val,
+                'correct' => $c,
+                'wrong' => $w,
+                'na' =>$na,
+                'total' => $question->total_question,
+                'fullname' => $this->userData['fullname']
+            );
+            $this->load->view($this->config->item('vtemplate') . 'layout', $datatemplate);
+        }
 
-
-
-        $this->pr($quiz);
     }
 }

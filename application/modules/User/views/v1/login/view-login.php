@@ -132,7 +132,6 @@ function onSignIn(googleUser) {
                 'image' : profile.getImageUrl(),
                 'email' :profile.getEmail()
              }
-
     var userdata = <?php echo $user?>;
     if(userdata==null && count_google == 1){
         doLogin(data);
@@ -166,7 +165,7 @@ function doLogin(json_data){
         },
         error : function(x,err){
             $(".msg").html("<p class='text-danger' style='font-size:12px;padding-left: 15px;'>Unexpected error. Please try again</p>");
-            console.log(err);
+            location.reload();
         }
     })
 }
