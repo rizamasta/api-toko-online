@@ -397,6 +397,14 @@ $config['sess_match_ip'] = FALSE;
 $config['sess_time_to_update'] = 900;
 $config['sess_regenerate_destroy'] = FALSE;
 
+// $config['sess_driver'] = 'database';
+// $config['sess_cookie_name'] = 'ci_sessions';
+// $config['sess_expiration'] = 10800;
+// $config['sess_save_path'] = 'ci_sessions';//its your table name name
+// $config['sess_match_ip'] = FALSE;
+// $config['sess_time_to_update'] = 900;
+// $config['sess_regenerate_destroy'] = FALSE;
+
 /*
 |--------------------------------------------------------------------------
 | Cookie Related Variables
