@@ -13,17 +13,17 @@ class Testcase extends Abstract_Controller
 
     public function quiz($id){
         $dataQ = $this->getModelQuiz()->getQuiz($id);
-        if(empty($this->userData)){
-            $msg = array(
-                'status' => 'error',
-                'message' => "Please login use existing user or your account below",
-                'title' => 'Failed',
-                'type' => 'danger'
-            );
-            $redir = site_url('free/test/'.$id);
-            $this->session->set_flashdata($msg);
-            redirect("user/login?redir=".$redir);
-        }
+        // if(empty($this->userData)){
+        //     $msg = array(
+        //         'status' => 'error',
+        //         'message' => "Please login use existing user or your account below",
+        //         'title' => 'Failed',
+        //         'type' => 'danger'
+        //     );
+        //     $redir = site_url('free/test/'.$id);
+        //     $this->session->set_flashdata($msg);
+        //     redirect("user/login?redir=".$redir);
+        // }
 
         if(!empty($dataQ)){
             $datatemplate =array(
