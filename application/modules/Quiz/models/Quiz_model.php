@@ -9,7 +9,7 @@ class Quiz_model extends CI_Model
         $this->load->database();
     }
 
-    public function getQuestion($category =1, $limit=10){
+    public function getQuestion($category =1, $limit=50){
         $this->db->select(array(
                                 $this->tblQ.".qid",
                                 $this->tblQ.".type",
@@ -37,7 +37,7 @@ class Quiz_model extends CI_Model
             $this->tblA.".weight"
         ));
         $this->db->from($this->tblA);
-        $this->db->order_by('rand()');
+        // $this->db->order_by('rand()');
         $this->db->where(array(
                                 $this->tblA.".qid"=>$qID,
                                 $this->tblA.".status"=>1,
