@@ -50,7 +50,7 @@ class Testcase extends Abstract_Controller
 
     public function generate(){
         $id =random_string('alnum', 8);
-        $qs= $this->getModelQuiz()->getQuestion(4);
+        $qs= $this->getModelQuiz()->getQuestion(1);
         $url ="";
         if(!empty($qs)){
             $generated_question = array();
