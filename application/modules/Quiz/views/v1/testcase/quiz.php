@@ -78,12 +78,14 @@
                             foreach($q->answer as $option):
                                 echo $op;
                         ?>
-                            <input type="radio" name="answer_<?php echo $key?>" id="answer_<?php echo $key?>" value="<?php echo encrypt_decrypt('encrypt',$option->weight,'ans');?>"> <?php echo $option->answer?><br/>
+                            <input type="radio" name="answer_<?php echo $key?>" id="answer_<?php echo $key?>" value="<?php echo encrypt_decrypt('encrypt',$option->weight,'ans');?>"> <?php echo $option->answer?>
+                            <br/>
                         <?php
                                 $op++;
                                 endforeach;
                         endif?>
                     </div>
+                    <br>
                 </div>
             <?php
                 endforeach;
