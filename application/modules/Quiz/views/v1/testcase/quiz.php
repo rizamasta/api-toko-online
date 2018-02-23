@@ -54,6 +54,8 @@
         <div class="col-lg-1"></div>
         <div class="col-lg-10">
             <?php 
+                $total_page = $dataQ->total_question/$dataQ->page_length;
+                $total_page = ceil($total_page);
                 $questions = json_decode($dataQ->question);
                 foreach($questions as $key=>$q):
             ?>
@@ -67,7 +69,15 @@
                             </div>
                             <div class="col-sm-10">
                                 <?php 
-                                    echo $q->question;
+                                    $question ="";
+                                    if(!empty(strpos($q->question, 'public_assets/'))){
+                                        $question = str_replace('http://local.4hire.com/4hire',site_url(),$q->question);
+                                    }
+                                    else{
+                                        $question = $q->question;
+                                    }
+                                    
+                                    echo $question;
                                 ?>
                             </div>
                         </div>
@@ -75,11 +85,13 @@
                     <div class="col-md-12">
                         <?php if($q->type==1):
                                 $op ="A";
-                            foreach($q->answer as $option):
-                                echo $op;
-                        ?>
-                            <input type="radio" name="answer_<?php echo $key?>" id="answer_<?php echo $key?>" value="<?php echo encrypt_decrypt('encrypt',$option->weight,'ans');?>"> <?php echo $option->answer?>
-                            <br/>
+                            foreach($q->answer as $option):?>
+                            <div class="row_answer col-sm-12">
+                                <div style="min-width:20px"><?php echo $op?></div>
+                                <div>
+                                <input type="radio" name="answer_<?php echo $key?>" id="answer_<?php echo $key?>" value="<?php echo encrypt_decrypt('encrypt',$option->weight,'ans');?>"> <?php echo $option->answer?>
+                                </div>
+                            </div>
                         <?php
                                 $op++;
                                 endforeach;
@@ -90,10 +102,16 @@
             <?php
                 endforeach;
             ?>
-            <div class="col-md-12">
-                <p class="text-right">
-                    <button type="button" id="btnPrev" class="btn btn-secondary" onclick="prev()"> <em class="fa fa-chevron-left"></em> Provious </button>
+            <div class="row col-md-12">
+                <p class="text-center">
+                    <?php if($dataQ->paging==1):?>
+                    <?php for($p=1;$p<=$total_page;$p++):?>
+                        <button type="button" id="btnPage<?php echo $p?>" class="btn <?php echo $p==1?'btn-secondary':'btn-success'?>" onclick="goto(<?php echo $p?>)" <?php echo $p==1?'disabled':''?>><?php echo $p?></button>
+                    <?php endfor?>
+                    <br/><br/>
+                    <button type="button" id="btnPrev" class="btn btn-secondary" onclick="prev()"> <em class="fa fa-chevron-left"></em> Prev </button>
                     <button type="button" id="btnNext" class="btn btn-success" onclick="next()"> Next <em class="fa fa-chevron-right"></em></button>
+                    <?php endif ?>
                     <button type="submit" id="btnSave"class="btn btn-primary"> Submit </em></button>
                 </p>
             </div>
@@ -103,11 +121,54 @@
 <script>
 var page=0;
 var ls = 0;
+var paging = <?php echo $total_page?>;
 var p = <?php echo $dataQ->paging?>;
 var pl = <?php echo $dataQ->page_length?>;
 var t = <?php echo $dataQ->total_question?>;
 var qs= <?php echo $dataQ->status?>;
+function goto(current_page){
+    if(current_page==1){
+        $("#btnPrev").hide();
+    }
+    else{
+        $("#btnPrev").show();
+    }
+
+    if(current_page==paging){
+        $("#btnNext").hide();
+        $("#btnSave").show();
+    }
+    else{
+        $("#btnSave").hide();
+        $("#btnNext").show();
+    }
+    for(i=1;i<=paging;i++){
+        $("#btnPage"+i).removeClass('btn-secondary').addClass('btn-success');
+        $("#btnPage"+i).prop('disabled',false);
+    }
+    $("#btnPage"+current_page).addClass('btn-secondary').removeClass('btn-success');
+    $("#btnPage"+current_page).prop('disabled',true);
+    page = current_page;
+    for(i=0;i<t;i++){
+            $("#q_"+i).hide();
+        }
+    var start = (pl*page)-pl;
+    var end = start+pl;
+    for(i=start;i<end;i++){
+        console.log(i);
+        if(i<end){
+            $("#q_"+i).show();
+        }
+        else{
+            $("#q_"+i).hide();
+        }
+    }
+
+}
 function next(){
+    if(page==paging){
+        return false;
+    }
     if(ls<=t){
         page+=1;
         for(i=0;i<t;i++){
@@ -127,19 +188,39 @@ function next(){
             $("#btnNext").hide();
             $("#btnSave").show();
         }
-        
-        for(i=st;i<ls;i++){
-                if(i<ls){
-                    $("#q_"+i).show();
-                }
-                else{
-                    $("#q_"+i).hide();
-                }
+        var start = (pl*page)-pl;
+        var end = start+pl;
+        for(i=start;i<end;i++){
+            console.log(i);
+            if(i<end){
+                $("#q_"+i).show();
+            }
+            else{
+                $("#q_"+i).hide();
+            }
         }
+        
+        // for(i=st;i<ls;i++){
+        //         if(i<ls){
+        //             $("#q_"+i).show();
+        //         }
+        //         else{
+        //             $("#q_"+i).hide();
+        //         }
+        // }
         $(".text-numbering").text(st+1 +' to '+ ls+' from '+t);
+        for(i=1;i<=paging;i++){
+            $("#btnPage"+i).removeClass('btn-secondary').addClass('btn-success');
+            $("#btnPage"+i).prop('disabled',false);
+        }
+        $("#btnPage"+page).addClass('btn-secondary').removeClass('btn-success');
+        $("#btnPage"+page).prop('disabled',true);
     }
 }
 function prev(){
+    if(page==1){
+        return false;
+    }
     if(page>1){
         page-=1;
         for(i=0;i<t;i++){
@@ -164,17 +245,35 @@ function prev(){
         if(page==1){
             $("#btnPrev").hide();
         }
-        for(i=st;i<ls;i++){
-                if(i<ls){
-                    $("#q_"+i).show();
-                }
-                else{
-                    $("#q_"+i).hide();
-                }
+        var start = (pl*page)-pl;
+        var end = start+pl;
+        for(i=start;i<end;i++){
+            console.log(i);
+            if(i<end){
+                $("#q_"+i).show();
+            }
+            else{
+                $("#q_"+i).hide();
+            }
         }
+        // for(i=st;i<ls;i++){
+        //         if(i<ls){
+        //             $("#q_"+i).show();
+        //         }
+        //         else{
+        //             $("#q_"+i).hide();
+        //         }
+        // }
         $(".text-numbering").text(st+1 +' to '+ ls+' from '+t);
     }
+    for(i=1;i<=paging;i++){
+        $("#btnPage"+i).removeClass('btn-secondary').addClass('btn-success');
+        $("#btnPage"+i).prop('disabled',false);
+    }
+    $("#btnPage"+page).addClass('btn-secondary').removeClass('btn-success');
+    $("#btnPage"+page).prop('disabled',true);
 }
+
 
 function startQuiz(id){
     var timer = <?php echo $dataQ->timer?>;

@@ -160,7 +160,10 @@ body {
 
 footer {
     background-color: #054B7A;
-    min-height: 120px;
+    min-height: 200px;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
 }
 
 .primary {
@@ -244,6 +247,17 @@ footer {
 
 .row_question {
     padding-bottom: 10px;
+}
+
+.row_answer {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+    padding-bottom: 0px;
 }
 
 .view-login .btn {
