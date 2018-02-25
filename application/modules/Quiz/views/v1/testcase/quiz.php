@@ -155,7 +155,7 @@ function goto(current_page){
     var start = (pl*page)-pl;
     var end = start+pl;
     for(i=start;i<end;i++){
-        console.log(i);
+        
         if(i<end){
             $("#q_"+i).show();
         }
@@ -191,7 +191,7 @@ function next(){
         var start = (pl*page)-pl;
         var end = start+pl;
         for(i=start;i<end;i++){
-            console.log(i);
+            
             if(i<end){
                 $("#q_"+i).show();
             }
@@ -199,15 +199,6 @@ function next(){
                 $("#q_"+i).hide();
             }
         }
-        
-        // for(i=st;i<ls;i++){
-        //         if(i<ls){
-        //             $("#q_"+i).show();
-        //         }
-        //         else{
-        //             $("#q_"+i).hide();
-        //         }
-        // }
         $(".text-numbering").text(st+1 +' to '+ ls+' from '+t);
         for(i=1;i<=paging;i++){
             $("#btnPage"+i).removeClass('btn-secondary').addClass('btn-success');
@@ -248,7 +239,7 @@ function prev(){
         var start = (pl*page)-pl;
         var end = start+pl;
         for(i=start;i<end;i++){
-            console.log(i);
+            
             if(i<end){
                 $("#q_"+i).show();
             }
@@ -256,14 +247,6 @@ function prev(){
                 $("#q_"+i).hide();
             }
         }
-        // for(i=st;i<ls;i++){
-        //         if(i<ls){
-        //             $("#q_"+i).show();
-        //         }
-        //         else{
-        //             $("#q_"+i).hide();
-        //         }
-        // }
         $(".text-numbering").text(st+1 +' to '+ ls+' from '+t);
     }
     for(i=1;i<=paging;i++){

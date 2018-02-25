@@ -19,6 +19,7 @@ body {
     padding: 20px;
     padding-top: 40px;
     min-height: 300px;
+    margin-bottom: 300px;
 }
 
 #mainNav .navbar-nav>li>a.active {
@@ -161,7 +162,6 @@ body {
 footer {
     background-color: #054B7A;
     min-height: 200px;
-    position: absolute;
     width: 100%;
     bottom: 0px;
 }
