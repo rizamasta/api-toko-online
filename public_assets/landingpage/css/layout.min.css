@@ -562,10 +562,12 @@ fieldset[disabled] .btn-theme {
 }
 
 .navbar-fixed-top .navbar-collapse {
-    max-height: 100%
+    max-height: 100%;
+    overflow-y: initial;
 }
 
 .header .navbar {
+    height: 60px;
     border-bottom: 1px solid rgba(255, 255, 255, .2);
     transition-duration: .3s;
     transition-property: all;
@@ -573,11 +575,11 @@ fieldset[disabled] .btn-theme {
 }
 
 .header .navbar-toggle {
-    width: 25px;
-    height: 25px;
+    width: 10px;
+    height: 0px;
     border: none;
     padding: 0;
-    margin: 35px 0
+    margin: 5px 0;
 }
 
 .header .navbar-toggle .toggle-icon {
@@ -585,7 +587,7 @@ fieldset[disabled] .btn-theme {
     width: 21px;
     height: 1px;
     display: inline-block;
-    background: #515769;
+    background: #000000;
     transition-duration: .3s;
     transition-property: all;
     transition-timing-function: cubic-bezier(.7, 1, .7, 1)
@@ -602,7 +604,7 @@ fieldset[disabled] .btn-theme {
 .header .navbar-toggle:hover .toggle-icon,
 .header .navbar-toggle:hover .toggle-icon:after,
 .header .navbar-toggle:hover .toggle-icon:before {
-    background: #17bed2;
+    background: #000000;
     transition-duration: .3s;
     transition-property: all;
     transition-timing-function: cubic-bezier(.7, 1, .7, 1)
@@ -643,16 +645,17 @@ fieldset[disabled] .btn-theme {
 }
 
 .header .logo {
-    width: 150px;
-    height: 150px;
+    width: 90px;
+    height: 60px;
     float: left;
     max-height: 95px;
-    line-height: 65px
+    line-height: 60px;
 }
 
 .header .logo-wrap {
     display: inline-block;
-    padding: 15px 0
+    padding: 0px 0;
+    height: 60px;
 }
 
 .header .logo-img {
@@ -681,13 +684,15 @@ fieldset[disabled] .btn-theme {
 .header .nav-item,
 .header .nav-item-child {
     display: block;
-    position: relative
+    position: relative;
+    height: 60px;
 }
 
 .header .navbar-nav {
     padding-left: 0;
     margin-bottom: 0;
-    list-style: none
+    list-style: none;
+    height: 60px
 }
 
 .header .nav-item:last-child .nav-item-child {
@@ -714,7 +719,7 @@ fieldset[disabled] .btn-theme {
     font-weight: 600;
     color: #fff;
     line-height: 55px;
-    padding: 20px;
+    padding: 0px 10px 0px 10px;
     transition-duration: .3s;
     transition-property: all;
     transition-timing-function: cubic-bezier(.7, 1, .7, 1)
@@ -758,7 +763,9 @@ fieldset[disabled] .btn-theme {
     }
     .header .navbar-nav {
         margin: 0;
-        float: none
+        float: none;
+        background: #ffffff61;
+        height: 220px;
     }
     .header .navbar-nav .nav-item {
         float: none
@@ -793,17 +800,21 @@ fieldset[disabled] .btn-theme {
         padding-left: 15px;
         padding-right: 15px;
         margin-left: 0;
-        margin-right: 0
+        margin-right: 0;
+        height: 60px;
     }
     .header .navbar>.container,
     .header .navbar>.container>.nav-collapse {
         padding-left: 0;
         padding-right: 0;
         margin-left: 0;
-        margin-right: 0
+        margin-right: 0;
+        width: 100%;
+        height: 100%;
     }
     .header .navbar>.container {
-        width: auto
+        width: auto;
+        height: 60px;
     }
 }
 
