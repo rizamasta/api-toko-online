@@ -565,7 +565,9 @@
                 <!-- ngIf: FooterCtrl.footShouldShow() && !FooterCtrl.isCompanyOrJob() -->
                 <div ng-if="FooterCtrl.footShouldShow() &amp;&amp; !FooterCtrl.isCompanyOrJob()" ng-class="{&#39;knack-footer&#39;: FooterCtrl.isKnack()}" class="navbar navbar-footer">
                     <div class="container footer-brand-small visible-xs visible-sm">
-                        <div class="logo-4Hire-white navbar-footer-logo"></div>
+                        <div>
+                          <img class="logo-4Hire-white navbar-footer-logo" src="<?php echo site_url('public_assets/img/landingpage/logo.png')?>" alt="4Hire Logo">
+                        </div>
                         <br>
                         <p class="footer-tag">We transform the way candidates find jobs and companies hire talent.</p>
                         <!-- ngIf: !FooterCtrl.ScreenUtil.isMobile() -->
@@ -585,7 +587,9 @@
                     </div>
                     <div ng-hide="FooterCtrl.is4Hireate() || FooterCtrl.isPuptJobFair()" class="container footer-body">
                         <div class="footer-brand-group hidden-xs hidden-sm">
-                            <div class="logo-4Hire-white navbar-footer-logo"></div>
+                            <div>
+                                <img class="logo-4Hire-white navbar-footer-logo" src="<?php echo site_url('public_assets/img/landingpage/logo.png')?>" alt="4Hire Logo">
+                            </div>
                             <br>
                             <p class="footer-tag">We transform the way candidates find jobs and companies hire talent.</p>
                             <!-- ngIf: !FooterCtrl.ScreenUtil.isMobile() -->
