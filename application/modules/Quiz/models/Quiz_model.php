@@ -3,13 +3,14 @@ class Quiz_model extends CI_Model
 {
     protected $tblQ="tbl_quiestion_bank";
     protected $tblA="tbl_question_bank_answer";
+    protected $tblAn="tbl_answers_question";
     protected $tblG="tbl_generated_question";
     public function __construct(){
         parent::__construct();
         $this->load->database();
     }
 
-    public function getQuestion($category =1, $limit=10){
+    public function getQuestion($category =1, $limit=50){
         $this->db->select(array(
                                 $this->tblQ.".qid",
                                 $this->tblQ.".type",
@@ -37,7 +38,7 @@ class Quiz_model extends CI_Model
             $this->tblA.".weight"
         ));
         $this->db->from($this->tblA);
-        $this->db->order_by('rand()');
+        // $this->db->order_by('rand()');
         $this->db->where(array(
                                 $this->tblA.".qid"=>$qID,
                                 $this->tblA.".status"=>1,
@@ -60,6 +61,9 @@ class Quiz_model extends CI_Model
 
     public function insertQuiz($data){
         return $this->db->insert($this->tblG,$data);
+    }
+    public function insertAnswer($data){
+        return $this->db->insert($this->tblAn,$data);
     }
     public function updateQuiz($data,$condition){
         return $this->db->update($this->tblG,$data,$condition);
