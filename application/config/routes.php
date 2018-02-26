@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route = array(
     'default_controller' => "Homepage/home/index",
     // 'default_controller' => "LandingPage/LandingPage/index",
+    // 'homepage/user' => "Homepage/home/index",
     /**
      * authentication start
      */
@@ -27,7 +28,7 @@ $route = array(
       /**
        * start quiz home
        */
-      // 'landingpage/page' => "LandingPage/LandingPage/index",
+      'landingpage/page' => "LandingPage/LandingPage/index",
       'free/generate-quiz' => "Quiz/Testcase/generate",
       'free/test/(:any)' => "Quiz/Testcase/quiz/$1",
       'free/test-start/(:any)' => "Quiz/Testcase/startTest/$1",
