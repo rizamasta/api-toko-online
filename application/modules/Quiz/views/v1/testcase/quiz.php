@@ -20,8 +20,10 @@
     return $output;
 }
 ?>
-<script type="text/javascript" src="<?php echo base_url();?>public_assets/js/MediaStreamRecorder.js" ></script>
+<script type="text/javascript" src="<?php echo base_url();?>public_assets/js/RecordRTC.js" ></script>
 <script type="text/javascript" src="<?php echo base_url();?>public_assets/js/adapter-latest.js" ></script>
+<script type="text/javascript" src="<?php echo base_url();?>public_assets/js/getScreenId.js" ></script>
+<script type="text/javascript" src="<?php echo base_url();?>public_assets/js/download.js" ></script>
 <div class="custom-header">FREE TEST </div>
 <div style="padding-top:80px"></div>
 <div class="row opening">
@@ -122,10 +124,7 @@
 </form>
 
 <!-- webcam recording -->
-<section class="experiment">
-    <div id="videos-container">
-    </div>
-</section>
+<!-- <video controls autoplay></video> -->
 
 <script>
 var page=0;
@@ -137,12 +136,26 @@ var t = <?php echo $dataQ->total_question?>;
 var qs= <?php echo $dataQ->status?>;
 
 // webcam recording
-// function captureUserMedia(mediaConstraints, successCallback, errorCallback) {
-//     navigator.mediaDevices.getUserMedia(mediaConstraints).then(successCallback).catch(errorCallback);
+// var recorder = '';
+// var camera = '';
+// function captureScreen(cb) {
+//     getScreenId(function (error, sourceId, screen_constraints) {
+//         navigator.mediaDevices.getUserMedia(screen_constraints).then(cb).catch(function(error) {
+//           console.error('getScreenId error', error);
+//           alert('Failed to capture your screen. Please check Chrome console logs for further information.');
+//         });
+//     });
 // }
-// var mediaConstraints = {
-//     video: true
-// };
+// function captureCamera(cb) {
+//     navigator.mediaDevices.getUserMedia({audio: false, video: true}).then(cb);
+// }
+// function keepStreamActive(stream) {
+//     var video = document.createElement('video');
+//     video.muted = true;
+//     setSrcObject(stream, video);
+//     video.style.display = 'none';
+//     (document.body || document.documentElement).appendChild(video);
+// }
 
 function goto(current_page){
     if(current_page==1){
@@ -277,9 +290,6 @@ function prev(){
 
 
 function startQuiz(id){
-    // webcam recording
-    // captureUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
-
     var timer = <?php echo $dataQ->timer?>;
     $.ajax({
         url :'<?php echo site_url('free/test-start/');?>'+id,
@@ -336,65 +346,44 @@ function startQuiz(id){
     }
     $(".opening").hide();
     $(".quiz").fadeIn('slow');
+
+    // webcam recording
+    // captureScreen(function(screen) {
+    //     keepStreamActive(screen);
+    //     captureCamera(function(camera) {
+    //         keepStreamActive(camera);
+    //         screen.width = 1920;
+    //         screen.height = 1080;
+    //         // screen.width = window.screen.width;
+    //         // screen.height = window.screen.height;
+    //         screen.fullcanvas = true;
+            
+    //         camera.width = 320;
+    //         camera.height = 240;
+    //         camera.top = screen.height - camera.height;
+    //         camera.left = screen.width - camera.width;
+            
+    //         recorder = RecordRTC([screen, camera], {
+    //             type: 'video',
+    //             mimeType: 'video/webm',
+    //             previewStream: function(s) {
+    //                 document.querySelector('video').muted = true;
+    //                 setSrcObject(s, document.querySelector('video'));
+    //             }
+    //         });
+    //         recorder.startRecording();
+    //     });
+    // });
 };
 // document.querySelector('#btnSave').onclick = function() {
-//     console.warn('Just stopped the recording');
-//     mediaRecorder.stop();
-//     mediaRecorder.save();
-// };
-// var mediaRecorder;
-// function onMediaSuccess(stream) {
-//     var video = document.createElement('video');
-//     var videoWidth = 320;
-//     var videoHeight = 240;
-//     video = mergeProps(video, {
-//         controls: true,
-//         muted: true,
-//         width: videoWidth,
-//         height: videoHeight
+//     recorder.stopRecording(function() {
+//         var blob = recorder.getBlob();
+//         var uri = URL.createObjectURL(blob);
+//         document.querySelector('video').src = uri;
+//         document.querySelector('video').muted = false;
+//         download(blob, 'test', 'video/webm');
 //     });
-//     video.srcObject = stream;
-//     video.play();
-//     videosContainer.appendChild(video);
-//     videosContainer.appendChild(document.createElement('hr'));
-//     mediaRecorder = new MediaStreamRecorder(stream);
-//     mediaRecorder.stream = stream;
-//     mediaRecorder.mimeType = 'video/webm'; // video/webm or video/mp4
-//     mediaRecorder.videoWidth = videoWidth;
-//     mediaRecorder.videoHeight = videoHeight;
-//     mediaRecorder.ondataavailable = function(blob) {
-//         console.info('blob', blob);
-//         var a = document.createElement('a');
-//         a.target = '_blank';
-//         a.innerHTML = 'Open Recorded Video No. ' + (index++) + ' (Size: ' + bytesToSize(blob.size) + ') Time Length: ' + getTimeLength(timeInterval);
-//         a.href = URL.createObjectURL(blob);
-//         videosContainer.appendChild(a);
-//         videosContainer.appendChild(document.createElement('hr'));
-//     };
-//     var timeInterval = 8000000;
-//     if (timeInterval) timeInterval = parseInt(timeInterval);
-//     else timeInterval = 5 * 1000;
-//     // get blob after specific time interval
-//     mediaRecorder.start(timeInterval);
-// }
-// function onMediaError(e) {
-//     console.error('media error', e);
-// }
-// var videosContainer = document.getElementById('videos-container');
-// var index = 1;
-// // below function via: http://goo.gl/B3ae8c
-// function bytesToSize(bytes) {
-//     var k = 1000;
-//     var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-//     if (bytes === 0) return '0 Bytes';
-//     var i = parseInt(Math.floor(Math.log(bytes) / Math.log(k)), 10);
-//     return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
-// }
-// // below function via: http://goo.gl/6QNDcI
-// function getTimeLength(milliseconds) {
-//     var data = new Date(milliseconds);
-//     return data.getUTCHours() + " hours, " + data.getUTCMinutes() + " minutes and " + data.getUTCSeconds() + " second(s)";
-// }
+// };
 
 $(document).ready(function(){
     var qst = <?php echo $dataQ->status?>;
