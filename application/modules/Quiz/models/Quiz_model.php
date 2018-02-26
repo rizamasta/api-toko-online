@@ -3,6 +3,7 @@ class Quiz_model extends CI_Model
 {
     protected $tblQ="tbl_quiestion_bank";
     protected $tblA="tbl_question_bank_answer";
+    protected $tblAn="tbl_answers_question";
     protected $tblG="tbl_generated_question";
     public function __construct(){
         parent::__construct();
@@ -60,6 +61,9 @@ class Quiz_model extends CI_Model
 
     public function insertQuiz($data){
         return $this->db->insert($this->tblG,$data);
+    }
+    public function insertAnswer($data){
+        return $this->db->insert($this->tblAn,$data);
     }
     public function updateQuiz($data,$condition){
         return $this->db->update($this->tblG,$data,$condition);
