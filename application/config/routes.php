@@ -24,8 +24,9 @@ $route = array(
       */
 
       /**
-       * start quiz home 
+       * start quiz home
        */
+      'landingpage/page' => "LandingPage/LandingPage/index",
       'free/generate-quiz' => "Quiz/Testcase/generate",
       'free/test/(:any)' => "Quiz/Testcase/quiz/$1",
       'free/test-start/(:any)' => "Quiz/Testcase/startTest/$1",
@@ -35,6 +36,6 @@ $route = array(
        */
 
        'page/privacy/term-condition' =>'Page/Privacy/term',
-    '404_override' => 'Custom/error_404',
-    'translate_uri_dashes' => TRUE
+        '404_override' => 'Custom/error_404',
+        'translate_uri_dashes' => TRUE
 );
