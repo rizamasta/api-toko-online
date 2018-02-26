@@ -262,7 +262,7 @@
     }
     .logo-4Hire-white {
         background: none center / contain no-repeat;
-        background-image: url(<?php echo site_url('public_assets/img/landingpage/logo.png')?>);
+        /*background-image: url();*/
         width: 91px;
         height: 30px;
     }
