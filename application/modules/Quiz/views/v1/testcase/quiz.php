@@ -91,7 +91,7 @@
                             <div class="row_answer col-sm-12">
                                 <div style="min-width:20px"><?php echo $op?></div>
                                 <div>
-                                <input type="radio" name="answer_<?php echo $key?>" id="answer_<?php echo $key?>" value="<?php echo encrypt_decrypt('encrypt',$option->weight,'ans');?>"> <?php echo $option->answer?>
+                                <input type="radio" name="answer_<?php echo $key?>" id="answer_<?php echo $key?>" value="<?php echo $op;?>"> <?php echo $option->answer?>
                                 </div>
                             </div>
                         <?php

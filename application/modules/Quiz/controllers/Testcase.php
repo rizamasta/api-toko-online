@@ -131,25 +131,63 @@ class Testcase extends Abstract_Controller
         $data = $this->input->post();
         $qid = $this->input->post('id_quiz');
         $question = $this->getModelQuiz()->getQuiz($qid);
+        $questions = json_decode($question->question);
         $quiz = json_decode($question->question);
         $result = 0;
         $c = 0;
         $w = 0;
         $na =0;
+        $answers = array();
         for($i=0;$i<$question->total_question;$i++){
             if(empty($this->input->post('answer_'.$i))){
-                $na +=1;
+                array_push($answers,0);
             }
             else{
-                $jawab  = ($this->encrypt_decrypt('decrypt',$this->input->post('answer_'.$i),'ans'))." ";
-                if($jawab==0){
-                    $w+=1;
-                }
-                else{
-                    $c+=1;
-                }
-                $result +=$jawab;
+                array_push($answers,$this->input->post('answer_'.$i));
             }
+            // if(empty($this->input->post('answer_'.$i))){
+            //     $na +=1;
+            // }
+            // else{
+            //     $jawab  = ($this->encrypt_decrypt('decrypt',$this->input->post('answer_'.$i),'ans'))." ";
+            //     if($jawab==0){
+            //         $w+=1;
+            //     }
+            //     else{
+            //         $c+=1;
+            //     }
+            //     $result +=$jawab;
+            // }
+        }
+        $idx = 0;
+        $result=0;
+        
+        foreach($questions as $q){
+            $op = "A";
+            // echo $answers[$idx];
+            if($answers[$idx]!="0"){
+                foreach($q->answer as $option){
+                    if($op==$answers[$idx]){
+                        $jawab=$option->weight;
+                    }
+                    // echo $op;
+                    $op++;
+                }
+            }
+            else{
+                $jawab ="-";
+                $na +=1;
+            }
+            if($jawab==0){
+                $w+=1;
+            }
+            else{
+                $c+=1;
+            }
+            $result +=$jawab;
+            $questions[$idx]->answering = $answers[$idx];
+            $idx ++;
+            
         }
         $val = $result/ $question->total_question;
         if(!empty($this->userData)){
@@ -163,7 +201,20 @@ class Testcase extends Abstract_Controller
                 'total' => $question->total_question,
                 'fullname' => $this->userData['fullname']
             );
+            $dataAnswer = array(
+                'qid' => $qid,
+                'answers' => json_encode($questions),
+                'score' => $val,
+                'wrong' => $w,
+                'correct' => $c,
+                'notanswer' => $na,
+                'created_by'=>$this->userData['uid']
+            );
+            $this->getModelQuiz()->insertAnswer($dataAnswer);
             $this->load->view($this->config->item('vtemplate') . 'layout', $datatemplate);
+        }
+        else{
+            redirect('user/login');
         }
 
     }
