@@ -6,6 +6,7 @@
  }
  .navbar-fixed-top {
     background: #ffffff61;
+    height: 60px;
  }
  .home-company-logo-row {
     padding-bottom: 10px;
@@ -224,15 +225,10 @@
         min-height: 60px;
         margin-bottom: 24px;
         border: 1px solid transparent;
+        border-radius: 0px;
     }
     .footer-brand-small {
         padding-left: 25px;
-    }
-    .logo-4Hire-white {
-        background: none center / contain no-repeat;
-        background-image: url(<?php echo site_url('public_assets/img/landingpage/logo.png')?>);
-        width: 91px;
-        height: 30px;
     }
     .navbar-footer-logo {
         margin: 0;
@@ -263,8 +259,8 @@
     .logo-4Hire-white {
         background: none center / contain no-repeat;
         /*background-image: url();*/
-        width: 91px;
-        height: 30px;
+        width: 50px;
+        height: 20px;
     }
     .footer-navs {
         margin: 0 0 10px;
@@ -330,3 +326,11 @@
     .span-text {
       color: #4582bb;
     }
+    /*.container-header {*/
+      /*width: 100%;*/
+      /*height: 60px;*/
+      /*padding-right: 15px;*/
+      /*padding-left: 15px;*/
+      /*margin-right: auto;*/
+      /*margin-left: auto;*/
+    /*}*/

@@ -1,7 +1,7 @@
 <?php
 class Login extends Abstract_Controller{
     public function __construct(){
-        
+
     }
     public function index(){
         $userData = $this->userInfo();
@@ -66,9 +66,9 @@ class Login extends Abstract_Controller{
             redirect("user/login?redir=".$redir);
         }
         redirect($redir);
-        
+
     }
-   
+
     public function social(){
         $data = $this->input->post();
         if(!empty($data)){
