@@ -193,7 +193,7 @@ class Testcase extends Abstract_Controller
             
         }
         $val = $result/ $question->total_question;
-        if(!empty($this->userData)){
+        // if(!empty($this->userData)){
             $datatemplate =array(
                 'title'=> $this->config->item('appName'),
                 'body'=>'result',
@@ -215,10 +215,10 @@ class Testcase extends Abstract_Controller
             );
             $this->getModelQuiz()->insertAnswer($dataAnswer);
             $this->load->view($this->config->item('vtemplate') . 'layout', $datatemplate);
-        }
-        else{
-            redirect('user/login');
-        }
+        // }
+        // else{
+        //     redirect('user/login');
+        // }
 
     }
 }
