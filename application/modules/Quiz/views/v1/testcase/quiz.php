@@ -168,6 +168,7 @@ function goto(current_page){
             $("#q_"+i).hide();
         }
     }
+    $(".text-numbering").text(start+1 +' to '+ end+' from '+t);
 
 }
 function next(){
@@ -264,6 +265,7 @@ function prev(){
 
 
 function startQuiz(id){
+    $(".text-numbering").text(1 +' to '+ pl+' from '+t);
     var timer = <?php echo $dataQ->timer?>;
     $.ajax({
         url :'<?php echo site_url('free/test-start/');?>'+id,

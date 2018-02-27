@@ -139,6 +139,8 @@ function goto(current_page){
             $("#q_"+i).hide();
         }
     }
+    $(".text-numbering").text(start+1 +' to '+ end+' from '+t);
+    
 
 }
 function next(){
@@ -235,7 +237,7 @@ function prev(){
 
 
 function startQuiz(id){ 
-    
+    $(".text-numbering").text(1 +' to '+ pl+' from '+t);
     if(p==1){
         page = 1;
         
@@ -258,6 +260,6 @@ function startQuiz(id){
     $(".quiz").fadeIn('slow');
 };
 $(document).ready(function(){
-   
+    startQuiz($("#id_quiz").val())
 });
 </script>
