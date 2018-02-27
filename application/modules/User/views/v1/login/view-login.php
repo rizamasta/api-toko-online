@@ -156,7 +156,7 @@ function doLogin(json_data){
                     window.location.href = c;
                 }
                 else{
-                     window.location.href ='<?php echo site_url()?>';
+                     window.location.href ='<?php echo site_url('')?>';
                 }
             }
             else if(r.type_msg=='expired'){

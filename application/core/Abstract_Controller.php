@@ -28,7 +28,7 @@ class Abstract_Controller extends MX_Controller {
         $rd ="";
         if (empty($status)) {
             if(!empty($url)){
-                $rd="?redirect=".$url;
+                $rd="?redir=".$url;
             }
             redirect('user/login'.$rd);
         } else {

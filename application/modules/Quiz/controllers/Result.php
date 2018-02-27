@@ -2,7 +2,7 @@
 class Result extends Abstract_Controller
 {
     public function __construct(){
-        $this->userData = $this->checkLogin();
+        $this->userData = $this->checkLogin(site_url('quiz/result'));
     }
     public function index(){
         $datatemplate =array(
