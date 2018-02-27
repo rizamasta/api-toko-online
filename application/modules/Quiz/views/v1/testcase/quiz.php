@@ -1,7 +1,3 @@
-<script type="text/javascript" src="<?php echo base_url();?>public_assets/js/MediaStreamRecorder.js" ></script>
-<script type="text/javascript" src="<?php echo base_url();?>public_assets/js/adapter-latest.js" ></script>
-<script type="text/javascript" src="<?php echo base_url();?>public_assets/js/getScreenId.js" ></script>
-<script type="text/javascript" src="<?php echo base_url();?>public_assets/js/download.js" ></script>
 <div class="custom-header">FREE TEST </div>
 <div style="padding-top:80px"></div>
 <div class="row opening">
@@ -102,7 +98,7 @@
 </form>
 
 <!-- webcam recording -->
-<!-- <video controls autoplay></video> -->
+<video controls autoplay hidden></video>
 
 <script>
 var page=0;
@@ -114,26 +110,26 @@ var t = <?php echo $dataQ->total_question?>;
 var qs= <?php echo $dataQ->status?>;
 
 // webcam recording
-// var recorder = '';
-// var camera = '';
-// function captureScreen(cb) {
-//     getScreenId(function (error, sourceId, screen_constraints) {
-//         navigator.mediaDevices.getUserMedia(screen_constraints).then(cb).catch(function(error) {
-//           console.error('getScreenId error', error);
-//           alert('Failed to capture your screen. Please check Chrome console logs for further information.');
-//         });
-//     });
-// }
-// function captureCamera(cb) {
-//     navigator.mediaDevices.getUserMedia({audio: false, video: true}).then(cb);
-// }
-// function keepStreamActive(stream) {
-//     var video = document.createElement('video');
-//     video.muted = true;
-//     setSrcObject(stream, video);
-//     video.style.display = 'none';
-//     (document.body || document.documentElement).appendChild(video);
-// }
+var recorder = '';
+var camera = '';
+function captureScreen(cb) {
+    getScreenId(function (error, sourceId, screen_constraints) {
+        navigator.mediaDevices.getUserMedia(screen_constraints).then(cb).catch(function(error) {
+          console.error('getScreenId error', error);
+          alert('Failed to capture your screen. Please check Chrome console logs for further information.');
+        });
+    });
+}
+function captureCamera(cb) {
+    navigator.mediaDevices.getUserMedia({audio: false, video: true}).then(cb);
+}
+function keepStreamActive(stream) {
+    var video = document.createElement('video');
+    video.muted = true;
+    setSrcObject(stream, video);
+    video.style.display = 'none';
+    (document.body || document.documentElement).appendChild(video);
+}
 
 function goto(current_page){
     if(current_page==1){
@@ -326,42 +322,42 @@ function startQuiz(id){
     $(".quiz").fadeIn('slow');
 
     // webcam recording
-    // captureScreen(function(screen) {
-    //     keepStreamActive(screen);
-    //     captureCamera(function(camera) {
-    //         keepStreamActive(camera);
-    //         screen.width = 1920;
-    //         screen.height = 1080;
-    //         // screen.width = window.screen.width;
-    //         // screen.height = window.screen.height;
-    //         screen.fullcanvas = true;
+    captureScreen(function(screen) {
+        keepStreamActive(screen);
+        captureCamera(function(camera) {
+            keepStreamActive(camera);
+            screen.width = 1920;
+            screen.height = 1080;
+            // screen.width = window.screen.width;
+            // screen.height = window.screen.height;
+            screen.fullcanvas = true;
             
-    //         camera.width = 320;
-    //         camera.height = 240;
-    //         camera.top = screen.height - camera.height;
-    //         camera.left = screen.width - camera.width;
+            camera.width = 320;
+            camera.height = 240;
+            camera.top = screen.height - camera.height;
+            camera.left = screen.width - camera.width;
             
-    //         recorder = RecordRTC([screen, camera], {
-    //             type: 'video',
-    //             mimeType: 'video/webm',
-    //             previewStream: function(s) {
-    //                 document.querySelector('video').muted = true;
-    //                 setSrcObject(s, document.querySelector('video'));
-    //             }
-    //         });
-    //         recorder.startRecording();
-    //     });
-    // });
+            recorder = RecordRTC([screen, camera], {
+                type: 'video',
+                mimeType: 'video/webm',
+                previewStream: function(s) {
+                    document.querySelector('video').muted = true;
+                    setSrcObject(s, document.querySelector('video'));
+                }
+            });
+            recorder.startRecording();
+        });
+    });
 };
-// document.querySelector('#btnSave').onclick = function() {
-//     recorder.stopRecording(function() {
-//         var blob = recorder.getBlob();
-//         var uri = URL.createObjectURL(blob);
-//         document.querySelector('video').src = uri;
-//         document.querySelector('video').muted = false;
-//         download(blob, 'test', 'video/webm');
-//     });
-// };
+document.querySelector('#btnSave').onclick = function() {
+    recorder.stopRecording(function() {
+        var blob = recorder.getBlob();
+        var uri = URL.createObjectURL(blob);
+        document.querySelector('video').src = uri;
+        document.querySelector('video').muted = false;
+        download(blob, 'test', 'video/webm');
+    });
+};
 
 $(document).ready(function(){
     var qst = <?php echo $dataQ->status?>;
