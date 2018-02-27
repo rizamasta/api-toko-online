@@ -44,5 +44,15 @@
                 <?php echo $na;?>
             </div>    
         </div>
+        <div class="row">
+            <div class="col-md-4">
+               
+            </div>
+            <div class="col-md-4">
+                <a href="<?php echo site_url('quiz/result')?>">
+                    <button class="btn btn-primary">Finish</button>
+                </a>
+            </div>    
+        </div>
     </div>
 </div>
