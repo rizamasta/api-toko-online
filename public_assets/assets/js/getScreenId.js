@@ -31,6 +31,8 @@ getScreenId(function (error, sourceId, screen_constraints) {
                 video: {
                     mozMediaSource: 'window',
                     mediaSource: 'window'
+                    // mozMediaSource: 'screen',
+                    // mediaSource: 'screen'
                 }
             });
             return;
