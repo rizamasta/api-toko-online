@@ -1,3 +1,5 @@
+<script type="text/javascript" src="<?php echo base_url();?>public_assets/js/MediaStreamRecorder.js" ></script>
+<script type="text/javascript" src="<?php echo base_url();?>public_assets/js/adapter-latest.js" ></script>
 <div class="custom-header">FREE TEST </div>
 <div style="padding-top:80px"></div>
 <div class="row opening">
@@ -96,6 +98,13 @@
         </div>
     </div>
 </form>
+
+<!-- webcam recording -->
+<section class="experiment">
+    <div id="videos-container">
+    </div>
+</section>
+
 <script>
 var page=0;
 var ls = 0;
@@ -104,6 +113,15 @@ var p = <?php echo $dataQ->paging?>;
 var pl = <?php echo $dataQ->page_length?>;
 var t = <?php echo $dataQ->total_question?>;
 var qs= <?php echo $dataQ->status?>;
+
+// webcam recording
+// function captureUserMedia(mediaConstraints, successCallback, errorCallback) {
+//     navigator.mediaDevices.getUserMedia(mediaConstraints).then(successCallback).catch(errorCallback);
+// }
+// var mediaConstraints = {
+//     video: true
+// };
+
 function goto(current_page){
     if(current_page==1){
         $("#btnPrev").hide();
@@ -237,6 +255,9 @@ function prev(){
 
 
 function startQuiz(id){
+    // webcam recording
+    // captureUserMedia(mediaConstraints, onMediaSuccess, onMediaError);
+
     var timer = <?php echo $dataQ->timer?>;
     $.ajax({
         url :'<?php echo site_url('free/test-start/');?>'+id,
@@ -294,6 +315,65 @@ function startQuiz(id){
     $(".opening").hide();
     $(".quiz").fadeIn('slow');
 };
+// document.querySelector('#btnSave').onclick = function() {
+//     console.warn('Just stopped the recording');
+//     mediaRecorder.stop();
+//     mediaRecorder.save();
+// };
+// var mediaRecorder;
+// function onMediaSuccess(stream) {
+//     var video = document.createElement('video');
+//     var videoWidth = 320;
+//     var videoHeight = 240;
+//     video = mergeProps(video, {
+//         controls: true,
+//         muted: true,
+//         width: videoWidth,
+//         height: videoHeight
+//     });
+//     video.srcObject = stream;
+//     video.play();
+//     videosContainer.appendChild(video);
+//     videosContainer.appendChild(document.createElement('hr'));
+//     mediaRecorder = new MediaStreamRecorder(stream);
+//     mediaRecorder.stream = stream;
+//     mediaRecorder.mimeType = 'video/webm'; // video/webm or video/mp4
+//     mediaRecorder.videoWidth = videoWidth;
+//     mediaRecorder.videoHeight = videoHeight;
+//     mediaRecorder.ondataavailable = function(blob) {
+//         console.info('blob', blob);
+//         var a = document.createElement('a');
+//         a.target = '_blank';
+//         a.innerHTML = 'Open Recorded Video No. ' + (index++) + ' (Size: ' + bytesToSize(blob.size) + ') Time Length: ' + getTimeLength(timeInterval);
+//         a.href = URL.createObjectURL(blob);
+//         videosContainer.appendChild(a);
+//         videosContainer.appendChild(document.createElement('hr'));
+//     };
+//     var timeInterval = 8000000;
+//     if (timeInterval) timeInterval = parseInt(timeInterval);
+//     else timeInterval = 5 * 1000;
+//     // get blob after specific time interval
+//     mediaRecorder.start(timeInterval);
+// }
+// function onMediaError(e) {
+//     console.error('media error', e);
+// }
+// var videosContainer = document.getElementById('videos-container');
+// var index = 1;
+// // below function via: http://goo.gl/B3ae8c
+// function bytesToSize(bytes) {
+//     var k = 1000;
+//     var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+//     if (bytes === 0) return '0 Bytes';
+//     var i = parseInt(Math.floor(Math.log(bytes) / Math.log(k)), 10);
+//     return (bytes / Math.pow(k, i)).toPrecision(3) + ' ' + sizes[i];
+// }
+// // below function via: http://goo.gl/6QNDcI
+// function getTimeLength(milliseconds) {
+//     var data = new Date(milliseconds);
+//     return data.getUTCHours() + " hours, " + data.getUTCMinutes() + " minutes and " + data.getUTCSeconds() + " second(s)";
+// }
+
 $(document).ready(function(){
     var qst = <?php echo $dataQ->status?>;
     if(qst==2){
