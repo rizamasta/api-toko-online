@@ -85,107 +85,84 @@
         </div>
     </div>
     <!--========== SLIDER ==========-->
+        <div id="description">
 
-<!--========== PAGE LAYOUT ==========-->
-<!-- About -->
-<div id="about">
-    <div class="content-lg container">
-        <div class="text-center">
-            <h2 class="xs-header-text text-heavy home-section-header">500+ Companies Are Hiring on 4Hire</h2>
-            <!-- ngRepeat: row in HomeCtrl.companyRows -->
-            <div class="row home-company-logo-row">
-                <!-- ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in Accenture" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/accenture.png')?>" style="visibility: visible;"></a>
+        <section class="">
+          <div class="container background-description" style="background-image: url('<?php echo site_url('public_assets/img/landingpage/section-description.png')?>'); background-repeat: no-repeat; background-size: contain; background-position: center;">
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="col-md-7">
                 </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in GO-JEK Indonesia" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/gojek.png')?>" style="visibility: visible;"></a>
+                <div class="col-md-5">
+                  <img class="logo-4Hire-descript" src="<?php echo site_url('public_assets/img/landingpage/logo-dark.png')?>" alt="4Hire Logo">
+                  <p class="text-description">We are partners that will help you to find the best career that matches your expectations, abilities and desires.
+                    Helping you find the right job so that you and your workplace will achieve goals and successes together.</p>
                 </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in BTPN" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/btpn.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in Ciputra" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/ciputra.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in Shopee" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/shopee.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in Infomedia Nusantara" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/infomedia.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
+
+              </div>
             </div>
-            <!-- end ngRepeat: row in HomeCtrl.companyRows -->
-            <div  class="row home-company-logo-row">
-                <!-- ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in PT Bank Mandiri (Persero) Tbk." class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/bank_mandiri.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in Adira Finance" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/adira.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in Bank Central Asia" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/bca.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in UNDP Indonesia" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/undp.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in Lazada Indonesia" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/lazada.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in Trans Retail Indonesia" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/transmart.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-            </div>
-            <!-- end ngRepeat: row in HomeCtrl.companyRows -->
-            <div class="row home-company-logo-row">
-                <!-- ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in Kompas Gramedia - Group of Magazine" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/gramedia.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in PT Sophie Paris Indonesia" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/sophie.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in Home Credit Indonesia" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/home_credit.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in Blibli" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/blibli.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in Blanja.com" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/blanja.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-                <div class="col-md-2 col-xs-4">
-                    <a href="" class="home-company-logo"><img alt="Jobs in Cartenz Group" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/cartenz.png')?>" style="visibility: visible;"></a>
-                </div>
-                <!-- end ngRepeat: company in row -->
-            </div>
-            <!-- end ngRepeat: row in HomeCtrl.companyRows -->
+          </div>
+        </section>
+
         </div>
-    </div>
-</div>
-        <!-- End About -->
+        <!-- end of description -->
 
+        <div id="main-feature">
+
+        <section class="home-section">
+          <div class="container text-center">
+            <div class="row">
+              <div class="col-md-2">
+              </div>
+              <div class="col-md-8">
+
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="text-center">
+                      <h3 class="text-heavy-main-feature">4Hire Main Features</h3>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <img class="main-feature logo-personal-assessment" src="<?php echo site_url('public_assets/img/landingpage/personal-assessment.png')?>" alt="Personal Assessment">
+                      <div class="text-center">
+                        <h5 class="text-heavy">4Hire Main Features</h5>
+                      </div>
+                    <p class="text-main-feature">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                  <div class="col-md-4">
+                      <img class="main-feature logo-online-interview" src="<?php echo site_url('public_assets/img/landingpage/online-interview.png')?>" alt="Online Interview">
+                        <div class="text-center">
+                          <h5 class="text-heavy">4Hire Main Features</h5>
+                        </div>
+                      <p class="text-main-feature">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                  <div class="col-md-4">
+                      <img class="main-feature logo-profile-intelligence" src="<?php echo site_url('public_assets/img/landingpage/profile-intelligence.png')?>" alt="Profile Intelligence">
+                        <div class="text-center">
+                          <h5 class="text-heavy">4Hire Main Features</h5>
+                        </div>
+                      <p class="text-main-feature">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-md-2">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        </div>
+        <!-- end of main-feature -->
+<!--========== PAGE LAYOUT ==========-->
         <!-- Latest Products -->
         <div id="products">
             <!-- <div class="content-lg container"> -->
-            <section class="home-section home-mobile-section">
+            <section class="home-mobile-downloadapp">
                 <div class="container">
                   <div class="row">
                       <div class="col-md-5 col-md-offset-1 home-mobile-section-text">
@@ -215,233 +192,109 @@
         </div>
         <!-- End Latest Products -->
 
-        <!-- Pricing -->
-        <div id="pricing">
-          <section class="home-section home-lesswspace-section">
-              <div class="container-staffpicks">
-                  <div class="home-section-header text-center">
-                      <h2 class="text-heavy">4Hire Staff Picks</h2>
-                      <p class="text-black-medium">The Most Interesting Jobs As Picked By The 4Hire</p>
-                  </div>
-                  <!-- ngIf: HomeCtrl.featuredJobs -->
-                  <div class="home-featured-job-marquee text-center">
-                      <!-- ngRepeat: job in HomeCtrl.featuredJobs -->
-                      <div class="home-featured-job">
-                          <!-- ngIf: !HomeCtrl.isFromIndonesia() -->
-                          <!-- ngIf: HomeCtrl.isFromIndonesia() -->
-                          <kb-featured-job-old ng-if="HomeCtrl.isFromIndonesia()" job="job" limit-title-height="true" strict-height="true" source="home-featured-job">
-                              <a class="panel panel-shadowed text-small no-margin kb-featured-job jb-featured-strict-height-old" href="" style="">
-                                  <div class="jb-featured-img-wrapper-old">
-                                    <img alt="Business Intelligence" class="jb-featured-img-old" src="<?php echo site_url('public_assets/img/landingpage/logo-company/shopebaner.jpg')?>"></div>
-                                  <div class="jb-featured-label-old text-center text-heavy uppercase">Featured Job</div>
-                                  <div class="jb-featured-details-old">
-                                      <div class="text-base text-primary text-center truncate-text" style="">Business Intelligence</div>
-                                      <!-- ngIf: !Ctrl.job.company_info.hidden -->
-                                      <p class="text-center truncate-text" style="">at Shopee</p>
-                                      <!-- end ngIf: !Ctrl.job.company_info.hidden -->
-                                      <!-- ngIf: Ctrl.job.google_location -->
-                                      <div class="text-fa-wide truncate-text" style="">
-                                        <i class="fa fa-map-marker text-primary text-center"></i>
-                                        <span ng-bind-html="Ctrl.job.google_location|shortLocation:true">
-                                          <span itemprop="addressLocality" class="span-text">West Jakarta</span>, <span itemprop="addressCountry" class="span-text">Indonesia</span>
-                                        </span>
-                                      </div>
-                                      <!-- end ngIf: Ctrl.job.google_location -->
-                                      <!-- ngIf: Ctrl.job.work_experience -->
-                                      <div class="text-fa-wide" style=""><i class="fa fa-suitcase text-warning text-center"></i>
-                                        <span class="span-text">Associate / Supervisor</span>
-                                      </div>
-                                      <!-- end ngIf: Ctrl.job.work_experience -->
-                                      <div class="text-fa-wide"><i class="fa fa-money text-success text-center"></i>
-                                          <span class="span-text" style="">Undisclosed</span>
-                                      </div>
-                                  </div>
-                              </a>
-                          </kb-featured-job-old>
-                          <!-- end ngIf: HomeCtrl.isFromIndonesia() -->
-                      </div>
-                      <!-- end ngRepeat: job in HomeCtrl.featuredJobs -->
-                      <div ng-repeat="job in HomeCtrl.featuredJobs" class="home-featured-job">
-                          <kb-featured-job-old ng-if="HomeCtrl.isFromIndonesia()" job="job" limit-title-height="true" strict-height="true" source="home-featured-job">
-                              <a class="panel panel-shadowed text-small no-margin kb-featured-job jb-featured-strict-height-old" href="" style="">
-                                  <div class="jb-featured-img-wrapper-old">
-                                    <img alt="Senior UI/UX Designer" class="jb-featured-img-old" src="<?php echo site_url('public_assets/img/landingpage/logo-company/weare.jpg')?>"></div>
-                                  <div class="jb-featured-label-old text-center text-heavy uppercase">Featured Job</div>
-                                  <div class="jb-featured-details-old">
-                                      <div class="text-base text-primary text-center truncate-text" style="">Senior UI/UX Designer</div>
-                                      <!-- ngIf: !Ctrl.job.company_info.hidden -->
-                                      <p class="text-center truncate-text" style="">at Aleph Labs</p>
-                                      <!-- end ngIf: !Ctrl.job.company_info.hidden -->
-                                      <!-- ngIf: Ctrl.job.google_location -->
-                                      <div class="text-fa-wide truncate-text" style="">
-                                        <i class="fa fa-map-marker text-primary text-center"></i>
-                                        <span><span itemprop="addressLocality" class="span-text">South Jakarta</span>, <span itemprop="addressCountry" class="span-text">Indonesia</span>
-                                      </span>
-                                      </div>
-                                      <div class="text-fa-wide" style=""><i class="fa fa-suitcase text-warning text-center"></i>
-                                        <span class="span-text">Mid-Senior Level / Manager</span>
-                                      </div>
-                                      <!-- end ngIf: Ctrl.job.work_experience -->
-                                      <div class="text-fa-wide"><i class="fa fa-money text-success text-center"></i>
-                                        <span class="span-text" style="">Undisclosed</span>
-                                      </div>
-                                  </div>
-                              </a>
-                          </kb-featured-job-old>
-                      </div>
-                      <div ng-repeat="job in HomeCtrl.featuredJobs" class="home-featured-job">
-                          <kb-featured-job-old ng-if="HomeCtrl.isFromIndonesia()" job="job" limit-title-height="true" strict-height="true" source="home-featured-job">
-                              <a class="panel panel-shadowed text-small no-margin kb-featured-job jb-featured-strict-height-old" href="" style="">
-                                  <div class="jb-featured-img-wrapper-old">
-                                    <img alt="SAP ABAP" class="jb-featured-img-old" src="<?php echo site_url('public_assets/img/landingpage/logo-company/joinus.jpg')?>"></div>
-                                  <div class="jb-featured-label-old text-center text-heavy uppercase">Featured Job</div>
-                                  <div class="jb-featured-details-old">
-                                      <div class="text-base text-primary text-center truncate-text" style="">SAP ABAP</div>
-                                      <!-- ngIf: !Ctrl.job.company_info.hidden -->
-                                      <p class="text-center truncate-text" style="">at Accenture</p>
-                                      <div class="text-fa-wide truncate-text" style="">
-                                        <i class="fa fa-map-marker text-primary text-center"></i>
-                                        <span>
-                                          <span class="span-text">Central Jakarta</span>, <span itemprop="addressCountry" class="span-text">Indonesia</span>
-                                        </span>
-                                      </div>
-                                      <!-- end ngIf: Ctrl.job.google_location -->
-                                      <!-- ngIf: Ctrl.job.work_experience -->
-                                      <div class="text-fa-wide" style=""><i class="fa fa-suitcase text-warning text-center"></i>
-                                        <span class="span-text">Associate / Supervisor</span>
-                                      </div>
-                                      <!-- end ngIf: Ctrl.job.work_experience -->
-                                      <div class="text-fa-wide">
-                                        <i class="fa fa-money text-success text-center"></i>
-                                          <span class="span-text" style="">Undisclosed</span>
-                                      </div>
-                                  </div>
-                              </a>
-                          </kb-featured-job-old>
-                          <!-- end ngIf: HomeCtrl.isFromIndonesia() -->
-                      </div>
-                      <!-- end ngRepeat: job in HomeCtrl.featuredJobs -->
-                      <div ng-repeat="job in HomeCtrl.featuredJobs" class="home-featured-job">
-                          <!-- ngIf: !HomeCtrl.isFromIndonesia() -->
-                          <!-- ngIf: HomeCtrl.isFromIndonesia() -->
-                          <kb-featured-job-old ng-if="HomeCtrl.isFromIndonesia()" job="job" limit-title-height="true" strict-height="true" source="home-featured-job">
-                              <a class="panel panel-shadowed text-small no-margin kb-featured-job jb-featured-strict-height-old" href="" style="">
-                                  <div class="jb-featured-img-wrapper-old">
-                                    <img alt="Creative Hacknology Intensive Program (CHIP)" class="jb-featured-img-old" src="<?php echo site_url('public_assets/img/landingpage/logo-company/chip.jpg')?>"></div>
-                                  <div class="jb-featured-label-old text-center text-heavy uppercase">Featured Job</div>
-                                  <div class="jb-featured-details-old">
-                                      <div class="text-base text-primary text-center truncate-text" style="">Creative Hacknology Intensive Program (CHIP)</div>
-                                      <!-- ngIf: !Ctrl.job.company_info.hidden -->
-                                      <p class="text-center truncate-text" style="">at PT Bank Tabungan Pensiunan Nasional Tbk</p>
-                                      <!-- end ngIf: !Ctrl.job.company_info.hidden -->
-                                      <!-- ngIf: Ctrl.job.google_location -->
-                                      <div class="text-fa-wide truncate-text" style="">
-                                        <i class="fa fa-map-marker text-primary text-center"></i>
-                                        <span>
-                                          <span itemprop="addressLocality" class="span-text">Central Jakarta</span>, <span class="span-text">Indonesia</span>
-                                      </span>
-                                      </div>
-                                      <!-- end ngIf: Ctrl.job.google_location -->
-                                      <!-- ngIf: Ctrl.job.work_experience -->
-                                      <div class="text-fa-wide" style=""><i class="fa fa-suitcase text-warning text-center"></i>
-                                        <span class="span-text">Fresh Grad / Entry Level</span>
-                                      </div>
-                                      <!-- end ngIf: Ctrl.job.work_experience -->
-                                      <div class="text-fa-wide"><i class="fa fa-money text-success text-center"></i>
-                                          <span class="span-text" style="">Undisclosed</span>
-                                      </div>
-                                  </div>
-                              </a>
-                          </kb-featured-job-old>
-                          <!-- end ngIf: HomeCtrl.isFromIndonesia() -->
-                      </div>
-                      <!-- end ngRepeat: job in HomeCtrl.featuredJobs -->
-                      <div ng-repeat="job in HomeCtrl.featuredJobs" class="home-featured-job">
-                          <!-- ngIf: !HomeCtrl.isFromIndonesia() -->
-                          <!-- ngIf: HomeCtrl.isFromIndonesia() -->
-                          <kb-featured-job-old ng-if="HomeCtrl.isFromIndonesia()" job="job" limit-title-height="true" strict-height="true" source="home-featured-job">
-                              <a class="panel panel-shadowed text-small no-margin kb-featured-job jb-featured-strict-height-old" href="" style="">
-                                  <div class="jb-featured-img-wrapper-old">
-                                    <img alt="Brand Creative Lead" class="jb-featured-img-old" src="<?php echo site_url('public_assets/img/landingpage/logo-company/beapart.jpg')?>">
-                                  </div>
-                                  <div class="jb-featured-label-old text-center text-heavy uppercase">Featured Job</div>
-                                  <div class="jb-featured-details-old">
-                                      <div class="text-base text-primary text-center truncate-text" style="">Brand Creative Lead</div>
-                                      <!-- ngIf: !Ctrl.job.company_info.hidden -->
-                                      <p class="text-center truncate-text" style="">at Lazada Group</p>
-                                      <!-- end ngIf: !Ctrl.job.company_info.hidden -->
-                                      <!-- ngIf: Ctrl.job.google_location -->
-                                      <div class="text-fa-wide truncate-text" style="">
-                                        <i class="fa fa-map-marker text-primary text-center"></i>
-                                        <span>
-                                          <span itemprop="addressLocality" class="span-text">South Jakarta</span>, <span itemprop="addressCountry" class="span-text">Indonesia</span>
-                                        </span>
-                                      </div>
-                                      <!-- end ngIf: Ctrl.job.google_location -->
-                                      <!-- ngIf: Ctrl.job.work_experience -->
-                                      <div class="text-fa-wide" style="">
-                                        <i class="fa fa-suitcase text-warning text-center"></i>
-                                        <span class="span-text">Associate / Supervisor</span>
-                                      </div>
-                                      <!-- end ngIf: Ctrl.job.work_experience -->
-                                      <div class="text-fa-wide"><i class="fa fa-money text-success text-center"></i>
-                                          <span class="span-text" style="">Undisclosed</span>
-                                      </div>
-                                  </div>
-                              </a>
-                          </kb-featured-job-old>
-                          <!-- end ngIf: HomeCtrl.isFromIndonesia() -->
-                      </div>
-                      <!-- end ngRepeat: job in HomeCtrl.featuredJobs -->
-                      <div class="home-featured-job">
-                          <!-- ngIf: !HomeCtrl.isFromIndonesia() -->
-                          <!-- ngIf: HomeCtrl.isFromIndonesia() -->
-                          <kb-featured-job-old limit-title-height="true" strict-height="true" source="home-featured-job">
-                              <a class="panel panel-shadowed text-small no-margin kb-featured-job jb-featured-strict-height-old" href="" style="">
-                                  <div class="jb-featured-img-wrapper-old">
-                                    <img alt="Mobile Engineer (Android)" class="jb-featured-img-old" src="<?php echo site_url('public_assets/img/landingpage/logo-company/beapartgojek.jpg')?>">
-                                  </div>
-                                  <div class="jb-featured-label-old text-center text-heavy uppercase">Featured Job</div>
-                                  <div class="jb-featured-details-old">
-                                      <div class="text-base text-primary text-center truncate-text" style="">Mobile Engineer (Android)</div>
-                                      <!-- ngIf: !Ctrl.job.company_info.hidden -->
-                                      <p class="text-center truncate-text" style="">at GO-JEK</p>
-                                      <!-- end ngIf: !Ctrl.job.company_info.hidden -->
-                                      <!-- ngIf: Ctrl.job.google_location -->
-                                      <div class="text-fa-wide truncate-text" style="">
-                                        <i class="fa fa-map-marker text-primary text-center"></i>
-                                        <span>
-                                          <span class="span-text">South Jakarta</span>, <span itemprop="addressCountry" class="span-text">Indonesia</span>
-                                        </span>
-                                      </div>
-                                      <!-- end ngIf: Ctrl.job.google_location -->
-                                      <!-- ngIf: Ctrl.job.work_experience -->
-                                      <div class="text-fa-wide" style=""><i class="fa fa-suitcase text-warning text-center"></i>
-                                        <span class="span-text">Mid-Senior Level / Manager</span>
-                                      </div>
-                                      <!-- end ngIf: Ctrl.job.work_experience -->
-                                      <div class="text-fa-wide"><i class="fa fa-money text-success text-center"></i>
-                                          <span class="span-text" style="">Undisclosed</span>
-                                      </div>
-                                  </div>
-                              </a>
-                          </kb-featured-job-old>
-                          <!-- end ngIf: HomeCtrl.isFromIndonesia() -->
-                      </div>
-                      <!-- end ngRepeat: job in HomeCtrl.featuredJobs -->
-                  </div>
-                  <!-- end ngIf: HomeCtrl.featuredJobs -->
-              </div>
-          </section>
+        <!-- About -->
+        <div id="about">
+            <div class="content-lg container">
+                <div class="text-center">
+                    <h2 class="xs-header-text text-heavy home-section-header">500+ Companies Are Hiring on 4Hire</h2>
+                    <!-- ngRepeat: row in HomeCtrl.companyRows -->
+                    <div class="row home-company-logo-row">
+                        <!-- ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in Accenture" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/accenture.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in GO-JEK Indonesia" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/gojek.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in BTPN" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/btpn.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in Ciputra" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/ciputra.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in Shopee" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/shopee.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in Infomedia Nusantara" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/infomedia.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                    </div>
+                    <!-- end ngRepeat: row in HomeCtrl.companyRows -->
+                    <div  class="row home-company-logo-row">
+                        <!-- ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in PT Bank Mandiri (Persero) Tbk." class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/bank_mandiri.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in Adira Finance" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/adira.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in Bank Central Asia" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/bca.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in UNDP Indonesia" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/undp.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in Lazada Indonesia" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/lazada.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in Trans Retail Indonesia" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/transmart.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                    </div>
+                    <!-- end ngRepeat: row in HomeCtrl.companyRows -->
+                    <div class="row home-company-logo-row">
+                        <!-- ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in Kompas Gramedia - Group of Magazine" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/gramedia.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in PT Sophie Paris Indonesia" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/sophie.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in Home Credit Indonesia" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/home_credit.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in Blibli" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/blibli.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in Blanja.com" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/blanja.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                        <div class="col-md-2 col-xs-4">
+                            <a href="" class="home-company-logo"><img alt="Jobs in Cartenz Group" class="img-responsive center-block" src="<?php echo site_url('public_assets/img/landingpage/logo-company/cartenz.png')?>" style="visibility: visible;"></a>
+                        </div>
+                        <!-- end ngRepeat: company in row -->
+                    </div>
+                    <!-- end ngRepeat: row in HomeCtrl.companyRows -->
+                </div>
+            </div>
         </div>
-        <!-- End Pricing -->
+                <!-- End About -->
 
         <!-- Work -->
         <div id="work">
         <section class="home-section-last">
             <div class="container">
                 <div class="text-center">
-                    <h3 class="h3-text"><strong>There are 4000+ jobs on 4Hire. Find the right job for you.</strong></h3>
+                    <h3 class="h3-text">
+                      <strong>There are 4000+ jobs on 4Hire. Find the right job for you.</strong>
+                    </h3>
                     <br><a href="" target="_self" class="btn btn-default btn-lg">
                       <strong>Go to the Job Board</strong>
                     </a>

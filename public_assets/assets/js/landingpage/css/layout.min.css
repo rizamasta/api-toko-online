@@ -842,7 +842,7 @@ fieldset[disabled] .btn-theme {
         display: inline-block
     }
     .page-on-scroll .header .nav-item-child {
-        color: #515769;
+        color: #000000;
         transition-duration: .3s;
         transition-property: all;
         transition-timing-function: cubic-bezier(.7, 1, .7, 1)
