@@ -6,12 +6,12 @@ class LandingPage extends Abstract_Controller {
     }
 
     public function index(){
-      // $datatemplate =array(
-      //     'title'=> $this->config->item('appName'),
-      //     'body'=>'landingpage',
-      //     'fullname' => $this->userData['fullname']
-      // );
-      // $this->load->view($this->config->item('vtemplate') . 'layout' , $datatemplate);
+    //   $datatemplate =array(
+    //       'title'=> $this->config->item('appName'),
+    //       'body'=>'index',
+    //       'fullname' => $this->userData['fullname']
+    //   );
+    //   $this->load->view($this->config->item('vtemplate') . 'layout' , $datatemplate);
       return $this->load->view('v1/landingpage/index',TRUE);
     }
 }
