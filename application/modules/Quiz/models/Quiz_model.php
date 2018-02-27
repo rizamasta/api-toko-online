@@ -5,6 +5,7 @@ class Quiz_model extends CI_Model
     protected $tblA="tbl_question_bank_answer";
     protected $tblAn="tbl_answers_question";
     protected $tblG="tbl_generated_question";
+
     public function __construct(){
         parent::__construct();
         $this->load->database();
@@ -29,7 +30,27 @@ class Quiz_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-
+    public function getAnsweredQuestion($uid){
+            $this->db->select("*");
+            $this->db->from($this->tblAn);
+            $this->db->where(array($this->tblAn.".created_by"=>$uid));
+            $query = $this->db->get();
+            return $query->result();
+    }
+    public function getDetailQuestion($qid){
+        $this->db->select("*");
+        $this->db->select(array(
+            $this->tblG.".total_question",
+            $this->tblG.".paging",
+            $this->tblG.".page_length",
+            $this->tblG.".timer"
+        ));
+        $this->db->from($this->tblAn);
+        $this->db->join($this->tblG,$this->tblAn.'.qid = '.$this->tblG.'.gid');
+        $this->db->where(array($this->tblAn.".qid"=>$qid));
+        $query = $this->db->get();
+        return $query->row();
+    }
     public function getAnswers($qID){
         $this->db->select(array(
             $this->tblA.".answer_id",

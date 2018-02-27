@@ -30,7 +30,8 @@ class Testcase extends Abstract_Controller
                 'title'=> $this->config->item('appName'),
                 'body'=>'quiz',
                 'dataQ'=>$dataQ,
-                'fullname' => $this->userData['fullname']
+                'fullname' => $this->userData['fullname'],
+                'loadJS' => $this->loadassets->loadVendorsJS(array("MediaStreamRecorder.js","adapter-latest.js"))
             );
             $this->load->view($this->config->item('vtemplate') . 'layout', $datatemplate);
 
@@ -164,22 +165,24 @@ class Testcase extends Abstract_Controller
         
         foreach($questions as $q){
             $op = "A";
-            // echo $answers[$idx];
+            $jawab ="xx";
             if($answers[$idx]!="0"){
                 foreach($q->answer as $option){
                     if($op==$answers[$idx]){
                         $jawab=$option->weight;
                     }
-                    // echo $op;
                     $op++;
                 }
             }
             else{
-                $jawab ="-";
-                $na +=1;
+                $jawab ="xx";
             }
-            if($jawab==0){
+
+            if($jawab=="0"){
                 $w+=1;
+            }
+            else if($jawab=="xx"){
+                $na +=1;
             }
             else{
                 $c+=1;

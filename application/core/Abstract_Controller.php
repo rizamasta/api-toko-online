@@ -30,7 +30,7 @@ class Abstract_Controller extends MX_Controller {
             if(!empty($url)){
                 $rd="?redirect=".$url;
             }
-            redirect('login'.$rd);
+            redirect('user/login'.$rd);
         } else {
             return $status;
         }
