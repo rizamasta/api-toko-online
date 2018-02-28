@@ -435,7 +435,7 @@
  .text-heavy-main-feature {
      font-weight: bold !important;
      color: #000000;
-     margin-bottom: 35px;
+     margin-bottom: 50px;
  }
 
  .main-feature {
@@ -447,10 +447,7 @@
      text-align: justify;
  }
 
- @media(min-width:991px) {
-     .front {}
- }
-
- @media(max-width:990px) {
-     .front {}
+ .feature {
+   margin-left: 20px;
+   margin-right: 20px;
  }

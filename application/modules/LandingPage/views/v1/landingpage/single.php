@@ -113,45 +113,45 @@
         <section class="home-section">
           <div class="container text-center">
             <div class="row">
-              <div class="col-md-2">
-              </div>
-              <div class="col-md-8">
 
                 <div class="row">
                   <div class="col-md-12">
                     <div class="text-center">
-                      <h3 class="text-heavy-main-feature">4Hire Main Features</h3>
+                      <h2 class="text-heavy-main-feature">4Hire Main Features</h2>
                     </div>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="col-md-4">
+                    <div class="feature">
                     <img class="main-feature logo-personal-assessment" src="<?php echo site_url('public_assets/img/landingpage/personal-assessment.png')?>" alt="Personal Assessment">
                       <div class="text-center">
                         <h5 class="text-heavy">4Hire Main Features</h5>
                       </div>
                     <p class="text-main-feature">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
                   </div>
                   <div class="col-md-4">
+                    <div class="feature">
                       <img class="main-feature logo-online-interview" src="<?php echo site_url('public_assets/img/landingpage/online-interview.png')?>" alt="Online Interview">
                         <div class="text-center">
                           <h5 class="text-heavy">4Hire Main Features</h5>
                         </div>
                       <p class="text-main-feature">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
                   </div>
                   <div class="col-md-4">
+                    <div class="feature">
                       <img class="main-feature logo-profile-intelligence" src="<?php echo site_url('public_assets/img/landingpage/profile-intelligence.png')?>" alt="Profile Intelligence">
                         <div class="text-center">
                           <h5 class="text-heavy">4Hire Main Features</h5>
                         </div>
                       <p class="text-main-feature">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
                   </div>
                 </div>
 
-              </div>
-              <div class="col-md-2">
-              </div>
             </div>
           </div>
         </section>
