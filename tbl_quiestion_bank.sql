@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-02-28 11:24:55
+Date: 2018-02-28 11:32:24
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -86,7 +86,7 @@ INSERT INTO `tbl_quiestion_bank` VALUES ('pkn45', '1', '1', '2', '90 20 90 20 45
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn46', '1', '1', '3', 'Sinonim dari kata \"Merdeka\" ?', 'Pembahasan Merdeka artinya bebas, berdiri sendiri (dari penjajahan, dan sebagainya)', '2018-02-22 17:18:09', '4', '2018-02-28 11:15:27', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn47', '1', '1', '3', 'Sinonim dari kata \"Taraf\" ?', 'Pembahasan, Taraf artinya tingkatan , derajat', '2018-02-22 17:18:09', '4', '2018-02-28 11:15:27', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn48', '1', '1', '3', 'Sinonim dari kata \"Rabat\" ?', 'Pembahasan, Rabat artinya potongan harga, diskon', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn49', '1', '1', '3', 'Sinonim dari kata \"Deportasia\" ?', 'Deportasi artinya pembuangan, pengasingan, atau pengungsian seseorang ke luar negeri sebagai hukuman atau karena orang tersebut tidak berhak tinggal disuatu daerah. Dari semua pilihan yang tersedia, kata yang memiliki makna mendekati kata deportasi hanya pengusiran.', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn49', '1', '1', '3', 'Sinonim dari kata \"Deportasi\" ?', 'Deportasi artinya pembuangan, pengasingan, atau pengungsian seseorang ke luar negeri sebagai hukuman atau karena orang tersebut tidak berhak tinggal disuatu daerah. Dari semua pilihan yang tersedia, kata yang memiliki makna mendekati kata deportasi hanya pengusiran.', '2018-02-22 17:18:10', '4', '2018-02-28 11:31:08', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn50', '1', '1', '3', 'Sinonim dari kata \"Eksak\" ?', 'Eksak berarti akurat, cermat, tentu, tepat. Nyata artinya ada, tunggal artinya satu-satunya, sesuai artinya selaras, dan terbukti berarti keterangan nyata.', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn51', '1', '1', '3', 'Sinonim dari kata \"Membran\" ?', 'Kata membran merupakan istilah dalam bidang Biologi yang semakna dengan jaringan, polikel, selaput. Kata plasma, inti, kelenjar, dan saluran juga termasuk istilah dalam bidang Biologi, tetapi tidak memiliki arti yang sama dengan membran.', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn52', '1', '1', '3', 'Sinonim dari kata \"Glosari\" ?', 'Glosari berarti daftar istilah, daftar kata, vokabuler, kosakata. Sedangkan, istilah merupakan gabungan kata yang mengungkapkan makna.', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
