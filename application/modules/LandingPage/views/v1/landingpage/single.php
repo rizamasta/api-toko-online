@@ -96,8 +96,7 @@
                 </div>
                 <div class="col-md-5">
                   <img class="logo-4Hire-descript" src="<?php echo site_url('public_assets/img/landingpage/logo-dark.png')?>" alt="4Hire Logo">
-                  <p class="text-description">We are partners that will help you to find the best career that matches your expectations, abilities and desires.
-                    Helping you find the right job so that you and your workplace will achieve goals and successes together.</p>
+                  <p class="text-description">Help you to get best opportunities, mix your expectations, abilities and desires. Everyone deserve to work in the better place and achieve individual as well as organizational goals. Success is yours.</p>
                 </div>
 
               </div>
