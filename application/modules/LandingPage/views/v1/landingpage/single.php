@@ -16,7 +16,7 @@
                     <div class="carousel-centered">
                         <div class="margin-b-40">
                           <!-- WHEN PASSION, SKILL AND OPPORTUNITY MET -->
-                            <h1 class="carousel-title">WHERE PASSION, SKILL AND OPPORRTUNITY MET</h1>
+                            <h1 class="carousel-title">WHEN PASSION, SKILL AND OPPORTUNITY MET</h1>
                             <p class="color-white"><strong>Right man in the right place at the right time</strong></p>
                         </div>
                         <!-- <a href="#" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Explore</a> -->
