@@ -39,6 +39,8 @@ $route = array(
        * end quiz home
        */
 
+      'recording/save' => "Quiz/recording/save",
+
        'page/privacy/term-condition' =>'Page/Privacy/term',
         '404_override' => 'Custom/error_404',
         'translate_uri_dashes' => TRUE
