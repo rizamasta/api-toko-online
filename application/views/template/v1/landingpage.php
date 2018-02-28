@@ -72,29 +72,13 @@
                       $moduleName = $this->router->fetch_module();
                       $controllerName = strtolower($this->router->fetch_class());
                       $view = $moduleName.'/'.$this->config->item('tbody').$controllerName.'/'.$body;
-                      echo $this->load->view($view); 
+                      echo $this->load->view($view);
                     endif;
         ?>
         <!--========== END PAGE LAYOUT ==========-->
 
         <!--========== FOOTER ==========-->
         <footer class="footer">
-
-            <!-- Copyright -->
-            <!-- <div class="content container">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <img class="footer-logo" src="img/logo-dark.png" alt="Aitonepage Logo">
-                    </div>
-                    <div class="col-xs-6 text-right">
-                        <p class="margin-b-0"><a class="fweight-700" href="http://keenthemes.com/preview/aitonepage/">Aitonepage</a> Theme Powered by: <a class="fweight-700" href="http://www.keenthemes.com/">KeenThemes.com</a></p>
-                    </div>
-                </div> -->
-                <!--// end row -->
-            <!-- </div> -->
-            <!-- End Copyright -->
-
-
                 <!-- ngIf: FooterCtrl.footShouldShow() && !FooterCtrl.isCompanyOrJob() -->
                 <div ng-if="FooterCtrl.footShouldShow() &amp;&amp; !FooterCtrl.isCompanyOrJob()" ng-class="{&#39;knack-footer&#39;: FooterCtrl.isKnack()}" class="navbar navbar-footer">
                     <div class="container footer-brand-small visible-xs visible-sm">
@@ -266,7 +250,7 @@
         <script type="text/javascript" src="<?php echo site_url('public_assets/assets/js/landingpage/js/components/swiper.min.js')?>"></script>
         <!-- <script type="text/javascript" src="js/components/masonry.min.js" type="text/javascript"></script> -->
         <script type="text/javascript" src="<?php echo site_url('public_assets/assets/js/landingpage/js/components/masonry.min.js')?>"></script>
-        <?php echo !empty($loadJS) ? $loadJS : '';?> 
+        <?php echo !empty($loadJS) ? $loadJS : '';?>
     </body>
     <!-- END BODY -->
 </html>
