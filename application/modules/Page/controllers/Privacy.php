@@ -11,7 +11,7 @@ class Privacy extends Abstract_Controller
             'body'=>'termcondition',
             'fullname' => $this->userData['fullname']
         );
-        $this->load->view($this->config->item('vtemplate') . 'layout', $datatemplate);
+        $this->load->view($this->config->item('vtemplate') . 'empty_layout', $datatemplate);
     }
 
 }

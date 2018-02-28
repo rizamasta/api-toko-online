@@ -146,19 +146,6 @@ class Testcase extends Abstract_Controller
             else{
                 array_push($answers,$this->input->post('answer_'.$i));
             }
-            // if(empty($this->input->post('answer_'.$i))){
-            //     $na +=1;
-            // }
-            // else{
-            //     $jawab  = ($this->encrypt_decrypt('decrypt',$this->input->post('answer_'.$i),'ans'))." ";
-            //     if($jawab==0){
-            //         $w+=1;
-            //     }
-            //     else{
-            //         $c+=1;
-            //     }
-            //     $result +=$jawab;
-            // }
         }
         $idx = 0;
         $result=0;
@@ -193,7 +180,6 @@ class Testcase extends Abstract_Controller
             
         }
         $val = $result/ $question->total_question;
-        // if(!empty($this->userData)){
             $datatemplate =array(
                 'title'=> $this->config->item('appName'),
                 'body'=>'result',
@@ -215,10 +201,6 @@ class Testcase extends Abstract_Controller
             );
             $this->getModelQuiz()->insertAnswer($dataAnswer);
             $this->load->view($this->config->item('vtemplate') . 'layout', $datatemplate);
-        // }
-        // else{
-        //     redirect('user/login');
-        // }
 
     }
 }

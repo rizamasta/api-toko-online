@@ -34,7 +34,7 @@
     <!-- END HEAD -->
 
     <!-- BODY -->
-    <body id="body" data-spy="scroll" data-target=".header">
+    <body id="body" data-spy="scroll" data-target=".header" style="background-color:#333">
 
         <!--========== HEADER ==========-->
         <header class="header navbar-fixed-top">

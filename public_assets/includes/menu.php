@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link js-scroll-trigger" href="<?php echo '#'?>">Profiles</a>
+                <a class="nav-link js-scroll-trigger" href="<?php echo site_url('profile/view')?>">Profiles</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="#">Companies Insight</a>

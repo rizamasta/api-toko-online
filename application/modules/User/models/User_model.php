@@ -25,7 +25,7 @@ class User_model extends CI_Model
     {
         $this->db->select("*");
         $this->db->from($this->_table);
-        $this->db->where(array("id"=>$id));
+        $this->db->where(array("uid"=>$id));
         return $this->db->get()->row();
     }
     public function getAllUser()
