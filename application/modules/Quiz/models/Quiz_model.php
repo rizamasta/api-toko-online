@@ -30,6 +30,7 @@ class Quiz_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+    
     public function getAnsweredQuestion($uid){
             $this->db->select("*");
             $this->db->from($this->tblAn);
@@ -37,6 +38,7 @@ class Quiz_model extends CI_Model
             $query = $this->db->get();
             return $query->result();
     }
+
     public function getDetailQuestion($qid){
         $this->db->select("*");
         $this->db->select(array(
@@ -51,7 +53,8 @@ class Quiz_model extends CI_Model
         $query = $this->db->get();
         return $query->row();
     }
-    public function getAnswers($qID){
+
+    public function getAnswers($qID,$isRand=0){
         $this->db->select(array(
             $this->tblA.".answer_id",
             $this->tblA.".qid",
@@ -59,7 +62,9 @@ class Quiz_model extends CI_Model
             $this->tblA.".weight"
         ));
         $this->db->from($this->tblA);
-        // $this->db->order_by('rand()');
+        if($isRand){
+            $this->db->order_by('rand()');
+        }
         $this->db->where(array(
                                 $this->tblA.".qid"=>$qID,
                                 $this->tblA.".status"=>1,
@@ -68,6 +73,7 @@ class Quiz_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
+
     public function getQuiz($gid){
         $this->db->select($this->tblG.'.*');
         $this->db->select('NOW() as `current_time`',FALSE);

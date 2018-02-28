@@ -35,7 +35,7 @@
     <!-- END HEAD -->
 
     <!-- BODY -->
-    <body id="body" data-spy="scroll" data-target=".header">
+    <body id="body" data-spy="scroll" data-target=".header" class="page-on-scroll">
         <!--========== HEADER ==========-->
         <header class="header navbar-fixed-top">
             <!-- Navbar -->
@@ -68,6 +68,7 @@
         <!--========== END HEADER ==========-->
 
        <!--mybody-->
+       <div class="container front">
        <?php if (isset($body)) :
                       $moduleName = $this->router->fetch_module();
                       $controllerName = strtolower($this->router->fetch_class());
@@ -75,26 +76,11 @@
                       echo $this->load->view($view); 
                     endif;
         ?>
+        </div>
         <!--========== END PAGE LAYOUT ==========-->
 
         <!--========== FOOTER ==========-->
         <footer class="footer">
-
-            <!-- Copyright -->
-            <!-- <div class="content container">
-                <div class="row">
-                    <div class="col-xs-6">
-                        <img class="footer-logo" src="img/logo-dark.png" alt="Aitonepage Logo">
-                    </div>
-                    <div class="col-xs-6 text-right">
-                        <p class="margin-b-0"><a class="fweight-700" href="http://keenthemes.com/preview/aitonepage/">Aitonepage</a> Theme Powered by: <a class="fweight-700" href="http://www.keenthemes.com/">KeenThemes.com</a></p>
-                    </div>
-                </div> -->
-                <!--// end row -->
-            <!-- </div> -->
-            <!-- End Copyright -->
-
-
                 <!-- ngIf: FooterCtrl.footShouldShow() && !FooterCtrl.isCompanyOrJob() -->
                 <div ng-if="FooterCtrl.footShouldShow() &amp;&amp; !FooterCtrl.isCompanyOrJob()" ng-class="{&#39;knack-footer&#39;: FooterCtrl.isKnack()}" class="navbar navbar-footer">
                     <div class="container footer-brand-small visible-xs visible-sm">

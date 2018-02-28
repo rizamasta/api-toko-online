@@ -80,17 +80,21 @@
             <?php
                 endforeach;
             ?>
+            <div class="col-md-12">
+                <p class="text-left msgErr" style="font-size: 12px;color: #c72828dd;"></p>
+            </div>
             <div class="row col-md-12">
                 <p class="text-center">
                     <?php if($dataQ->paging==1):?>
                     <?php for($p=1;$p<=$total_page;$p++):?>
-                        <button type="button" id="btnPage<?php echo $p?>" class="btn <?php echo $p==1?'btn-secondary':'btn-success'?>" onclick="goto(<?php echo $p?>)" <?php echo $p==1?'disabled':''?>><?php echo $p?></button>
+                        <button type="button" id="btnPage<?php echo $p?>" class="btn <?php echo $p==1?'btn-secondary':'btn-success'?>" onclick="go_to(<?php echo $p?>,true)" <?php echo $p==1?'disabled':''?>><?php echo $p?></button>
                     <?php endfor?>
                     <br/><br/>
                     <button type="button" id="btnPrev" class="btn btn-secondary" onclick="prev()"> <em class="fa fa-chevron-left"></em> Prev </button>
                     <button type="button" id="btnNext" class="btn btn-success" onclick="next()"> Next <em class="fa fa-chevron-right"></em></button>
                     <?php endif ?>
-                    <button type="submit" id="btnSave"class="btn btn-primary"> Submit </em></button>
+                    <button type="button" id="btnRev" class="btn btn-warning" onclick="check()"> Review </button>
+                    <button type="submit" id="btnSave"class="btn btn-primary" onclick="submitting()"> Submit </em></button>
                 </p>
             </div>
         </div>
@@ -100,18 +104,18 @@
 <!-- webcam recording -->
 <video controls autoplay hidden></video>
 
-<script>
-var page=0;
-var ls = 0;
-var paging = <?php echo $total_page?>;
-var p = <?php echo $dataQ->paging?>;
-var pl = <?php echo $dataQ->page_length?>;
-var t = <?php echo $dataQ->total_question?>;
-var qs= <?php echo $dataQ->status?>;
-
-// webcam recording
-var recorder = '';
-var camera = '';
+<script  type="text/javascript">
+var done=false,
+    page=0,
+    ls = 0,
+    paging = <?php echo $total_page?>,
+    p = <?php echo $dataQ->paging?>,
+    pl = <?php echo $dataQ->page_length?>,
+    t = <?php echo $dataQ->total_question?>,
+    qs= <?php echo $dataQ->status?>;
+    // webcam recording
+    recorder = '',
+    camera = '';
 function captureScreen(cb) {
     getScreenId(function (error, sourceId, screen_constraints) {
         navigator.mediaDevices.getUserMedia(screen_constraints).then(cb).catch(function(error) {
@@ -130,8 +134,69 @@ function keepStreamActive(stream) {
     video.style.display = 'none';
     (document.body || document.documentElement).appendChild(video);
 }
+window.onbeforeunload = function() {
+    console.log(done);
+    if(!done){
+        return "You will lost your answers";
+    }
+}
+function submitting(){
+    done = true;
+}
+function check(){
+    var no =0;
+    var going = 0;
+    $(".msgErr").text("");
+    $(".msgErr").hide();
+    var notAnswer =[];
+    var pages =[];
+    for(i=1;i<=paging;i++){
+        for(j=0;j<pl;j++){
+            if(no<t){
+                if($("#answer_"+no+":checked").val()==undefined){
+                    var n = no<=t?no+1:t;
+                    notAnswer.push(n);
+                    pages.push(i);
+                }
+                no++;
+            }
+        }
+    }
+    var nav ="";
+    if(notAnswer.length >0){
+        if(notAnswer.length > 4){
+            for(i=0;i<4;i++){
+                nav += notAnswer[i]+", ";
+            }
+            nav +="and "+(notAnswer.length-4)+" More..";
+        }
+        else{
+            for(i=0;i<notAnswer.length;i++){
+                if(i==0){
+                    nav = notAnswer[i];
+                }
+                else{
+                    nav +=", "+notAnswer[i];
+                }
+            }
+        }
+        $(".msgErr").text("You not answers a question(s) number "+nav);
+        go_to(pages[0],false);
+        $("#btnSave").hide();
+        $(".msgErr").show();
+    }
+    else{
+        done = true;
+        $("#btnRev").hide();
+        $("#btnSave").show();
+    }
+}
 
-function goto(current_page){
+function go_to(current_page,cm){
+    if(cm){
+        $(".msgErr").text("");
+        $(".msgErr").hide();
+    }
     if(current_page==1){
         $("#btnPrev").hide();
     }
@@ -141,9 +206,10 @@ function goto(current_page){
 
     if(current_page==paging){
         $("#btnNext").hide();
-        $("#btnSave").show();
+        $("#btnRev").show();
     }
     else{
+        $("#btnRev").hide();
         $("#btnSave").hide();
         $("#btnNext").show();
     }
@@ -168,10 +234,13 @@ function goto(current_page){
             $("#q_"+i).hide();
         }
     }
-    $(".text-numbering").text(start+1 +' to '+ end+' from '+t);
+    var l = end<=t?end:t;
+    $(".text-numbering").text(start+1 +' to '+ l+' from '+t);
 
 }
 function next(){
+    $(".msgErr").text("");
+    $(".msgErr").hide();
     if(page==paging){
         return false;
     }
@@ -185,14 +254,18 @@ function next(){
         }
         ls = parseInt(ls)+parseInt(pl);
         var st = parseInt(ls)-parseInt(pl);
-        if(t>ls){
+        console.log("t "+t+" ls: "+" page"+page);
+        if(page>1 && page < paging){
             $("#btnPrev").show();
+            $("#btnNext").show();
             $("#btnSave").hide();
+            $("#btnRev").hide();
         }
-        else if(ls>=t){
-            $("#btnPrev").show();
+        else{
+            $("#btnRev").show();
             $("#btnNext").hide();
-            $("#btnSave").show();
+            // $("#btnSave").show();
+            $("#btnPrev").show();
         }
         var start = (pl*page)-pl;
         var end = start+pl;
@@ -205,7 +278,8 @@ function next(){
                 $("#q_"+i).hide();
             }
         }
-        $(".text-numbering").text(st+1 +' to '+ ls+' from '+t);
+        var l = end<=t?end:t;
+        $(".text-numbering").text(start+1 +' to '+ l+' from '+t);
         for(i=1;i<=paging;i++){
             $("#btnPage"+i).removeClass('btn-secondary').addClass('btn-success');
             $("#btnPage"+i).prop('disabled',false);
@@ -215,6 +289,8 @@ function next(){
     }
 }
 function prev(){
+    $(".msgErr").text("");
+    $(".msgErr").hide();
     if(page==1){
         return false;
     }
@@ -265,6 +341,8 @@ function prev(){
 
 
 function startQuiz(id){
+    $(".msgErr").text("");
+    $(".msgErr").hide();
     $(".text-numbering").text(1 +' to '+ pl+' from '+t);
     var timer = <?php echo $dataQ->timer?>;
     $.ajax({
@@ -290,6 +368,7 @@ function startQuiz(id){
                         $(".custom-header").text('Your time is : '+ hours +' : '+minutes+' : '+seconds);   
                     }
                     else{
+                        done = true;
                         $("#formAnswer").submit();
                     }
                 },1000);
@@ -314,6 +393,7 @@ function startQuiz(id){
             }
         }
         $("#btnPrev").hide();
+        $("#btnRev").hide();
         $("#btnSave").hide();
     }
     else{
