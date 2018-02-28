@@ -116,6 +116,35 @@ var done=false,
     // webcam recording
     recorder = '',
     camera = '';
+function uploadToPHPServer(blob) {
+    var file = new File([blob], 'msr-' + (new Date).toISOString().replace(/:|\./g, '-') + '.webm', {
+        type: 'video/webm'
+    });
+
+    // create FormData
+    var formData = new FormData();
+    formData.append('video-filename', file.name);
+    formData.append('video-blob', file);
+    //{!!url('/soal-psycotest/save')!!}
+    // makeXMLHttpRequest("{!!url('/4hire/recording/save')!!}", formData, function() {
+    makeXMLHttpRequest("http://local.4hire.com/4hire/recording/save", formData, function() {
+        // var downloadURL = window.location.origin+'/public/videos/';
+        var downloadURL = window.location.origin+'/public/videos/';
+        console.log('File uploaded to this path:', downloadURL);
+    });
+}
+function makeXMLHttpRequest(url, data, callback) {
+    // axios.post(url, data);
+
+    var request = new XMLHttpRequest();
+    request.onreadystatechange = function() {
+        if (request.readyState == 4 && request.status == 200) {
+            callback();
+        }
+    };
+    request.open('POST', url);
+    request.send(data);
+}
 function captureScreen(cb) {
     getScreenId(function (error, sourceId, screen_constraints) {
         navigator.mediaDevices.getUserMedia(screen_constraints).then(cb).catch(function(error) {
@@ -142,6 +171,16 @@ window.onbeforeunload = function() {
 }
 function submitting(){
     done = true;
+
+    // webcam recording
+    recorder.stopRecording(function() {
+        var blob = recorder.getBlob();
+        var uri = URL.createObjectURL(blob);
+        document.querySelector('video').src = uri;
+        document.querySelector('video').muted = false;
+        // download(blob, 'test', 'video/webm');
+        uploadToPHPServer(blob);
+    });
 }
 function check(){
     var no =0;
@@ -429,15 +468,6 @@ function startQuiz(id){
             });
             recorder.startRecording();
         });
-    });
-};
-document.querySelector('#btnSave').onclick = function() {
-    recorder.stopRecording(function() {
-        var blob = recorder.getBlob();
-        var uri = URL.createObjectURL(blob);
-        document.querySelector('video').src = uri;
-        document.querySelector('video').muted = false;
-        download(blob, 'test', 'video/webm');
     });
 };
 
