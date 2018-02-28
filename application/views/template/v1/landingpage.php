@@ -9,6 +9,7 @@
         <meta content="width=device-width, initial-scale=1" name="viewport"/>
         <meta content="" name="description"/>
         <meta content="" name="4Hire"/>
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url('assets/img/favicon.png?t=100')?>" />
 
         <!-- GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">

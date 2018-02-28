@@ -9,6 +9,7 @@
         <meta content="width=device-width, initial-scale=1" name="viewport"/>
         <meta content="" name="description"/>
         <meta content="" name="4Hire"/>
+        <link rel="shortcut icon" type="image/x-icon" href="<?php echo site_url('assets/img/favicon.png?t=100')?>" />
 
         <!-- GLOBAL MANDATORY STYLES -->
         <link href="http://fonts.googleapis.com/css?family=Hind:300,400,500,600,700" rel="stylesheet" type="text/css">
@@ -73,7 +74,7 @@
                       $moduleName = $this->router->fetch_module();
                       $controllerName = strtolower($this->router->fetch_class());
                       $view = $moduleName.'/'.$this->config->item('tbody').$controllerName.'/'.$body;
-                      echo $this->load->view($view); 
+                      echo $this->load->view($view);
                     endif;
         ?>
         </div>
@@ -252,7 +253,7 @@
         <script type="text/javascript" src="<?php echo site_url('public_assets/assets/js/landingpage/js/components/swiper.min.js')?>"></script>
         <!-- <script type="text/javascript" src="js/components/masonry.min.js" type="text/javascript"></script> -->
         <script type="text/javascript" src="<?php echo site_url('public_assets/assets/js/landingpage/js/components/masonry.min.js')?>"></script>
-        <?php echo !empty($loadJS) ? $loadJS : '';?> 
+        <?php echo !empty($loadJS) ? $loadJS : '';?>
     </body>
     <!-- END BODY -->
 </html>
