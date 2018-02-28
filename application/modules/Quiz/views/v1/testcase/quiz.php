@@ -149,7 +149,6 @@ function captureScreen(cb) {
     getScreenId(function (error, sourceId, screen_constraints) {
         navigator.mediaDevices.getUserMedia(screen_constraints).then(cb).catch(function(error) {
           console.error('getScreenId error', error);
-          alert('Failed to capture your screen. Please check Chrome console logs for further information.');
         });
     });
 }
