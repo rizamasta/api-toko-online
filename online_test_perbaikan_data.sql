@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : My Local
-Source Server Version : 100126
+Source Server         : local
+Source Server Version : 50720
 Source Host           : localhost:3306
 Source Database       : online_test
 
 Target Server Type    : MYSQL
-Target Server Version : 100126
+Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2018-02-23 17:06:56
+Date: 2018-02-28 11:18:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -721,8 +721,8 @@ INSERT INTO `tbl_quiestion_bank` VALUES ('pkn29', '1', '1', '1', 'Topi = Kepala 
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn30', '1', '1', '1', 'Murid = Guru : Kanak-Kanak = ?', '-', '2018-02-22 17:18:08', '4', '2018-02-23 11:35:42', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn31', '1', '1', '1', 'Burung = Udara : Ikan = ?', '-', '2018-02-22 17:18:08', '4', '2018-02-23 11:35:56', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn32', '1', '1', '1', 'Lobak = Sayuran : Bandeng = ?', '-', '2018-02-22 17:18:08', '4', '2018-02-23 11:36:16', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn33', '1', '1', '1', 'Terbenam', 'Pembahasan, terbenam artinya tenggelam, terkubur jadi, lawankata dari terbenam adalah terkatung atau terapung', '2018-02-22 17:18:08', '4', null, '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn34', '1', '1', '1', 'Preman', 'Pembahasan, preman adalah bukan militer, bukan sipil, sebutanorang jahat termasuk penodong, pemeras dan perampok, jadi lawan kawapreman adalah dinas, pegawai pemerinta, pegawai militer', '2018-02-22 17:18:08', '4', null, '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn33', '1', '1', '1', 'Antonim dari kata \"Terbenam\" ?', 'Pembahasan, terbenam artinya tenggelam, terkubur jadi, lawankata dari terbenam adalah terkatung atau terapung', '2018-02-22 17:18:08', '4', '2018-02-28 11:14:39', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn34', '1', '1', '1', 'Antonim dari kata \"Preman\" ?', 'Pembahasan, preman adalah bukan militer, bukan sipil, sebutanorang jahat termasuk penodong, pemeras dan perampok, jadi lawan kawapreman adalah dinas, pegawai pemerinta, pegawai militer', '2018-02-22 17:18:08', '4', '2018-02-28 11:14:39', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn35', '1', '1', '2', '4 3 8 6 16 12 ...', '-', '2018-02-22 17:18:08', '4', '2018-02-22 19:45:33', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn36', '1', '1', '2', '192 192 96 32 …', 'Pembahasan, angka awal dibagi :1, :2, :3, :4, dan seterusnya', '2018-02-22 17:18:08', '4', '2018-02-22 19:45:33', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn37', '1', '1', '2', '18 23 19 25 22 29 ... …', 'Terdapat dua pola yang berlaku: +1,+3,+5 dan +2, +4, +6', '2018-02-22 17:18:08', '4', '2018-02-22 19:45:34', '4', '1', '0');
@@ -734,35 +734,35 @@ INSERT INTO `tbl_quiestion_bank` VALUES ('pkn42', '1', '1', '2', '13 2 15 7 17 1
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn43', '1', '1', '2', '20 40 120 ... 720', 'Pola yang berlaku adalah dikalikan 2 dan 3 secara berselang', '2018-02-22 17:18:09', '4', '2018-02-22 19:45:37', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn44', '1', '1', '2', 'E H G J I L K N ... …', 'Pola yang digunakan adalah maju 3 huruf kemudian mundur 1 huruf.', '2018-02-22 17:18:09', '4', '2018-02-22 19:45:38', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn45', '1', '1', '2', '90 20 90 20 45 40 ... …', 'Terdapat dua pola: Pola pertama dibagi dengan bilangan yang berurutan naik, Pola kedua dikali dengan bilangan berurutan naik.', '2018-02-22 17:18:09', '4', '2018-02-22 19:45:38', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn46', '1', '1', '3', 'Merdeka', 'Pembahasan Merdeka artinya bebas, berdiri sendiri (dari penjajahan, dan sebagainya)', '2018-02-22 17:18:09', '4', '2018-02-22 19:45:46', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn47', '1', '1', '3', 'Taraf', 'Pembahasan, Taraf artinya tingkatan , derajat', '2018-02-22 17:18:09', '4', '2018-02-22 19:45:48', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn48', '1', '1', '3', 'Rabat', 'Pembahasan, Rabat artinya potongan harga, diskon', '2018-02-22 17:18:10', '4', '2018-02-22 19:45:46', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn49', '1', '1', '3', 'Deportasia', 'Deportasi artinya pembuangan, pengasingan, atau pengungsian seseorang ke luar negeri sebagai hukuman atau karena orang tersebut tidak berhak tinggal disuatu daerah. Dari semua pilihan yang tersedia, kata yang memiliki makna mendekati kata deportasi hanya pengusiran.', '2018-02-22 17:18:10', '4', '2018-02-22 19:45:46', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn50', '1', '1', '3', 'Eksak', 'Eksak berarti akurat, cermat, tentu, tepat. Nyata artinya ada, tunggal artinya satu-satunya, sesuai artinya selaras, dan terbukti berarti keterangan nyata.', '2018-02-22 17:18:10', '4', '2018-02-22 19:45:49', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn51', '1', '1', '3', 'Membran', 'Kata membran merupakan istilah dalam bidang Biologi yang semakna dengan jaringan, polikel, selaput. Kata plasma, inti, kelenjar, dan saluran juga termasuk istilah dalam bidang Biologi, tetapi tidak memiliki arti yang sama dengan membran.', '2018-02-22 17:18:10', '4', '2018-02-22 19:45:49', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn52', '1', '1', '3', 'Glosari', 'Glosari berarti daftar istilah, daftar kata, vokabuler, kosakata. Sedangkan, istilah merupakan gabungan kata yang mengungkapkan makna.', '2018-02-22 17:18:10', '4', '2018-02-22 19:45:49', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn53', '1', '1', '3', 'Kolerasi', 'Korelasi merupakan kata serapan dari bahasa inggris corrrelation, yang berarti hubungan', '2018-02-22 17:18:10', '4', '2018-02-22 19:45:50', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn54', '1', '1', '3', 'Vibrasi', '-', '2018-02-22 17:18:10', '4', '2018-02-22 19:45:50', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn55', '1', '1', '3', 'Gesit', '-', '2018-02-22 17:18:10', '4', '2018-02-22 19:45:50', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn56', '1', '1', '3', 'Baku', '-', '2018-02-22 17:18:10', '4', '2018-02-22 19:45:50', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn57', '1', '1', '3', 'Protesis', '-', '2018-02-22 17:18:10', '4', '2018-02-22 19:45:51', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn58', '1', '1', '3', 'Naratif', '-', '2018-02-22 17:18:10', '4', '2018-02-22 19:45:51', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn59', '1', '1', '3', 'Kisi-Kisi', '-', '2018-02-22 17:18:11', '4', '2018-02-22 19:45:51', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn60', '1', '1', '3', 'Wahana', '-', '2018-02-22 17:18:11', '4', '2018-02-22 19:45:52', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn61', '1', '1', '3', 'Proteksi', '-', '2018-02-22 17:18:11', '4', '2018-02-22 19:45:52', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn62', '1', '1', '3', 'Kesahihan', '-', '2018-02-22 17:18:11', '4', '2018-02-22 19:45:52', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn63', '1', '1', '3', 'Iterasi', '-', '2018-02-22 17:18:11', '4', '2018-02-23 11:06:51', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn64', '1', '1', '3', 'Daur', '-', '2018-02-22 17:18:11', '4', '2018-02-22 19:45:53', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn65', '1', '1', '3', 'Motilitas', '-', '2018-02-22 17:18:11', '4', '2018-02-22 19:45:53', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn66', '1', '1', '3', 'Nabati', '-', '2018-02-22 17:18:11', '4', '2018-02-22 19:45:53', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn67', '1', '1', '3', 'Imsomnia', '-', '2018-02-22 17:18:11', '4', '2018-02-22 19:45:54', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn68', '1', '1', '3', 'Transendental', '-', '2018-02-22 17:18:11', '4', '2018-02-22 19:45:54', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn69', '1', '1', '3', 'Asumsi', '-', '2018-02-22 17:18:11', '4', '2018-02-22 19:45:55', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn70', '1', '1', '3', 'Mengecoh', '-', '2018-02-22 17:18:11', '4', '2018-02-22 19:45:55', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn71', '1', '1', '3', 'Ditenggak', '-', '2018-02-22 17:18:11', '4', '2018-02-22 19:45:56', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn72', '1', '1', '3', 'Sutradara', '-', '2018-02-22 17:18:12', '4', '2018-02-22 19:45:56', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn73', '1', '1', '3', 'Pemugaran', '-', '2018-02-22 17:18:12', '4', '2018-02-22 19:45:57', '4', '1', '0');
-INSERT INTO `tbl_quiestion_bank` VALUES ('pkn74', '1', '1', '3', 'Rancu', '-', '2018-02-22 17:18:12', '4', '2018-02-22 19:45:59', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn46', '1', '1', '3', 'Sinonim dari kata \"Merdeka\" ?', 'Pembahasan Merdeka artinya bebas, berdiri sendiri (dari penjajahan, dan sebagainya)', '2018-02-22 17:18:09', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn47', '1', '1', '3', 'Sinonim dari kata \"Taraf\" ?', 'Pembahasan, Taraf artinya tingkatan , derajat', '2018-02-22 17:18:09', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn48', '1', '1', '3', 'Sinonim dari kata \"Rabat\" ?', 'Pembahasan, Rabat artinya potongan harga, diskon', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn49', '1', '1', '3', 'Sinonim dari kata \"Deportasia\" ?', 'Deportasi artinya pembuangan, pengasingan, atau pengungsian seseorang ke luar negeri sebagai hukuman atau karena orang tersebut tidak berhak tinggal disuatu daerah. Dari semua pilihan yang tersedia, kata yang memiliki makna mendekati kata deportasi hanya pengusiran.', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn50', '1', '1', '3', 'Sinonim dari kata \"Eksak\" ?', 'Eksak berarti akurat, cermat, tentu, tepat. Nyata artinya ada, tunggal artinya satu-satunya, sesuai artinya selaras, dan terbukti berarti keterangan nyata.', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn51', '1', '1', '3', 'Sinonim dari kata \"Membran\" ?', 'Kata membran merupakan istilah dalam bidang Biologi yang semakna dengan jaringan, polikel, selaput. Kata plasma, inti, kelenjar, dan saluran juga termasuk istilah dalam bidang Biologi, tetapi tidak memiliki arti yang sama dengan membran.', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn52', '1', '1', '3', 'Sinonim dari kata \"Glosari\" ?', 'Glosari berarti daftar istilah, daftar kata, vokabuler, kosakata. Sedangkan, istilah merupakan gabungan kata yang mengungkapkan makna.', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn53', '1', '1', '3', 'Sinonim dari kata \"Kolerasi\" ?', 'Korelasi merupakan kata serapan dari bahasa inggris corrrelation, yang berarti hubungan', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn54', '1', '1', '3', 'Sinonim dari kata \"Vibrasi\" ?', '-', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn55', '1', '1', '3', 'Sinonim dari kata \"Gesit\" ?', '-', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn56', '1', '1', '3', 'Sinonim dari kata \"Baku\" ?', '-', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn57', '1', '1', '3', 'Sinonim dari kata \"Protesis\" ?', '-', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn58', '1', '1', '3', 'Sinonim dari kata \"Naratif\" ?', '-', '2018-02-22 17:18:10', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn59', '1', '1', '3', 'Sinonim dari kata \"Kisi-Kisi\" ?', '-', '2018-02-22 17:18:11', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn60', '1', '1', '3', 'Sinonim dari kata \"Wahana\" ?', '-', '2018-02-22 17:18:11', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn61', '1', '1', '3', 'Sinonim dari kata \"Proteksi\" ?', '-', '2018-02-22 17:18:11', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn62', '1', '1', '3', 'Sinonim dari kata \"Kesahihan\" ?', '-', '2018-02-22 17:18:11', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn63', '1', '1', '3', 'Sinonim dari kata \"Iterasi\" ?', '-', '2018-02-22 17:18:11', '4', '2018-02-28 11:15:27', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn64', '1', '1', '3', 'Sinonim dari kata \"Daur\" ?', '-', '2018-02-22 17:18:11', '4', '2018-02-28 11:15:28', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn65', '1', '1', '3', 'Sinonim dari kata \"Motilitas\" ?', '-', '2018-02-22 17:18:11', '4', '2018-02-28 11:15:28', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn66', '1', '1', '3', 'Sinonim dari kata \"Nabati\" ?', '-', '2018-02-22 17:18:11', '4', '2018-02-28 11:15:28', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn67', '1', '1', '3', 'Sinonim dari kata \"Imsomnia\" ?', '-', '2018-02-22 17:18:11', '4', '2018-02-28 11:15:28', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn68', '1', '1', '3', 'Sinonim dari kata \"Transendental\" ?', '-', '2018-02-22 17:18:11', '4', '2018-02-28 11:15:28', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn69', '1', '1', '3', 'Sinonim dari kata \"Asumsi\" ?', '-', '2018-02-22 17:18:11', '4', '2018-02-28 11:15:28', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn70', '1', '1', '3', 'Sinonim dari kata \"Mengecoh\" ?', '-', '2018-02-22 17:18:11', '4', '2018-02-28 11:15:28', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn71', '1', '1', '3', 'Sinonim dari kata \"Ditenggak\" ?', '-', '2018-02-22 17:18:11', '4', '2018-02-28 11:15:28', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn72', '1', '1', '3', 'Sinonim dari kata \"Sutradara\"  ?', '-', '2018-02-22 17:18:12', '4', '2018-02-28 11:15:28', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn73', '1', '1', '3', 'Sinonim dari kata \"Pemugaran\" ?', '-', '2018-02-22 17:18:12', '4', '2018-02-28 11:15:28', '4', '1', '0');
+INSERT INTO `tbl_quiestion_bank` VALUES ('pkn74', '1', '1', '3', 'Sinonim dari kata \"Rancu\" ?', '-', '2018-02-22 17:18:12', '4', '2018-02-28 11:15:28', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn75', '1', '1', '4', '\r\nTolong tunjukkan jawaban terbaik untuk melengkapi gambar di bawah ini.<br><img src=\"http://local.4hire.com/4hire/public_assets/uploads/psy001.jpg\" width=\"400\" height=\"300\"/>', '-', '2018-02-22 17:18:12', '4', '2018-02-23 17:06:13', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn76', '1', '1', '4', 'Tolong tunjukkan jawaban terbaik untuk melengkapi analogi di bawah ini.<br><img src=\"http://local.4hire.com/4hire/public_assets/uploads/psy002.png\" width=\"400\" height=\"200\"/>', '-', '2018-02-22 17:18:12', '4', '2018-02-23 17:06:13', '4', '1', '0');
 INSERT INTO `tbl_quiestion_bank` VALUES ('pkn77', '1', '1', '4', 'Semua kubus di bawah ini memiliki gambar yang berbeda di setiap sisinya. Pilihlah yang bisa mewakili rotasi dari kubus berlabel X.<br><img src=\"http://local.4hire.com/4hire/public_assets/uploads/psy003.png\" width=\"400\" height=\"200\"/>', '-', '2018-02-22 17:18:12', '4', '2018-02-23 17:06:13', '4', '1', '0');
