@@ -25,6 +25,7 @@
 <form id="formAnswer" action="<?php echo site_url('free/submit')?>" method="post">
     <div class="row quiz" style="display:none">
         <input type="hidden" name="id_quiz" id="id_quiz" value="<?php echo $dataQ->gid ?>">
+        <input type="hidden" name="video_url" id="video_url" value="<?php echo $dataQ->gid ?>">
         <div class="row col-lg-12">
             <div class="col-md-1"></div>
             <div class="col-md-10 text-numbering">1 to 3 from 10</div>
@@ -80,26 +81,42 @@
             <?php
                 endforeach;
             ?>
-            <div class="col-md-12">
+            <!-- <div class="col-md-12">
                 <p class="text-left msgErr" style="font-size: 12px;color: #c72828dd;"></p>
-            </div>
-            <div class="row col-md-12">
+            </div> -->
+            
+            
+            <div class="btnAction row col-md-12">
                 <p class="text-center">
                     <?php if($dataQ->paging==1):?>
                     <?php for($p=1;$p<=$total_page;$p++):?>
-                        <button type="button" id="btnPage<?php echo $p?>" class="btn <?php echo $p==1?'btn-secondary':'btn-success'?>" onclick="go_to(<?php echo $p?>,true)" <?php echo $p==1?'disabled':''?>><?php echo $p?></button>
+                        <button type="button" id="btnPage<?php echo $p?>" class="btn <?php echo $p==1?'btn-secondary':'btn-success'?>" onclick="go_to(<?php echo $p?>,true,'xx')" <?php echo $p==1?'disabled':''?>><?php echo $p?></button>
                     <?php endfor?>
                     <br/><br/>
                     <button type="button" id="btnPrev" class="btn btn-secondary" onclick="prev()"> <em class="fa fa-chevron-left"></em> Prev </button>
                     <button type="button" id="btnNext" class="btn btn-success" onclick="next()"> Next <em class="fa fa-chevron-right"></em></button>
                     <?php endif ?>
                     <button type="button" id="btnRev" class="btn btn-warning" onclick="check()"> Review </button>
-                    <button type="button" id="btnSave"class="btn btn-primary" onclick="submitting()"> Submit </em></button>
                 </p>
             </div>
         </div>
     </div>
 </form>
+<div class="col-md-12 colRev" style="display:none"> 
+    <table id="tableReview" class="tableReview table table-hover">
+        <thead>
+            <tr>
+                <th width="120px">Question Number</th>
+                <th>Answered Question</th>
+                <th>Option</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+    <button type="button" id="btnSave"class="btn btn-primary btn-block" onclick="submitting()"> SUBMIT RESPONSE AND GRADE TEST </em></button>
+    <button type="button" class="btn btn-warning btn-block" onclick="backtoquestion()"> CANCEL </em></button>
+</div>
 
 <!-- webcam recording -->
 <video controls autoplay hidden></video>
@@ -130,14 +147,13 @@ function uploadToPHPServer(blob) {
     });
 }
 function makeXMLHttpRequest(url, data, callback) {
-    // axios.post(url, data);
-
     var request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200) {
             done = true;
             var val = JSON.parse(request.response)
             if(val.status=='success'){
+                $("#video_url").val(val.file_path);
                 $("#formAnswer").submit();
             }
         }
@@ -148,6 +164,7 @@ function makeXMLHttpRequest(url, data, callback) {
 function captureScreen(cb) {
     getScreenId(function (error, sourceId, screen_constraints) {
         navigator.mediaDevices.getUserMedia(screen_constraints).then(cb).catch(function(error) {
+          done = true;
           alert('Anda diwajibkan untuk membagikan layar & camera');
           location.reload();
         });
@@ -155,6 +172,7 @@ function captureScreen(cb) {
 }
 function captureCamera(cb) {
     navigator.mediaDevices.getUserMedia({audio: false, video: true}).then(cb).catch(function(error) {
+          done = true;
           location.reload();
         });
 }
@@ -194,14 +212,20 @@ function check(){
             if(no<t){
                 if($("#answer_"+no+":checked").val()==undefined){
                     var n = no<=t?no+1:t;
-                    notAnswer.push(n);
-                    pages.push(i);
+                    // notAnswer.push(n);
+                    // pages.push(i);
+                    notAnswer.push({'number':n,'answer':'no','page':i});
+                }
+                else{
+                    var n = no<=t?no+1:t;
+                    notAnswer.push({'number':n,'answer':'yes','page':i});
                 }
                 no++;
             }
         }
     }
     var nav ="";
+    /*
     if(notAnswer.length >0){
         if(notAnswer.length > 4){
             for(i=0;i<4;i++){
@@ -219,19 +243,35 @@ function check(){
                 }
             }
         }
-        $(".msgErr").text("You not answers a question(s) number "+nav);
-        go_to(pages[0],false);
-        $("#btnSave").hide();
-        $(".msgErr").show();
-    }
-    else{
-        done = true;
-        $("#btnRev").hide();
-        $("#btnSave").show();
-    }
+        // $(".msgErr").text("You not answers a question(s) number "+nav);
+        // go_to(pages[0],false);
+    }*/
+    var tbody ="";
+    var dataBody =[];
+    notAnswer.forEach(function(v){
+        var icons ='';
+        if(v.answer=='yes'){
+            icons ='<em class="fa fa-check fa-check" style="color: #0c925c;"></em>';
+        }
+        else{
+            icons ='<em class="fa fa-check fa-remove" style="color: #d60c0c;"></em>';
+        }
+        dataBody.push({
+                    '0':v.number,
+                    '1':icons,
+                    '2':"<button class='btn btn-sm btn-primary' onclick='go_to("+v.page+",true,"+v.number+")'>Go To Question</button>"
+                    });
+    });
+    table.clear().draw();
+    table.rows.add(dataBody).draw();
+    $(".colRev").show();
+    $("#formAnswer").hide();
+    done = true;
 }
 
-function go_to(current_page,cm){
+function go_to(current_page,cm,qst){
+    $(".colRev").hide();
+    $("#formAnswer").show();
     if(cm){
         $(".msgErr").text("");
         $(".msgErr").hide();
@@ -249,12 +289,15 @@ function go_to(current_page,cm){
     }
     else{
         $("#btnRev").hide();
-        $("#btnSave").hide();
         $("#btnNext").show();
     }
     for(i=1;i<=paging;i++){
         $("#btnPage"+i).removeClass('btn-secondary').addClass('btn-success');
         $("#btnPage"+i).prop('disabled',false);
+    }
+    if(qst!="xx"){
+        var n= parseInt(qst)-1;
+        $("#answer_"+n).autofocus;
     }
     $("#btnPage"+current_page).addClass('btn-secondary').removeClass('btn-success');
     $("#btnPage"+current_page).prop('disabled',true);
@@ -297,13 +340,11 @@ function next(){
         if(page>1 && page < paging){
             $("#btnPrev").show();
             $("#btnNext").show();
-            $("#btnSave").hide();
             $("#btnRev").hide();
         }
         else{
             $("#btnRev").show();
             $("#btnNext").hide();
-            // $("#btnSave").show();
             $("#btnPrev").show();
         }
         var start = (pl*page)-pl;
@@ -347,12 +388,10 @@ function prev(){
         if(t>ls){
             $("#btnPrev").show();
             $("#btnNext").show();
-            $("#btnSave").hide();
         }
         else if(ls>=t){
             $("#btnPrev").show();
             $("#btnNext").hide();
-            $("#btnSave").show();
         }
         if(page==1){
             $("#btnPrev").hide();
@@ -382,6 +421,7 @@ function prev(){
 function startQuiz(id){
     $(".msgErr").text("");
     $(".msgErr").hide();
+    $(".colRev").hide();
     $(".text-numbering").text(1 +' to '+ pl+' from '+t);
     var timer = <?php echo $dataQ->timer?>;
     $.ajax({
@@ -433,7 +473,6 @@ function startQuiz(id){
         }
         $("#btnPrev").hide();
         $("#btnRev").hide();
-        $("#btnSave").hide();
     }
     else{
         $("#btnPrev").hide();
@@ -474,11 +513,16 @@ function startQuiz(id){
         $("#btnRev").show();
     }
 };
-
+function backtoquestion (){
+    $(".colRev").hide();
+    $("#formAnswer").show();
+}
 $(document).ready(function(){
+    table = $('#tableReview').DataTable();
     var qst = <?php echo $dataQ->status?>;
     if(qst==2){
         startQuiz($("#id_quiz").val())
     }
 });
+var table;
 </script>

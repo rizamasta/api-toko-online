@@ -1,34 +1,51 @@
-/*
-Navicat MySQL Data Transfer
+# ************************************************************
+# Sequel Pro SQL dump
+# Version 4541
+#
+# http://www.sequelpro.com/
+# https://github.com/sequelpro/sequelpro
+#
+# Host: 127.0.0.1 (MySQL 5.7.20)
+# Database: online_test
+# Generation Time: 2018-03-01 09:12:56 +0000
+# ************************************************************
 
-Source Server         : local
-Source Server Version : 50720
-Source Host           : localhost:3306
-Source Database       : online_test
 
-Target Server Type    : MYSQL
-Target Server Version : 50720
-File Encoding         : 65001
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
-Date: 2018-02-28 11:27:27
-*/
 
-SET FOREIGN_KEY_CHECKS=0;
+# Dump of table tbl_answers_question
+# ------------------------------------------------------------
 
--- ----------------------------
--- Table structure for tbl_answers_question
--- ----------------------------
 DROP TABLE IF EXISTS `tbl_answers_question`;
+
 CREATE TABLE `tbl_answers_question` (
-  `ansid` int(11) NOT NULL,
+  `ansid` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `qid` varchar(8) DEFAULT NULL,
+  `video_url` varchar(255) DEFAULT NULL,
   `answers` longtext NOT NULL,
   `score` double NOT NULL,
-  `create_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `create_by` int(11) NOT NULL,
-  `is_deleted` tinyint(4) NOT NULL
+  `wrong` int(11) DEFAULT NULL,
+  `correct` int(11) DEFAULT NULL,
+  `notanswer` int(11) DEFAULT NULL,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created_by` int(11) NOT NULL,
+  `is_deleted` tinyint(4) NOT NULL,
+  PRIMARY KEY (`ansid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- ----------------------------
--- Records of tbl_answers_question
--- ----------------------------
-SET FOREIGN_KEY_CHECKS=1;
+
+
+
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

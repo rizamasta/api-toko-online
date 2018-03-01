@@ -4,6 +4,9 @@ class Recording extends Abstract_Controller{
 
 	}
 	public function save(){
+        if(!file_exists('public_assets/uploads/videos')){
+            mkdir('public_assets/uploads/videos/',0777,true);
+        }
 	   header("Access-Control-Allow-Origin: *");
         if (!isset($_POST['video-filename'])) {
             $res = array(
@@ -28,9 +31,7 @@ class Recording extends Abstract_Controller{
                 'message' => 'Empty File upload '
             );
         }
-        if(!file_exists('public_assets/uploads/videos')){
-            mkdir('public_assets/uploads/videos/',0777,true);
-        }
+        
         $filePath = 'public_assets/uploads/videos/' . $fileName;
 
         // make sure that one can upload only allowed audio/video files
@@ -49,20 +50,21 @@ class Recording extends Abstract_Controller{
                 'message' => 'Extension is not allower'
             );
         }
-
-        else if (!move_uploaded_file($tempName, $filePath)) {
-            $res = array('status' =>'error',
-                'qid' =>!empty($_POST['qid'])?$_POST['qid']:'Empty ID',
-                'file_path'=>'error',
-                'message' => 'Failed to upload '.$fileName.' in to '.$filePath
-            );
-        }
-        else{
+        try{
+            move_uploaded_file($tempName, $filePath);
             $res = array(
                 'status' =>'success',
                 'qid' =>!empty($_POST['qid'])?$_POST['qid']:'Empty ID',
                 'file_path'=>$filePath,
-                'message' => 'Video was uploaded'
+                'message' => 'Success'
+            );
+        }
+        catch(Error $e){
+            $res = array(
+                'status' =>'error',
+                'qid' =>!empty($_POST['qid'])?$_POST['qid']:'Empty ID',
+                'file_path'=>'error',
+                'message' => $e
             );
         }
         $val = json_encode($res);
