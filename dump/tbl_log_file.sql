@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.7.20)
 # Database: online_test
-# Generation Time: 2018-03-01 09:12:56 +0000
+# Generation Time: 2018-03-01 09:14:34 +0000
 # ************************************************************
 
 
@@ -20,24 +20,16 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-# Dump of table tbl_answers_question
+# Dump of table tbl_log_file
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `tbl_answers_question`;
+DROP TABLE IF EXISTS `tbl_log_file`;
 
-CREATE TABLE `tbl_answers_question` (
-  `ansid` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `qid` varchar(8) DEFAULT NULL,
-  `video_url` varchar(255) DEFAULT NULL,
-  `answers` longtext NOT NULL,
-  `score` double NOT NULL,
-  `wrong` int(11) DEFAULT NULL,
-  `correct` int(11) DEFAULT NULL,
-  `notanswer` int(11) DEFAULT NULL,
+CREATE TABLE `tbl_log_file` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `message` longtext NOT NULL,
   `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `created_by` int(11) NOT NULL,
-  `is_deleted` tinyint(4) NOT NULL,
-  PRIMARY KEY (`ansid`)
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 

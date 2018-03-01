@@ -31,7 +31,8 @@ class Testcase extends Abstract_Controller
                 'body'=>'quiz',
                 'dataQ'=>$dataQ,
                 'fullname' => $this->userData['fullname'],
-                'loadJS' => $this->loadassets->loadVendorsJS(array("js/RecordRTC.js","js/adapter-latest.js","js/getScreenId.js","js/download.js"))
+                'loadCSS' => $this->loadassets->loadVendorsCSS(array("js/DataTables/datatables.css")),
+                'loadJS' => $this->loadassets->loadVendorsJS(array("js/DataTables/datatables.js","js/RecordRTC.js","js/adapter-latest.js","js/getScreenId.js","js/download.js"))
             );
             $this->load->view($this->config->item('vtemplate') . 'layout', $datatemplate);
 
@@ -51,7 +52,7 @@ class Testcase extends Abstract_Controller
 
     public function generate(){
         $id =random_string('alnum', 8);
-        $qs= $this->getModelQuiz()->getQuestion(1,1);
+        $qs= $this->getModelQuiz()->getQuestion(1,50);
         $url ="";
         if(!empty($qs)){
             $generated_question = array();
@@ -131,6 +132,7 @@ class Testcase extends Abstract_Controller
     public function submit(){
         $data = $this->input->post();
         $qid = $this->input->post('id_quiz');
+        $video_url = $this->input->post('video_url');
         $question = $this->getModelQuiz()->getQuiz($qid);
         $questions = json_decode($question->question);
         $quiz = json_decode($question->question);
@@ -197,6 +199,7 @@ class Testcase extends Abstract_Controller
                 'wrong' => $w,
                 'correct' => $c,
                 'notanswer' => $na,
+                'video_url' => $video_url,
                 'created_by'=>$this->userData['uid']
             );
             $this->getModelQuiz()->insertAnswer($dataAnswer);
