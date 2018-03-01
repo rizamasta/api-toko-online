@@ -31,7 +31,7 @@ class Testcase extends Abstract_Controller
                 'body'=>'quiz',
                 'dataQ'=>$dataQ,
                 'fullname' => $this->userData['fullname'],
-                'loadJS' => $this->loadassets->loadVendorsJS(array("RecordRTC.js","adapter-latest.js","getScreenId.js","download.js"))
+                'loadJS' => $this->loadassets->loadVendorsJS(array("js/RecordRTC.js","js/adapter-latest.js","js/getScreenId.js","js/download.js"))
             );
             $this->load->view($this->config->item('vtemplate') . 'layout', $datatemplate);
 

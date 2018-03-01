@@ -11,7 +11,7 @@ class Result extends Abstract_Controller
             'answers' => $this->getModelQuiz()->getAnsweredQuestion($this->userData['uid']),
             'fullname' => $this->userData['fullname'],
             'loadCSS' => $this->loadassets->loadVendorsCSS(array("js/DataTables/datatables.css")),
-            'loadJS' => $this->loadassets->loadVendorsJS(array("DataTables/datatables.js"))
+            'loadJS' => $this->loadassets->loadVendorsJS(array("js/DataTables/datatables.js"))
         );
         $this->load->view($this->config->item('vtemplate') . 'layout', $datatemplate);
     }

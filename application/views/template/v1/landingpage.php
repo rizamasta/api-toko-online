@@ -30,6 +30,8 @@
         <link href="<?php echo site_url('public_assets/assets/js/landingpage/css/layout.min.css')?>" rel="stylesheet" type="text/css">
 
         <link href="<?php echo site_url('public_assets/assets/js/landingpage/css/layout-custome.css')?>" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="<?php echo site_url('assets/vendor/font-awesome/css/font-awesome.min.css')?>">
+        
         <?php echo (isset($loadCSS) ? $loadCSS : "");?>
         <!-- Favicon -->
     </head>

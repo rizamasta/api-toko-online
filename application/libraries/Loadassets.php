@@ -64,7 +64,7 @@ class LoadAssets{
 
 	public function loadVendorsJS($ArrPath){
 		$fullpath = "";
-		$basepath = base_url()."public_assets/assets/js/";
+		$basepath = base_url()."public_assets/assets/";
 		for($i=0; $i < count($ArrPath); $i++ ){
 			$fullpath .= '<script src="'.$basepath.$ArrPath[$i].'"></script>';
 		}

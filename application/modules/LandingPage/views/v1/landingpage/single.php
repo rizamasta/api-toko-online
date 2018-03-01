@@ -1,91 +1,91 @@
- <!--========== SLIDER ==========-->
- <div id="carousel-example-generic" class="carousel slide text-center" data-ride="carousel">
-        <!-- <div class="container"> -->
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-            </ol>
-        <!-- </div> -->
+<!--========== SLIDER ==========-->
+<div id="carousel-example-generic" class="carousel slide text-center" data-ride="carousel">
+       <!-- <div class="container"> -->
+           <!-- Indicators -->
+           <ol class="carousel-indicators">
+               <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+               <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+           </ol>
+       <!-- </div> -->
 
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-                <img class="img-responsive" src="<?php echo site_url('public_assets/img/landingpage/1920x1080/01.png')?>" alt="Slider Image">
-                <div class="container-slide">
-                    <div class="carousel-centered">
-                        <div class="margin-b-40">
-                          <!-- WHEN PASSION, SKILL AND OPPORTUNITY MET -->
-                            <h1 class="carousel-title">WHEN PASSION, SKILL AND OPPORTUNITY MET</h1>
-                            <p class="color-white"><strong>Right man in the right place at the right time</strong></p>
-                        </div>
-                        <!-- <a href="#" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Explore</a> -->
-                        <div class="row">
-                            <div class="col-lg-3 col-sm-2 col-xs-1"></div>
-                            <div class="col-lg-6 col-sm-8 col-xs-10">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-search" type="button">Search</button>
-                                </span>
-                            </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-2 col-xs-1"></div>
-                        </div><!-- /.row -->
+       <!-- Wrapper for slides -->
+       <div class="carousel-inner" role="listbox">
+           <div class="item active">
+               <img class="img-responsive" src="<?php echo site_url('public_assets/img/landingpage/1920x1080/01.png')?>" alt="Slider Image">
+               <div class="container-slide">
+                   <div class="carousel-centered">
+                       <div class="margin-b-40">
+                         <!-- WHEN PASSION, SKILL AND OPPORTUNITY MET -->
+                           <h1 class="carousel-title">WHEN PASSION, SKILL AND OPPORTUNITY MET</h1>
+                           <p class="color-white"><strong>Right man in the right place at the right time</strong></p>
+                       </div>
+                       <!-- <a href="#" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Explore</a> -->
+                       <div class="row">
+                           <div class="col-lg-3 col-sm-2 col-xs-1"></div>
+                           <div class="col-lg-6 col-sm-8 col-xs-10">
+                           <div class="input-group">
+                               <input type="text" class="form-control" placeholder="Search for...">
+                               <span class="input-group-btn">
+                               <button class="btn btn-search" type="button">Search</button>
+                               </span>
+                           </div>
+                           </div>
+                           <div class="col-lg-3 col-sm-2 col-xs-1"></div>
+                       </div><!-- /.row -->
 
-                        <div class="row">
-                            <div class="col-lg-3 col-sm-2 col-xs-1"></div>
-                            <div class="col-lg-6 col-sm-8 col-xs-10 text-right">
-                            <div style="text-align:right;">
-                                <p>Advance Job Search</p>
-                            </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-2 col-xs-1"></div>
+                       <div class="row">
+                           <div class="col-lg-3 col-sm-2 col-xs-1"></div>
+                           <div class="col-lg-6 col-sm-8 col-xs-10 text-right">
+                           <div style="text-align:right;">
+                               <p>Advance Job Search</p>
+                           </div>
+                           </div>
+                           <div class="col-lg-3 col-sm-2 col-xs-1"></div>
 
-                        </div><!-- /.row -->
+                       </div><!-- /.row -->
 
-                    </div>
-                </div>
-            </div>
-            <div class="item">
-                <img class="img-responsive" src="<?php echo site_url('public_assets/img/landingpage/1920x1080/02.png')?>" alt="Slider Image">
-                <div class="container-slide"> <!-- container -->
-                    <div class="carousel-centered">
-                        <div class="margin-b-40">
-                            <h1 class="carousel-title">WHEN PASSION, SKILL AND OPPORTUNITY MET</h1>
-                            <p class="color-white"><strong>Right man in the right place at the right time</strong></p>
-                        </div>
-                        <!-- <a href="#" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Explore</a> -->
-                        <div class="row">
-                            <div class="col-lg-3 col-sm-2 col-xs-1"></div>
-                            <div class="col-lg-6 col-sm-8 col-xs-10">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search for...">
-                                <span class="input-group-btn">
-                                <button class="btn btn-search" type="button">Search</button>
-                                </span>
-                            </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-2 col-xs-1"></div>
-                        </div>
+                   </div>
+               </div>
+           </div>
+           <div class="item">
+               <img class="img-responsive" src="<?php echo site_url('public_assets/img/landingpage/1920x1080/02.png')?>" alt="Slider Image">
+               <div class="container-slide"> <!-- container -->
+                   <div class="carousel-centered">
+                       <div class="margin-b-40">
+                           <h1 class="carousel-title">WHEN PASSION, SKILL AND OPPORTUNITY MET</h1>
+                           <p class="color-white"><strong>Right man in the right place at the right time</strong></p>
+                       </div>
+                       <!-- <a href="#" class="btn-theme btn-theme-sm btn-white-brd text-uppercase">Explore</a> -->
+                       <div class="row">
+                           <div class="col-lg-3 col-sm-2 col-xs-1"></div>
+                           <div class="col-lg-6 col-sm-8 col-xs-10">
+                           <div class="input-group">
+                               <input type="text" class="form-control" placeholder="Search for...">
+                               <span class="input-group-btn">
+                               <button class="btn btn-search" type="button">Search</button>
+                               </span>
+                           </div>
+                           </div>
+                           <div class="col-lg-3 col-sm-2 col-xs-1"></div>
+                       </div>
 
-                        <div class="row">
-                            <div class="col-lg-3 col-sm-2 col-xs-1"></div>
-                            <div class="col-lg-6 col-sm-8 col-xs-10 text-right">
-                            <div style="text-align:right;">
-                                <p>Advance Job Search</p>
-                            </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-2 col-xs-1"></div>
+                       <div class="row">
+                           <div class="col-lg-3 col-sm-2 col-xs-1"></div>
+                           <div class="col-lg-6 col-sm-8 col-xs-10 text-right">
+                           <div style="text-align:right;">
+                               <p>Advance Job Search</p>
+                           </div>
+                           </div>
+                           <div class="col-lg-3 col-sm-2 col-xs-1"></div>
 
-                        </div><!-- /.row -->
+                       </div><!-- /.row -->
 
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!--========== SLIDER ==========-->
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+<!--========== SLIDER ==========-->
         <div id="description">
 
         <section class="">
