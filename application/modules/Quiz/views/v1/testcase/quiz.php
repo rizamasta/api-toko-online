@@ -125,10 +125,7 @@ function uploadToPHPServer(blob) {
     var formData = new FormData();
     formData.append('video-filename', file.name);
     formData.append('video-blob', file);
-    //{!!url('/soal-psycotest/save')!!}
-    // makeXMLHttpRequest("{!!url('/4hire/recording/save')!!}", formData, function() {
-    makeXMLHttpRequest("http://local.4hire.com/4hire/recording/save", formData, function() {
-        // var downloadURL = window.location.origin+'/public/videos/';
+    makeXMLHttpRequest("<?php echo site_url("recording/save")?>", formData, function() {
         var downloadURL = window.location.origin+'/public/videos/';
         console.log('File uploaded to this path:', downloadURL);
     });
