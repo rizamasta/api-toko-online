@@ -5,6 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route = array(
     // 'default_controller' => "Homepage/home/index",
     'default_controller' => "LandingPage/LandingPage/index",
+    'about' => "LandingPage/LandingPage/about",
     'home' => "Homepage/home/index",
     /**
      * authentication start
