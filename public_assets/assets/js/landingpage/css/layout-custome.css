@@ -255,7 +255,7 @@
  }
 
  .navbar-footer {
-     background: #005371;
+     background: #054B7A;
      border-radius: 0;
      margin: 0;
      color: #efefef;
@@ -461,7 +461,7 @@
  }
 
 /*start css content selain landing page */
-
+/*
   .primary-section .title {
       border-bottom: 1px solid #000000;
  }
@@ -630,5 +630,5 @@
     float: left;
     min-height: 1px;
     margin-left: 20px;
-}
+}*/
 /*end css content selain landing page */

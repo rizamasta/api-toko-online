@@ -1,140 +1,244 @@
 <!-- About us section start -->
-<style>
-  .navbar-fixed-top {
-      background: #005371;
-      height: 60px;
-  }
-</style>
+  <!--Intro and service-->
+  <div id="intro" class="section scrollspy">
+      <div class="container">
+          <div class="row">
+              <div  class="col s12">
+                  <h2 class="center header text_h2">Who we are?</h2>
+              </div>
 
-<div id="about">
+              <div  class="col s12 m4 l4">
+                  <div class="center promo promo-example">
+                      <i class="mdi-image-flash-on"></i>
+                      <h5 class="promo-caption">Speeds up development</h5>
+                      <p class="light center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
+                  </div>
+              </div>
+              <div class="col s12 m4 l4">
+                  <div class="center promo promo-example">
+                      <i class="mdi-social-group"></i>
+                      <h5 class="promo-caption">User Experience Focused</h5>
+                      <p class="light center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                  </div>
+              </div>
+              <div class="col s12 m4 l4">
+                  <div class="center promo promo-example">
+                      <i class="mdi-hardware-desktop-windows"></i>
+                      <h5 class="promo-caption">Fully responsive</h5>
+                      <p class="light center">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 
-<section class="home-section">
-<div class="section primary-section">
-    <div class="triangle"></div>
-    <div class="container">
-        <div class="title">
-            <h1>Who We Are?</h1>
-            <p>Duis mollis placerat quam, eget laoreet tellus tempor eu. Quisque dapibus in purus in dignissim.</p>
-        </div>
-        <div class="row-fluid team">
-            <div class="span4" id="first-person">
-                <div class="thumbnail">
-                    <img src="images/Team1.png" alt="team 1">
-                    <h3>John Doe</h3>
-                    <ul class="social">
-                        <li>
-                            <a href="">
-                                <span class="icon-facebook-circled"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span class="icon-twitter-circled"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span class="icon-linkedin-circled"></span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="mask">
-                        <h2>Copywriter</h2>
-                        <p>When you stop expecting people to be perfect, you can like them for who they are.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="span4" id="second-person">
-                <div class="thumbnail">
-                    <img src="images/Team2.png" alt="team 1">
-                    <h3>John Doe</h3>
-                    <ul class="social">
-                        <li>
-                            <a href="">
-                                <span class="icon-facebook-circled"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span class="icon-twitter-circled"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span class="icon-linkedin-circled"></span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="mask">
-                        <h2>Designer</h2>
-                        <p>When you stop expecting people to be perfect, you can like them for who they are.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="span4" id="third-person">
-                <div class="thumbnail">
-                    <img src="images/Team3.png" alt="team 1">
-                    <h3>John Doe</h3>
-                    <ul class="social">
-                        <li>
-                            <a href="">
-                                <span class="icon-facebook-circled"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span class="icon-twitter-circled"></span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="">
-                                <span class="icon-linkedin-circled"></span>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="mask">
-                        <h2>Photographer</h2>
-                        <p>When you stop expecting people to be perfect, you can like them for who they are.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="about-text centered">
-            <h3>About Us</h3>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</p>
-        </div>
-        <h3>Skills</h3>
-        <div class="row-fluid">
-            <div class="span6">
-                <ul class="skills">
-                    <li>
-                        <span class="bar" data-width="80%"></span>
-                        <h3>Graphic Design</h3>
-                    </li>
-                    <li>
-                        <span class="bar" data-width="95%"></span>
-                        <h3>Html & Css</h3>
-                    </li>
-                    <li>
-                        <span class="bar" data-width="68%"></span>
-                        <h3>jQuery</h3>
-                    </li>
-                    <li>
-                        <span class="bar" data-width="70%"></span>
-                        <h3>Wordpress</h3>
-                    </li>
-                </ul>
-            </div>
-            <div class="span6">
-                <div class="highlighted-box center">
-                    <h1>We're Hiring</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, ullamcorper suscipit lobortis nisl ut aliquip consequat. I learned that we can do anything, but we can't do everything...</p>
-                    <button class="button button-sp">Join Us</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-</section>
-</div>
+  <!--Work-->
+  <div class="section scrollspy" id="work">
+      <div class="container">
+          <h2 class="header text_b">Work </h2>
+          <div class="row">
+              <div class="col s12 m4 l4">
+                  <div class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                          <img class="activator" src="<?php echo site_url('public_assets/assets/js/about/img/project1.jpg')?>">
+                      </div>
+                      <div class="card-content">
+                          <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                          <p><a href="#">Project link</a></p>
+                      </div>
+                      <div class="card-reveal">
+                          <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
+                          <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col s12 m4 l4">
+                  <div class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                          <img class="activator" src="<?php echo site_url('public_assets/assets/js/about/img/project2.jpeg')?>">
+                      </div>
+                      <div class="card-content">
+                          <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                          <p><a href="#">Project link</a></p>
+                      </div>
+                      <div class="card-reveal">
+                          <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
+                          <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col s12 m4 l4">
+                  <div class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                          <img class="activator" src="<?php echo site_url('public_assets/assets/js/about/img/project3.jpg')?>">
+                      </div>
+                      <div class="card-content">
+                          <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                          <p><a href="#">Project link</a></p>
+                      </div>
+                      <div class="card-reveal">
+                          <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
+                          <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col s12 m4 l4">
+                  <div class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                          <img class="activator" src="<?php echo site_url('public_assets/assets/js/about/img/project4.jpg')?>">
+                      </div>
+                      <div class="card-content">
+                          <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                          <p><a href="#">Project link</a></p>
+                      </div>
+                      <div class="card-reveal">
+                          <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
+                          <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col s12 m4 l4">
+                  <div class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                          <img class="activator" src="<?php echo site_url('public_assets/assets/js/about/img/project5.png')?>">
+                      </div>
+                      <div class="card-content">
+                          <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                          <p><a href="#">Project link</a></p>
+                      </div>
+                      <div class="card-reveal">
+                          <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
+                          <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col s12 m4 l4">
+                  <div class="card">
+                      <div class="card-image waves-effect waves-block waves-light">
+                          <img class="activator" src="<?php echo site_url('public_assets/assets/js/about/img/project6.jpeg')?>">
+                      </div>
+                      <div class="card-content">
+                          <span class="card-title activator grey-text text-darken-4">Project Title <i class="mdi-navigation-more-vert right"></i></span>
+                          <p><a href="#">Project link</a></p>
+                      </div>
+                      <div class="card-reveal">
+                          <span class="card-title grey-text text-darken-4">Project Title <i class="mdi-navigation-close right"></i></span>
+                          <p>Here is some more information about this project that is only revealed once clicked on.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <!--Team-->
+  <div class="section scrollspy" id="team">
+      <div class="container">
+          <h2 class="header text_b"> Our Team </h2>
+          <div class="row">
+              <div class="col s12 m3">
+                  <div class="card card-avatar">
+                      <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="<?php echo site_url('public_assets/assets/js/about/img/avatar1.png')?>">
+                      </div>
+                      <div class="card-content">
+                          <span class="card-title activator grey-text text-darken-4">Flash <br/>
+                              <small><em><a class="red-text text-darken-1" href="#">CEO</a></em></small></span>
+                          <p>
+                              <a class="blue-text text-lighten-2" href="https://www.facebook.com/joash.c.pereira">
+                                  <i class="fa fa-facebook-square"></i>
+                              </a>
+                              <a class="blue-text text-lighten-2" href="https://twitter.com/im_joash">
+                                  <i class="fa fa-twitter-square"></i>
+                              </a>
+                              <a class="blue-text text-lighten-2" href="https://plus.google.com/u/0/+JoashPereira">
+                                  <i class="fa fa-google-plus-square"></i>
+                              </a>
+                              <a class="blue-text text-lighten-2" href="https://www.linkedin.com/in/joashp">
+                                  <i class="fa fa-linkedin-square"></i>
+                              </a>
+                          </p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col s12 m3">
+                  <div class="card card-avatar">
+                      <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="<?php echo site_url('public_assets/assets/js/about/img/avatar2.png')?>">
+                      </div>
+                      <div class="card-content">
+                          <span class="card-title activator grey-text text-darken-4">Cat Woman<br/>
+                              <small><em><a class="red-text text-darken-1" href="#">Designer</a></em></small>
+                          </span>
+                          <p>
+                              <a class="blue-text text-lighten-2" href="https://www.facebook.com/joash.c.pereira">
+                                  <i class="fa fa-facebook-square"></i>
+                              </a>
+                              <a class="blue-text text-lighten-2" href="https://twitter.com/im_joash">
+                                  <i class="fa fa-twitter-square"></i>
+                              </a>
+                              <a class="blue-text text-lighten-2" href="https://plus.google.com/u/0/+JoashPereira">
+                                  <i class="fa fa-google-plus-square"></i>
+                              </a>
+                              <a class="blue-text text-lighten-2" href="https://www.linkedin.com/in/joashp">
+                                  <i class="fa fa-linkedin-square"></i>
+                              </a>
+                          </p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col s12 m3">
+                  <div class="card card-avatar">
+                      <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="<?php echo site_url('public_assets/assets/js/about/img/avatar3.png')?>">
+                      </div>
+                      <div class="card-content">
+                          <span class="card-title activator grey-text text-darken-4">
+                              Capt. America <br/>
+                              <small><em><a class="red-text text-darken-1" href="#">CMO</a></em></small></span>
+                          <p>
+                              <a class="blue-text text-lighten-2" href="https://www.facebook.com/joash.c.pereira">
+                                  <i class="fa fa-facebook-square"></i>
+                              </a>
+                              <a class="blue-text text-lighten-2" href="https://twitter.com/im_joash">
+                                  <i class="fa fa-twitter-square"></i>
+                              </a>
+                              <a class="blue-text text-lighten-2" href="https://plus.google.com/u/0/+JoashPereira">
+                                  <i class="fa fa-google-plus-square"></i>
+                              </a>
+                              <a class="blue-text text-lighten-2" href="https://www.linkedin.com/in/joashp">
+                                  <i class="fa fa-linkedin-square"></i>
+                              </a>
+                          </p>
+                      </div>
+                  </div>
+              </div>
+              <div class="col s12 m3">
+                  <div class="card card-avatar">
+                      <div class="waves-effect waves-block waves-light">
+                        <img class="activator" src="<?php echo site_url('public_assets/assets/js/about/img/avatar4.png')?>">
+                      </div>
+                      <div class="card-content">
+                          <span class="card-title activator grey-text text-darken-4">Robin<br/>
+                              <small><em><a class="red-text text-darken-1" href="#">Developer</a></em></small></span>
+                          <p>
+                              <a class="blue-text text-lighten-2" href="https://www.facebook.com/joash.c.pereira">
+                                  <i class="fa fa-facebook-square"></i>
+                              </a>
+                              <a class="blue-text text-lighten-2" href="https://twitter.com/im_joash">
+                                  <i class="fa fa-twitter-square"></i>
+                              </a>
+                              <a class="blue-text text-lighten-2" href="https://plus.google.com/u/0/+JoashPereira">
+                                  <i class="fa fa-google-plus-square"></i>
+                              </a>
+                              <a class="blue-text text-lighten-2" href="https://www.linkedin.com/in/joashp">
+                                  <i class="fa fa-linkedin-square"></i>
+                              </a>
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 <!-- About us section end -->

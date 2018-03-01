@@ -18,8 +18,10 @@ class LandingPage extends Abstract_Controller {
       $datatemplate =array(
           'title'=> $this->config->item('appName'),
           'body'=>'about',
-          'fullname' => $this->userData['fullname']
+          'fullname' => $this->userData['fullname'],
+          'loadCSS' => $this->loadassets->loadVendorsCSS(array("js/about/min/plugin-min.css","js/about/min/custom-min.css")),
+          'loadJS' => $this->loadassets->loadVendorsJS(array("js/about/min/plugin-min.js","js/about/min/custom-min.js"))
       );
-      $this->load->view($this->config->item('vtemplate') . 'landingpage' , $datatemplate);
+      $this->load->view($this->config->item('vtemplate') . 'front-layout' , $datatemplate);
     }
 }
