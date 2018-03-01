@@ -12,9 +12,9 @@
             <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="<?php echo site_url('profile/view')?>">Profiles</a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link js-scroll-trigger" href="#">Companies Insight</a>
-            </li>
+            </li> -->
             <?php if(!empty($fullname)):?>
                 <li class="nav-item">
                     <a class="nav-link js-scroll-trigger" href="<?php echo site_url('quiz/result')?>">Result</a>
