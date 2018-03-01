@@ -1,1 +1,4 @@
 application/logs/
+public_assets/uploads/*.webm
+public_assets/uploads/videos/*.webm
+

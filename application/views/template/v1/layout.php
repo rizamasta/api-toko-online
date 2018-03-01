@@ -13,7 +13,7 @@
       ?>
       <?php if(!empty($headline)):?>
       <meta property='og:url'                content="<?php echo site_url()?>"/>
-      <meta property='og:type'               content='article' />
+      <meta property='og:type'               content='4Hire' />
       <meta property='og:title'              content='My Skeleton' />
       <meta property='og:description'        content="Default Customize Codeigneter by masta"/>
       <meta property='og:image' content="<?php echo site_url('assets/img/favicon.png')?>"/>
@@ -50,7 +50,7 @@
     $( "body" ).prepend( '<div class="loader"></div>' );
     $(window).on('load', function() { 
       setTimeout(function(){
-        $('.loader').fadeOut('slow');
+        $('.loader').fadeOut('fast');
         $('.content').fadeIn('slow');
       },300);
     })

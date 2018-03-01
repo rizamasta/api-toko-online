@@ -5,27 +5,33 @@ class Recording extends Abstract_Controller{
 	}
 	public function save(){
 	   header("Access-Control-Allow-Origin: *");
-        if (!isset($_POST['audio-filename']) && !isset($_POST['video-filename'])) {
-            echo 'PermissionDeniedError';
-            return;
+        if (!isset($_POST['video-filename'])) {
+            $res = array(
+                'status' =>'error',
+                'qid' =>!empty($_POST['qid'])?$_POST['qid']:'Empty ID',
+                'file_path'=>'error',
+                'message' => 'Empty paramters'
+            );
+            $fileName ='';
+            $tempName ='';
         }
-
-        $fileName = '';
-        $tempName = '';
-
-        if (isset($_POST['audio-filename'])) {
-            $fileName = $_POST['audio-filename'];
-            $tempName = $_FILES['audio-blob']['tmp_name'];
-        } else {
+        else{
             $fileName = $_POST['video-filename'];
             $tempName = $_FILES['video-blob']['tmp_name'];
         }
 
         if (empty($fileName) || empty($tempName)) {
-            echo 'PermissionDeniedError';
-            return;
+            $res = array(
+                'status' =>'error',
+                'qid' =>!empty($_POST['qid'])?$_POST['qid']:'Empty ID',
+                'file_path'=>'error',
+                'message' => 'Empty File upload '
+            );
         }
-        $filePath = 'public_assets/uploads/' . $fileName;
+        if(!file_exists('public_assets/uploads/videos')){
+            mkdir('public_assets/uploads/videos/',0777,true);
+        }
+        $filePath = 'public_assets/uploads/videos/' . $fileName;
 
         // make sure that one can upload only allowed audio/video files
         $allowed = array(
@@ -37,15 +43,30 @@ class Recording extends Abstract_Controller{
         );
         $extension = pathinfo($filePath, PATHINFO_EXTENSION);
         if (!$extension || empty($extension) || !in_array($extension, $allowed)) {
-            echo 'PermissionDeniedError';
-            // continue;
+            $res = array('status' =>'error',
+                'qid' =>!empty($_POST['qid'])?$_POST['qid']:'Empty ID',
+                'file_path'=>'error',
+                'message' => 'Extension is not allower'
+            );
         }
 
-        if (!move_uploaded_file($tempName, $filePath)) {
-            echo ('Problem saving file.');
-            return;
+        else if (!move_uploaded_file($tempName, $filePath)) {
+            $res = array('status' =>'error',
+                'qid' =>!empty($_POST['qid'])?$_POST['qid']:'Empty ID',
+                'file_path'=>'error',
+                'message' => 'Failed to upload '.$fileName.' in to '.$filePath
+            );
         }
-
-        echo ($filePath);
+        else{
+            $res = array(
+                'status' =>'success',
+                'qid' =>!empty($_POST['qid'])?$_POST['qid']:'Empty ID',
+                'file_path'=>$filePath,
+                'message' => 'Video was uploaded'
+            );
+        }
+        $val = json_encode($res);
+        $this->getModelQuiz()->insertLog(array('message'=>$val));
+        echo $val;
 	}
 }
