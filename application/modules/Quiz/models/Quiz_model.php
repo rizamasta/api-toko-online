@@ -5,6 +5,7 @@ class Quiz_model extends CI_Model
     protected $tblA="tbl_question_bank_answer";
     protected $tblAn="tbl_answers_question";
     protected $tblG="tbl_generated_question";
+    protected $tblLog="tbl_log_file";
 
     public function __construct(){
         parent::__construct();
@@ -94,6 +95,10 @@ class Quiz_model extends CI_Model
     }
     public function updateQuiz($data,$condition){
         return $this->db->update($this->tblG,$data,$condition);
+    }
+
+    public function insertLog($data){
+        return $this->db->insert($this->tblLog,$data);
     }
 
 

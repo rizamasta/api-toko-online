@@ -20,14 +20,11 @@
     </div>
 </div>
 <script type="text/javascript">
-var x=navigator.plugins.length; // store the total no of plugin stored 
-var txt="Total plugin installed: "+x+"<br/>";
-txt+="Available plugins are->"+"<br/>";
-for(var i=0;i<x;i++)
-{
-  console.log(navigator.plugins[i].name)
-}
+    getScreenId(function (error, sourceId, screen_constraints) {
+        navigator.mediaDevices.getUserMedia(screen_constraints).then(
+            function(){}
+        ).catch(function(error) {
+          console.error('getScreenId error', error);
+        });
+    });
 </script>
-<!-- <div>
-    <div class='custom-header'>Test</div>
-</div> -->

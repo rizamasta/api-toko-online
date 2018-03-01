@@ -94,7 +94,7 @@
                     <button type="button" id="btnNext" class="btn btn-success" onclick="next()"> Next <em class="fa fa-chevron-right"></em></button>
                     <?php endif ?>
                     <button type="button" id="btnRev" class="btn btn-warning" onclick="check()"> Review </button>
-                    <button type="submit" id="btnSave"class="btn btn-primary" onclick="submitting()"> Submit </em></button>
+                    <button type="button" id="btnSave"class="btn btn-primary" onclick="submitting()"> Submit </em></button>
                 </p>
             </div>
         </div>
@@ -124,10 +124,9 @@ function uploadToPHPServer(blob) {
     // create FormData
     var formData = new FormData();
     formData.append('video-filename', file.name);
+    formData.append('qid',$("#id_quiz").val());
     formData.append('video-blob', file);
     makeXMLHttpRequest("<?php echo site_url("recording/save")?>", formData, function() {
-        var downloadURL = window.location.origin+'/public/videos/';
-        console.log('File uploaded to this path:', downloadURL);
     });
 }
 function makeXMLHttpRequest(url, data, callback) {
@@ -136,7 +135,11 @@ function makeXMLHttpRequest(url, data, callback) {
     var request = new XMLHttpRequest();
     request.onreadystatechange = function() {
         if (request.readyState == 4 && request.status == 200) {
-            callback();
+            done = true;
+            var val = JSON.parse(request.response)
+            if(val.status=='success'){
+                $("#formAnswer").submit();
+            }
         }
     };
     request.open('POST', url);
@@ -145,12 +148,15 @@ function makeXMLHttpRequest(url, data, callback) {
 function captureScreen(cb) {
     getScreenId(function (error, sourceId, screen_constraints) {
         navigator.mediaDevices.getUserMedia(screen_constraints).then(cb).catch(function(error) {
-          console.error('getScreenId error', error);
+          alert('Anda diwajibkan untuk membagikan layar & camera');
+          location.reload();
         });
     });
 }
 function captureCamera(cb) {
-    navigator.mediaDevices.getUserMedia({audio: false, video: true}).then(cb);
+    navigator.mediaDevices.getUserMedia({audio: false, video: true}).then(cb).catch(function(error) {
+          location.reload();
+        });
 }
 function keepStreamActive(stream) {
     var video = document.createElement('video');
@@ -166,8 +172,6 @@ window.onbeforeunload = function() {
     }
 }
 function submitting(){
-    done = true;
-
     // webcam recording
     recorder.stopRecording(function() {
         var blob = recorder.getBlob();
@@ -404,7 +408,7 @@ function startQuiz(id){
                     }
                     else{
                         done = true;
-                        $("#formAnswer").submit();
+                        submitting();
                     }
                 },1000);
             }
@@ -465,6 +469,10 @@ function startQuiz(id){
             recorder.startRecording();
         });
     });
+    if(p==t){
+        $("#btnNext").hide();
+        $("#btnRev").show();
+    }
 };
 
 $(document).ready(function(){
