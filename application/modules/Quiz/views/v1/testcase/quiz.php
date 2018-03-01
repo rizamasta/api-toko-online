@@ -419,6 +419,7 @@ function prev(){
 
 
 function startQuiz(id){
+    $("footer").hide();
     $(".msgErr").text("");
     $(".msgErr").hide();
     $(".colRev").hide();
