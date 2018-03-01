@@ -51,7 +51,7 @@ class Testcase extends Abstract_Controller
 
     public function generate(){
         $id =random_string('alnum', 8);
-        $qs= $this->getModelQuiz()->getQuestion(1);
+        $qs= $this->getModelQuiz()->getQuestion(1,50);
         $url ="";
         if(!empty($qs)){
             $generated_question = array();
@@ -149,7 +149,7 @@ class Testcase extends Abstract_Controller
         }
         $idx = 0;
         $result=0;
-        
+
         foreach($questions as $q){
             $op = "A";
             $jawab ="xx";
@@ -177,7 +177,7 @@ class Testcase extends Abstract_Controller
             $result +=$jawab;
             $questions[$idx]->answering = $answers[$idx];
             $idx ++;
-            
+
         }
         $val = $result/ $question->total_question;
             $datatemplate =array(

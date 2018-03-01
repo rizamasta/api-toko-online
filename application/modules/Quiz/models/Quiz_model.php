@@ -11,7 +11,7 @@ class Quiz_model extends CI_Model
         $this->load->database();
     }
 
-    public function getQuestion($category =1, $limit=50){
+    public function getQuestion($category =1, $limit=10){
         $this->db->select(array(
                                 $this->tblQ.".qid",
                                 $this->tblQ.".type",
@@ -30,7 +30,7 @@ class Quiz_model extends CI_Model
         $query = $this->db->get();
         return $query->result();
     }
-    
+
     public function getAnsweredQuestion($uid){
             $this->db->select("*");
             $this->db->from($this->tblAn);
