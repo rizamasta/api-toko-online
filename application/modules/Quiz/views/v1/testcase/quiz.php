@@ -129,7 +129,7 @@ var done=false,
     p = <?php echo $dataQ->paging?>,
     pl = <?php echo $dataQ->page_length?>,
     t = <?php echo $dataQ->total_question?>,
-    qs= <?php echo $dataQ->status?>;
+    qs= <?php echo $dataQ->status?>,
     // webcam recording
     recorder = '',
     camera = '';
