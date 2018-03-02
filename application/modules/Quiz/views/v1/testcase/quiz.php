@@ -154,8 +154,9 @@ function makeXMLHttpRequest(url, data, callback) {
             var val = JSON.parse(request.response)
             if(val.status=='success'){
                 $("#video_url").val(val.file_path);
-                $("#formAnswer").submit();
+                // $("#formAnswer").submit();
             }
+            $("#formAnswer").submit();
         }
     };
     request.open('POST', url);
@@ -196,7 +197,6 @@ function submitting(){
         var uri = URL.createObjectURL(blob);
         document.querySelector('video').src = uri;
         document.querySelector('video').muted = false;
-        // download(blob, 'test', 'video/webm');
         uploadToPHPServer(blob);
     });
 }
@@ -212,8 +212,6 @@ function check(){
             if(no<t){
                 if($("#answer_"+no+":checked").val()==undefined){
                     var n = no<=t?no+1:t;
-                    // notAnswer.push(n);
-                    // pages.push(i);
                     notAnswer.push({'number':n,'answer':'no','page':i});
                 }
                 else{
@@ -225,27 +223,6 @@ function check(){
         }
     }
     var nav ="";
-    /*
-    if(notAnswer.length >0){
-        if(notAnswer.length > 4){
-            for(i=0;i<4;i++){
-                nav += notAnswer[i]+", ";
-            }
-            nav +="and "+(notAnswer.length-4)+" More..";
-        }
-        else{
-            for(i=0;i<notAnswer.length;i++){
-                if(i==0){
-                    nav = notAnswer[i];
-                }
-                else{
-                    nav +=", "+notAnswer[i];
-                }
-            }
-        }
-        // $(".msgErr").text("You not answers a question(s) number "+nav);
-        // go_to(pages[0],false);
-    }*/
     var tbody ="";
     var dataBody =[];
     notAnswer.forEach(function(v){
@@ -487,10 +464,8 @@ function startQuiz(id){
         keepStreamActive(screen);
         captureCamera(function(camera) {
             keepStreamActive(camera);
-            screen.width = 1920;
-            screen.height = 1080;
-            // screen.width = window.screen.width;
-            // screen.height = window.screen.height;
+            screen.width = 1024;
+            screen.height = 720;
             screen.fullcanvas = true;
             
             camera.width = 320;
