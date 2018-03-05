@@ -1,4 +1,5 @@
 <!--========== SLIDER ==========-->
+<div id="output"></div>
 <div id="carousel-example-generic" class="carousel slide text-center" data-ride="carousel">
        <!-- <div class="container"> -->
            <!-- Indicators -->
@@ -313,13 +314,3 @@
         <div id="contact">
         </div>
         <!-- End Contact -->
-<script  type="text/javascript">
-    // console.log('Failed');
-    var isInstalled = chrome.management.get('ajhifddimkapgcifgcodmmfdlknahffk');
-    if (isInstalled) {
-        console.log('Installed!!'); 
-    } else {
-        console.log('Not installed!!');
-        console.log(isInstalled);
-    }
-</script>

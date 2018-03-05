@@ -71,6 +71,8 @@
         <script type="text/javascript" src="<?php echo site_url('public_assets/assets/js/landingpage/js/components/wow.min.js')?>"></script>
         <script type="text/javascript" src="<?php echo site_url('public_assets/assets/js/landingpage/js/components/swiper.min.js')?>"></script>
         <script type="text/javascript" src="<?php echo site_url('public_assets/assets/js/landingpage/js/components/masonry.min.js')?>"></script>
+        <script type="text/javascript" src="<?php echo site_url('public_assets/assets/js/getScreenId.js')?>"></script>
+        <script type="text/javascript" src="<?php echo site_url('public_assets/assets/js/landingpage/js/checkPlugin.js')?>"></script>
         <?php echo !empty($loadJS) ? $loadJS : '';?>
     </body>
     <!-- END BODY -->
