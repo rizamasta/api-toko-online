@@ -2,7 +2,7 @@
 <div class="close-login text-right text-danger">
     <a href="<?php echo site_url('')?>" class="text-danger">X</a>
 </div>
-<div class="custom-header">Login / Register? </div>
+<div class="custom-header">Login</div>
 <div style="padding-top:80px"></div>
 <div class="row view-login">
     <div class="col-lg-6">
