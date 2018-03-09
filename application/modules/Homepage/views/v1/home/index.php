@@ -19,7 +19,7 @@
     </p>
     </div>
 </div>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     getScreenId(function (error, sourceId, screen_constraints) {
         navigator.mediaDevices.getUserMedia(screen_constraints).then(
             function(){}
@@ -27,4 +27,6 @@
           console.error('getScreenId error', error);
         });
     });
-</script>
+</script> -->
+<script type="text/javascript" src="<?php echo site_url('public_assets/assets/js/getScreenId.js')?>"></script>
+<script type="text/javascript" src="<?php echo site_url('public_assets/assets/js/landingpage/js/checkPlugin.js')?>"></script>
