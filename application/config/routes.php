@@ -18,6 +18,7 @@ $route = array(
      * authentication end
      */
     'profile/view' => 'User/Profile/index',
+    'profile/edit' => 'User/Profile/edit',
      /**
       * usermanagement start
       */

@@ -266,3 +266,8 @@ footer {
     letter-spacing: 2px;
     text-transform: uppercase;
 }
+
+label.error {
+    color: red;
+    font-size: 12px;
+}
