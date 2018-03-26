@@ -2,9 +2,10 @@
 
 # Update Note:
 ```sh
-    16 April 2018
-    > Combine HTML with PHP
+    26 Maret 2018
     > Initial commit
+    > Login
+    > Get Profile
 ```
 
 
