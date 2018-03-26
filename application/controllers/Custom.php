@@ -8,7 +8,8 @@ class Custom extends Abstract_Controller
 
     public function error_404()
     {
-        $datatemplate['title'] = '404 PAGE NOT FOUND - '.$this->config->item('appName');
-        $this->load->view($this->config->item('verror') . '404', $datatemplate);
+        http_response_code(404);
+        $res = array('msg'=>'Endpoint not found','status'=>404,'data'=>date('d-m-Y H:i:s'));
+        echo json_encode($res);
     }
 }

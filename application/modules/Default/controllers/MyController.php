@@ -5,10 +5,10 @@ class MyController extends Abstract_Controller {
     }
 
     public function index(){
-        $datatemplate =array(
-            'title'=> $this->config->item('appName'),
-            'body'=>'default_page'
+        $data = array(
+            'msg' =>'Welcome to '.$this->config->item('appName'),
+            'data' => date('d-m-Y H:i:s')
         );
-        $this->load->view($this->config->item('vtemplate') . 'layout', $datatemplate);
+        echo json_encode($data);
     }
 }

@@ -21,6 +21,73 @@ class Abstract_Controller extends MX_Controller {
     {
         return $this->session->userdata('userForHire');
     }
+    public function getMethod($req){
+        if($req==$_SERVER["REQUEST_METHOD"]){
+            return true;
+        }
+        else{
+            http_response_code(400);
+            $res = array('msg'=>'Your request is unexpected','status'=>400,'data'=>date('d-m-Y H:i:s'));
+            echo json_encode($res);
+            die();
+        }
+    }
+
+    public function getCompany($req){
+        $data = $this->getModelDefault()->getCompany($req);
+        if(!empty($data)){
+            return $data->application_database;
+        }
+        else{
+            http_response_code(500);
+            $res = array('msg'=>'Unknown company','status'=>500,'data'=>date('d-m-Y H:i:s'));
+            echo json_encode($res);
+            die();
+        }
+    }
+    
+    public function authApp($header,$needLogin=false){
+        $res = array();
+        if(!empty($header['comp-id'])){
+            if($needLogin){
+                if(!empty($header['x-access-token'])){
+                    $hash_default = $header['x-access-token'];
+                    $dataToken = $this->getModelUser()->getToken($hash_default);
+                    if(!empty($dataToken)){
+                        $new_hash = hash('sha256', str_replace(' ', '', $header['x-access-token']));
+                        // $dataToken->token = $new_hash;
+                        // $dataToken->comp_id = $header['comp-id'];
+                        $dataToken->valid_until = date('Y-m-d H:i:s', strtotime('+90 minutes'));
+                        $this->getModelUser()->updateToken($dataToken,$hash_default);
+                    $dataToken = $this->getModelUser()->getToken($hash_default);
+                        return $dataToken;
+                    }
+                    else{
+                        $res = array('msg'=>'Token invalid','status'=>401,'data'=>date('d-m-Y H:i:s'));
+                        echo json_encode($res);
+                        die();
+                    }
+                }
+                else{
+                    http_response_code(401);
+                    $res = array('msg'=>'User must login','status'=>401,'data'=>date('d-m-Y H:i:s'));
+                    echo json_encode($res);
+                    die();
+                }
+            }
+            else{
+                return $res = (object)array('comp_id'=>$header['comp-id']);   
+                echo json_encode($res);
+                die();                         
+            }
+        }
+        else{
+            http_response_code(401);
+            $res = array('msg'=>'Access Denied','status'=>401,'data'=>date('d-m-Y H:i:s'));
+            echo json_encode($res);
+            die();
+        }
+    }
 
     public function checkLogin($url="")
     {
@@ -59,12 +126,17 @@ class Abstract_Controller extends MX_Controller {
         return new User_model();
     }
 
+    public function getModelDefault(){
+        $this->load->model('Default/Default_model');
+        return new Default_model();
+    }
+
     /**
      * 
      */
-    public function getModelQuiz(){
-        $this->load->model('Quiz/Quiz_model');
-        return new Quiz_model();
+    public function getModelProfile(){
+        $this->load->model('User/Profile_model');
+        return new Profile_model();
     }
 
     /**
@@ -142,6 +214,11 @@ class Abstract_Controller extends MX_Controller {
               SSP::simple($_GET, $sql_details, $tables, $primaryKeys, $columns, $sqljoinQuery, $extraWhere,$groupBy)
       );
       // echo $this->db->last_query();die;
+    }
+
+    public function getHash(){
+        require APPPATH . "third_party/MX/PasswordHash.php";
+        return new PasswordHash(12,false);
     }
 
     public function slugify($text)

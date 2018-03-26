@@ -2,30 +2,68 @@
 class Profile extends Abstract_Controller
 {
     public function __construct(){
-        $this->userData = $this->checkLogin(site_url('profile/view'));
+        $this->header = $this->authApp($this->input->request_headers(),true);
+		$this->db = $this->getCompany($this->header->comp_id);
     }
 
     public function index(){
-        $datatemplate =array(
-            'title'=> $this->config->item('appName'),
-            'body'=>'index',
-            'profile' => $this->getModelUser()->getUser($this->userData['uid']),
-            'loadJS' => $this->loadassets->loadVendorsJS(array("js/form-validation/jquery.validate.js")),
-            'fullname' => $this->userData['fullname']
-        );
-        $this->load->view($this->config->item('vtemplate') . 'layout', $datatemplate);
+        $this->getMethod("GET");
+        $data = $this->getModelProfile()->getProfile($this->db,array('emp_number'=>$this->header->emp_number));
+        if(!empty($data)){
+            $res = array(
+                'msg' =>'Success get profile',
+                'status' => 200,
+                'header' => $this->header,
+                'data' => $data
+            );
+        }
+        else{
+            http_response_code(404);
+            $res = array(
+                'msg' =>'Failed get profile',
+                'status' => 400,
+                'header' => $this->header,
+                'data' => array()
+            );
+        }
+        echo json_encode($res);
     }
 
     public function edit(){
-        $data = array(
-            'fullname' => $this->input->post('name'),
-            'phone' => $this->input->post('phone'),
+        $this->getMethod("POST");
+        $data = json_decode(file_get_contents('php://input'));
+        $update_data = array(
+            "emp_lastname"=>$data->emp_lastname,
+            "emp_firstname"=>$data->emp_firstname,
+            "emp_middle_name"=>$data->emp_middle_name,
+            "emp_street1"=>$data->emp_street1,
+            "emp_street2"=>$data->emp_street1,
+            "emp_hm_telephone"=>$data->emp_hm_telephone,
+            "emp_mobile"=> $data->emp_mobile,
+            "emp_work_telephone"=>$data->emp_work_telephone,
+            "emp_work_email"=> $data->emp_work_email
         );
-        if(!empty($this->input->post('password'))){
-            $data['password'] = hash('sha256', str_replace(' ', '', $this->input->post('password')));
+
+       if($this->getModelProfile()->updateProfile($this->db, $update_data, $this->header->emp_number)){
+            $res = array(
+                'msg' =>'success update profile',
+                'status' => 200,
+                'header' => $this->header,
+                'data' => array()
+            );
         }
-        $this->getModelUser()->updateUser($data,$this->userData['uid']);
-        redirect('profile/view');
+        else{
+            http_response_code(400);
+            $res = array(
+                'msg' =>'Failed get profile',
+                'status' => 400,
+                'header' => $this->header,
+                'data' => array()
+            );
+        }
+
+        echo json_encode($res);
+
     }
 
 }

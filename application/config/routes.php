@@ -3,47 +3,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
 $route = array(
-    // 'default_controller' => "Homepage/home/index",
-    'default_controller' => "LandingPage/LandingPage/index",
-    'about' => "LandingPage/LandingPage/about",
-    'home' => "Homepage/home/index",
-    /**
-     * authentication start
-     */
-    'user/login' => "User/Login/index",
-    'user/login/out' => "User/Login/out",
-    'user/login/auth' => "User/Login/authentication",
-    'user/login/auth-social' => "User/Login/social",
-    /**
-     * authentication end
-     */
-    'profile/view' => 'User/Profile/index',
-    'profile/edit' => 'User/Profile/edit',
-     /**
-      * usermanagement start
-      */
-      'user/list' => "User/User/index",
-      /**
-      * usermanagement end
-      */
-
-      /**
-       * start quiz home
-       */
-      'landingpage/page' => "LandingPage/LandingPage/index",
-      'free/generate-quiz' => "Quiz/Testcase/generate",
-      'free/test/(:any)' => "Quiz/Testcase/quiz/$1",
-      'free/test-start/(:any)' => "Quiz/Testcase/startTest/$1",
-      'free/submit' => "Quiz/Testcase/submit",
-      'quiz/result' => "Quiz/Result/index",
-      'quiz/detail/(:any)' => "Quiz/Result/detail/$1",
-      /**
-       * end quiz home
-       */
-
-      'recording/save' => "Quiz/recording/save",
-
-       'page/privacy/term-condition' =>'Page/Privacy/term',
-        '404_override' => 'Custom/error_404',
-        'translate_uri_dashes' => TRUE
+    'default_controller' => "Default/MyController/index",
+    'user/authentication' => "User/Login/authentication",
+    'profile/myprofile' => "User/Profile/index",
+    'page/privacy/term-condition' =>'Page/Privacy/term',
+    '404_override' => 'Custom/error_404',
+    'translate_uri_dashes' => TRUE
 );
