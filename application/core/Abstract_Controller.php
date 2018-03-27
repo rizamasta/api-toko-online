@@ -47,7 +47,7 @@ class Abstract_Controller extends MX_Controller {
     }
     
     public function authApp($header,$needLogin=false){
-        $res = array();
+        $res = array('msg'=>'default');
         if(!empty($header['comp-id'])){
             if($needLogin){
                 if(!empty($header['x-access-token'])){
@@ -63,14 +63,14 @@ class Abstract_Controller extends MX_Controller {
                         return $dataToken;
                     }
                     else{
-                        $res = array('msg'=>'Token invalid','status'=>401,'data'=>date('d-m-Y H:i:s'));
+                        $res = array('msg'=>'Token invalid','status'=>410,'data'=>date('d-m-Y H:i:s'));
                         echo json_encode($res);
                         die();
                     }
                 }
                 else{
                     http_response_code(401);
-                    $res = array('msg'=>'User must login','status'=>401,'data'=>date('d-m-Y H:i:s'));
+                    $res = array('msg'=>'User must login','status'=>410,'data'=>date('d-m-Y H:i:s'));
                     echo json_encode($res);
                     die();
                 }
@@ -83,7 +83,7 @@ class Abstract_Controller extends MX_Controller {
         }
         else{
             http_response_code(401);
-            $res = array('msg'=>'Access Denied','status'=>401,'data'=>date('d-m-Y H:i:s'));
+            $res = array('msg'=>'Access Denied','status'=>410,'data'=>date('d-m-Y H:i:s'));
             echo json_encode($res);
             die();
         }

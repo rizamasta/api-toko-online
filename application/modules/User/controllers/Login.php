@@ -1,15 +1,16 @@
 <?php
 class Login extends Abstract_Controller{
     public function __construct(){
-		$this->header = $this->authApp($this->input->request_headers(),false);
-		$this->db = $this->getCompany($this->header->comp_id);
+			$this->header = $this->authApp($this->input->request_headers(),false);
+			$this->db = $this->getCompany($this->header->comp_id);
+			
     }
     public function index(){
         
     }
     public function authentication()
     {
-        $this->getMethod("POST");
+		$this->getMethod("POST");
 		$data = json_decode(file_get_contents('php://input'));
 		$user = $this->getModelUser()->getUserBy($this->db,array('user_name'=>$data->username,'deleted!='=>1));
 		if(!empty($user)){
@@ -27,13 +28,13 @@ class Login extends Abstract_Controller{
 				$res = array('msg'=>'Welcome, '.$user->user_name,'status'=>200,'data'=>$data_token);
 			}
 			else{
-				$res = array('msg'=>'Incorrect credentials','status'=>200,'data'=>array());
+				$res = array('msg'=>'Incorrect credentials','status'=>410,'data'=>array());
 			}
 			
 		}	
 		else{
 			http_response_code(404);
-			$res = array('msg'=>'User not found','status'=>400,'data'=>array());
+			$res = array('msg'=>'User not found','status'=>410,'data'=>array());
 		}
 		echo json_encode($res);
         
