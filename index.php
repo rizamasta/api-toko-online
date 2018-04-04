@@ -54,14 +54,6 @@
  * NOTE: If you change these, also change the error_reporting() code below
  */
 	define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
-	header('Access-Control-Allow-Methods: GET, PUT, POST');
-	header('Access-Control-Max-Age: 1000');
-	header('Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With');
-	header('X-Powered-By: Rizamasta');
-	header('Server: apache');
-	header_remove("X-Powered-By");
-	header_remove("Server");
-	header_remove("Access-Control-Allow-Methods");
 
 /*
  *---------------------------------------------------------------

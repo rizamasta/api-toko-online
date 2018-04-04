@@ -63,7 +63,7 @@ class Abstract_Controller extends MX_Controller {
                         return $dataToken;
                     }
                     else{
-                        $res = array('msg'=>'Token invalid','status'=>410,'data'=>date('d-m-Y H:i:s'));
+                        $res = array('msg'=>'Token invalid','status'=>411,'data'=>date('d-m-Y H:i:s'));
                         echo json_encode($res);
                         die();
                     }
@@ -132,11 +132,19 @@ class Abstract_Controller extends MX_Controller {
     }
 
     /**
-     * 
+     * Profile Model
      */
     public function getModelProfile(){
         $this->load->model('User/Profile_model');
         return new Profile_model();
+    }
+
+    /**
+     * Expense Model
+     */
+    public function getModelExpense(){
+        $this->load->model('Timesheet/Expense_model');
+        return new Expense_model();
     }
 
     /**
