@@ -130,6 +130,13 @@ class Abstract_Controller extends MX_Controller {
         $this->load->model('Default/Default_model');
         return new Default_model();
     }
+    /**
+     * Project model
+     */
+    public function getModelProject(){
+        $this->load->model('Default/Project_model');
+        return new Project_model();
+    }
 
     /**
      * Profile Model

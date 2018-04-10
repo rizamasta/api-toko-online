@@ -2,7 +2,6 @@
 class Login extends Abstract_Controller{
     public function __construct(){
 		header('Access-Control-Allow-Origin: *');
-		header("Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE");
 		$this->header = $this->authApp($this->input->request_headers(),false);
 		$this->db = $this->getCompany($this->header->comp_id);
 		
