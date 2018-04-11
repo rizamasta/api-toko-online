@@ -11,6 +11,8 @@ $route = array(
     'time/expense-list' => "Timesheet/Expense/listExpense",
     'time/expense-type' =>  "Timesheet/Expense/getExpenseType",
 
+    'upload/receipt' =>  "Upload/Upload/receipt",
+
     'project/list' => "Default/Project/projectList",
     'page/privacy/term-condition' =>'Page/Privacy/term',
     '404_override' => 'Custom/error_404',
