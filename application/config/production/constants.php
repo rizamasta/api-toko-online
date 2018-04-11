@@ -91,4 +91,5 @@ define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 |---------------------------------------------------------------------------
 */
 define('IG_TOKEN','your_key');
+define('UPLOAD_PATH',$_SERVER['DOCUMENT_ROOT']);
 

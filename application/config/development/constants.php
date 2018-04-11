@@ -91,3 +91,4 @@ define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
 */
 define('IG_TOKEN','221570363.1677ed0.2508d410589748c0bb8a2166c7ac4fd2');
 define('FB_TOKEN',"EAAK3xnvoZALIBAB8MAYbBJdDWkZCnSRFhUen1sctdD8oJ2nRxqbu99X1DPzQmbBDkOLgVUtMBPA6I7qKApgL86TXAO0NJElHYOy6vE5l1wUW6ZBE7XilodttLnQZC6MNVJqCYr6aSRMW3Xdkx6rPHC1lpWh7mGsZD");
+define('UPLOAD_PATH',$_SERVER['DOCUMENT_ROOT'].'/ikon/vos/');
