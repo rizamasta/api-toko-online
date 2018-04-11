@@ -1,26 +1,40 @@
 <?php 
-class Upload extends Abstract_Controllers{
+class Upload extends Abstract_Controller {
     public function __construct(){
         $this->header = $this->authApp($this->input->request_headers(),true);
 		$this->db = $this->getCompany($this->header->comp_id);
     }
     public function receipt(){
-        if (!empty($_FILES['file'])) {
-            $image = $_FILES['file'];
+        $data = json_decode(file_get_contents('php://input'));
+        if (!empty($_FILES['receipt'])) {
+            $image = $_FILES['receipt'];
             $extension = $this->getExtension($image['name']);
             $image_name = md5(str_replace(' ', '_', date('Ymdhis') . $image['name'])) . '.' . $extension;
-            $image_path = "inventory/";
-            $destination = 'public_assets/images/' . $image_path . $image_name;
-            $base = 'public_assets/images/'.$image_path;
-            if(!file_exists($base)){
-                mkdir($base,0777,true);
+            $destination = UPLOAD_PATH.$this->db.'/symfony/web/uploads/expense/'.$this->header->emp_number.'/'.date('Ym').'/';
+            if(!file_exists($destination)){
+                mkdir($destination,0777,true);
             }
-            if (move_uploaded_file($image['tmp_name'], $destination)) {
+            $dst = $destination.$image_name;
+            if (move_uploaded_file($image['tmp_name'], $dst)) {
                 $res = array(
-                    'msg' =>'Success get data expense '.$start.', '.$end,
+                    'msg' =>'Success upload receipt',
                     'status' => 200,
                     'header' => $this->header,
-                    'data' => array('image_url'=>$destination)
+                    'data' => array(
+                        'image_url'=>'/expense/'.$this->header->emp_number.'/'.date('Ym').'/'.$image_name,
+                        'url' => $dst
+                        )
+                );
+            }
+            else{
+                $res = array(
+                    'msg' =>'Failed upload receipt',
+                    'status' => 200,
+                    'header' => $this->header,
+                    'data' => array(
+                        'image_url'=>'/expense/'.$this->header->emp_number.'/'.date('Ym').'/'.$image_name,
+                        'url' => $dst
+                        )
                 );
             }
         }
@@ -30,7 +44,7 @@ class Upload extends Abstract_Controllers{
                 'msg' =>'failed upload images',
                 'status' => 500,
                 'header' => $this->header,
-                'data' => array()
+                'data' => $_FILES['receipt']
             );
         }
         echo json_encode($res);
