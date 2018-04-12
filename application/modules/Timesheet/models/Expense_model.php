@@ -14,7 +14,12 @@ class Expense_model extends CI_Model
         $this->db->limit($start,$end);
         $this->db->where($condition);
         $this->db->order_by('transaction_date','desc');
-        return $this->db->get()->result();
+        if($end == 1){
+            return $this->db->get()->row();
+        }
+        else{
+            return $this->db->get()->result();
+        }
     }
 
     public function getListExpenseType($db,$condition)
@@ -27,6 +32,12 @@ class Expense_model extends CI_Model
 
     public function insertExpense($db,$data){
         return $this->db->insert($db.'.'.$this->expense,$data);
+    }
+    public function updateExpense($db,$data,$condition){
+        return $this->db->update($db.'.'.$this->expense,$data,$condition);
+    }
+    public function deleteExpense($db,$condition){
+        return $this->db->delete($db.'.'.$this->expense,$condition);
     }
     
 }

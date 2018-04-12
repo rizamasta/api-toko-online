@@ -9,6 +9,8 @@ $route = array(
 
     'time/add-expense' =>  "Timesheet/Expense/addExpense",
     'time/expense-list' => "Timesheet/Expense/listExpense",
+    'time/expense-view/(:num)' => "Timesheet/Expense/getSingleExpense/$1",
+    'time/expense-submit' =>  "Timesheet/Expense/actionExpense",
     'time/expense-type' =>  "Timesheet/Expense/getExpenseType",
 
     'upload/receipt' =>  "Upload/Upload/receipt",
