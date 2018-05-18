@@ -68,6 +68,9 @@
 </div>
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <script>
+window.onbeforeunload = function(e){
+  gapi.auth2.getAuthInstance().signOut();
+};
  var defTimer = 1000;
   function customGoogleButton (){
       setTimeout(function(){
@@ -133,10 +136,7 @@ function onSignIn(googleUser) {
                 'email' :profile.getEmail()
              }
     var userdata = <?php echo $user?>;
-    if(userdata==null && count_google == 1){
-        doLogin(data);
-    }
-    count_google +=1;
+    doLogin(data);
 }
 
 function doLogin(json_data){

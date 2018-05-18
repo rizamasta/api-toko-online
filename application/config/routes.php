@@ -13,6 +13,8 @@ $route = array(
     'time/expense-submit' =>  "Timesheet/Expense/actionExpense",
     'time/expense-type' =>  "Timesheet/Expense/getExpenseType",
 
+    'test/looping/(:num)' =>  "Default/MyController/looping/$1",
+
     'upload/receipt' =>  "Upload/Upload/receipt",
 
     'project/list' => "Default/Project/projectList",
