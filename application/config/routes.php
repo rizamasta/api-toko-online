@@ -7,12 +7,10 @@ $route = array(
     'user/authentication' => "User/Login/authentication",
     'profile/myprofile' => "User/Profile/index",
 
-    'time/add-expense' =>  "Timesheet/Expense/addExpense",
-    'time/expense-list' => "Timesheet/Expense/listExpense",
-    'time/expense-view/(:num)' => "Timesheet/Expense/getSingleExpense/$1",
-    'time/expense-submit' =>  "Timesheet/Expense/actionExpense",
-    'time/expense-type' =>  "Timesheet/Expense/getExpenseType",
-
+    /**
+     * REGISTER
+     */
+    'register' => "User/Register/index",
     'test/looping/(:num)' =>  "Default/MyController/looping/$1",
 
     'upload/receipt' =>  "Upload/Upload/receipt",

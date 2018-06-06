@@ -125,35 +125,14 @@ class Abstract_Controller extends MX_Controller {
         $this->load->model('User/User_model');
         return new User_model();
     }
-
-    public function getModelDefault(){
-        $this->load->model('Default/Default_model');
-        return new Default_model();
-    }
+    
     /**
-     * Project model
+     * Register Model
      */
-    public function getModelProject(){
-        $this->load->model('Default/Project_model');
-        return new Project_model();
+    public function getModelRegister(){
+        $this->load->model('User/Register_model');
+        return new Register_model();
     }
-
-    /**
-     * Profile Model
-     */
-    public function getModelProfile(){
-        $this->load->model('User/Profile_model');
-        return new Profile_model();
-    }
-
-    /**
-     * Expense Model
-     */
-    public function getModelExpense(){
-        $this->load->model('Timesheet/Expense_model');
-        return new Expense_model();
-    }
-
     /**
      *
      * @param type $array

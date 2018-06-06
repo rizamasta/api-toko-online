@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-$config['appName'] = 'VOSHRM GATEWAY';
+$config['appName'] = 'Jaga Toko API';
 
 //Version Folder
 define('versionTemplate',   "v1");

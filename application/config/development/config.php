@@ -5,10 +5,10 @@ $script_tz = date_default_timezone_get();
 
 $config['database'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => 'root',
-	'database' => 'wp_cross_database',
+	'hostname' => 'db.bengkelonline.id',
+	'username' => 'user_toko',
+	'password' => '7okO#Stor3',
+	'database' => 'db_toko',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
