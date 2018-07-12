@@ -19,7 +19,7 @@ class Abstract_Controller extends MX_Controller {
      */
     public function userInfo()
     {
-        return $this->session->userdata('userForHire');
+        return $this->session->userdata('userToko');
     }
     public function getMethod($req){
         if($req==$_SERVER["REQUEST_METHOD"]){
@@ -36,7 +36,7 @@ class Abstract_Controller extends MX_Controller {
     public function getCompany($req){
         $data = $this->getModelDefault()->getCompany($req);
         if(!empty($data)){
-            return $data->application_database;
+            return $data;
         }
         else{
             http_response_code(500);
@@ -45,7 +45,10 @@ class Abstract_Controller extends MX_Controller {
             die();
         }
     }
-    
+    public function getModelDefault(){
+        $this->load->model('Default/Default_model');
+        return new Default_model();
+    }
     public function authApp($header,$needLogin=false){
         $res = array('msg'=>'default');
         if(!empty($header['comp-id'])){
@@ -55,8 +58,6 @@ class Abstract_Controller extends MX_Controller {
                     $dataToken = $this->getModelUser()->getToken($hash_default);
                     if(!empty($dataToken)){
                         $new_hash = hash('sha256', str_replace(' ', '', $header['x-access-token']));
-                        // $dataToken->token = $new_hash;
-                        // $dataToken->comp_id = $header['comp-id'];
                         $dataToken->valid_until = date('Y-m-d H:i:s', strtotime('+90 minutes'));
                         $this->getModelUser()->updateToken($dataToken,$hash_default);
                     $dataToken = $this->getModelUser()->getToken($hash_default);

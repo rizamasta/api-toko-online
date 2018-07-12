@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route = array(
     'default_controller' => "Default/MyController/index",
-    'user/authentication' => "User/Login/authentication",
+    'auth/login' => "User/Login/login",
     'profile/myprofile' => "User/Profile/index",
 
     /**

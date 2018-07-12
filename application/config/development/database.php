@@ -8,9 +8,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'db.bengkelonline.id',
-	'username' => 'user_toko',
-	'password' => '7okO#Stor3',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => 'root',
 	'database' => 'db_toko',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

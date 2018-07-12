@@ -7,7 +7,7 @@ class Default_model extends CI_Model{
     }
     public function getCompany($id){
         $this->db->select("*");
-        $this->db->from("table_company");
+        $this->db->from("applications");
         $this->db->where("comp_id='".$id."'");
         return $this->db->get()->row();
     }

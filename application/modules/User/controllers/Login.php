@@ -2,48 +2,39 @@
 class Login extends Abstract_Controller{
     public function __construct(){
 			header('Access-Control-Allow-Origin: *');
-			$this->header = $this->authApp($this->input->request_headers(),false);
-			$this->db = $this->getCompany($this->header->comp_id);
+			// $this->header = $this->authApp($this->input->request_headers(),false);
+			// $this->db = $this->getCompany($this->header->comp_id);
     }
     public function index(){
         
-    }
-    public function authentication()
+	}
+	public function login()
     {
-			$this->getMethod("POST");
-			$data = json_decode(file_get_contents('php://input'));
-			$user = $this->getModelUser()->getUserBy($this->db,array('user_name'=>$data->username,'deleted!='=>1));
-			if(!empty($user)){
-				$valid = $this->getHash()->CheckPassword($data->password,$user->user_password);
-				if(!empty($valid)){
-					$data_token = array(
-						'token' =>hash('sha256', str_replace(' ', '', $data->username.'-'.$data->password.'-'.date('Y-m-d H:i:s'))),
-						'comp_id' => $this->header->comp_id,
-						'user_role_id'=> $user->user_role_id,
-						'emp_number'=> $user->emp_number,
-						'user_name'=> $user->user_name,
-						'valid_until'=> date('Y-m-d H:i:s', strtotime('+90 minutes'))
-					);
-					$this->getModelUser()->insertToken($data_token);
-					$res = array('msg'=>'Welcome, '.$user->user_name,'status'=>200,'data'=>$data_token);
-				}
-				else{
-					$res = array('msg'=>'Incorrect credentials','status'=>410,'data'=>array());
-				}
-				
-			}	
-			else{
-				http_response_code(404);
-				$res = array('msg'=>'User not found','status'=>410,'data'=>array());
-			}
-			echo json_encode($res);
-        
-		}
+        $response = array("status" => true);
+		$this->getMethod("POST");
+		$data = json_decode(file_get_contents('php://input'));
 		
-    public  function out(){
-			$this->getModelUser()->deleteToken($this->header['x-access-token']);
-			$res = array('msg'=>'User not found','status'=>200,'data'=>array());
-			echo json_encode($res);
+        if (!empty($data->username) && !empty($data->password)) {
+			$query = $this->getModelUser()->auth($data->username,SHA1($data->password));
+			// var_dump($query);
+            if (!empty($query)) {
+				$response = array(
+					"status" => true,
+					"data" => $query,
+				);
+			}
+			else {
+				$response = array(
+					"status" => false,
+					"msg" => " Wrong Username or Password!");
+			}
+        } else {
+            $response = array(
+                "status" => false,
+                "msg" => "Data Tidak Lengkap!");
+        }
+
+        echo json_encode($response);
     }
     
 }
