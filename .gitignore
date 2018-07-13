@@ -1,4 +1,6 @@
 application/logs/
 public_assets/uploads/*.webm
 public_assets/uploads/videos/*.webm
+public_assets/uploads/*.png
+public_assets/uploads/*.jpg
 
