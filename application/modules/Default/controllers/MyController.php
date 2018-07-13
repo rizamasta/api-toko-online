@@ -11,12 +11,4 @@ class MyController extends Abstract_Controller {
         );
         echo json_encode($data);
     }
-    public function looping($id){
-        if($id<3){
-            $id +=1;
-            $this->looping($id);
-            echo "<br/>";
-        }
-        echo $id;
-    }
 }
