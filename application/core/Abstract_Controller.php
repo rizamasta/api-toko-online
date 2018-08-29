@@ -10,7 +10,7 @@ class Abstract_Controller extends MX_Controller {
 
     public function __construct() {
         parent::__construct();
-
+        $this->load->database();
     }
 
     /**
@@ -45,13 +45,37 @@ class Abstract_Controller extends MX_Controller {
             die();
         }
     }
+    /**
+     * Model Default
+     */
     public function getModelDefault(){
         $this->load->model('Default/Default_model');
         return new Default_model();
     }
+    /**
+     * --------------------------------------------------------------------------------------------------------------------------------
+     * Master
+     * --------------------------------------------------------------------------------------------------------------------------------
+     * Model Konsumen
+     */
+    public function getModelMasterKonsumen(){
+        $this->load->model('Master/Konsumen_model');
+        return new Konsumen_model();
+    }
+    
+    /**
+     * --------------------------------------------------------------------------------------------------------------------------------
+     * Transaksi
+     * --------------------------------------------------------------------------------------------------------------------------------
+     * Penjualan
+     */
+    public function getModelTransaksiPenjualan(){
+        $this->load->model('Transaksi/Penjualan_model');
+        return new Penjualan_model();
+    }
     public function authApp($header,$needLogin=false){
         $res = array('msg'=>'default');
-        if(!empty($header['comp-id'])){
+        if(!empty($header['comp_id'])){
             if($needLogin){
                 if(!empty($header['x-access-token'])){
                     $hash_default = $header['x-access-token'];
@@ -86,6 +110,21 @@ class Abstract_Controller extends MX_Controller {
             http_response_code(401);
             $res = array('msg'=>'Access Denied','status'=>410,'data'=>date('d-m-Y H:i:s'));
             echo json_encode($res);
+            die();
+        }
+    }
+
+    public function getHeader($header=array()){
+        if(!empty($header['key'])){
+            return $this->key = json_decode($header['key']); 
+        }
+        else{
+            $result = array(
+                "status" =>401,
+                "msg" =>  'Akses di tolak',
+            );
+            echo json_encode($result); 
+            http_response_code(401);
             die();
         }
     }

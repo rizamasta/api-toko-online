@@ -1,2 +1,2 @@
 <?php 
-// var_dump($message);
+echo json_encode(array('status'=>500,'msg'=>$message));

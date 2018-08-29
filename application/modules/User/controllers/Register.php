@@ -5,7 +5,7 @@ Class Register extends Abstract_Controller {
         $this->load->helper('string');
     }
     public function index(){
-        $comp_id = 'UE4DV';//l'U'.strtoupper(random_string('alnum',4));
+        $comp_id = 'UE4DV';
         $data = array(
             'comp_id' => $comp_id
         );
